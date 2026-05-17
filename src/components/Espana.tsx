@@ -4,6 +4,7 @@ import { ArrowRight, MapPin, Network, PhoneCall, Coffee, Quote } from 'lucide-re
 import { Helmet } from 'react-helmet-async';
 import JsonLd from './JsonLd';
 import { fadeUp, viewportConfig } from '../utils/animations';
+import { CONTACT } from '../data/contact';
 
 export default function Espana() {
   return (
@@ -72,11 +73,11 @@ export default function Espana() {
               </div>
               <div className="space-y-3">
                 <a
-                  href="tel:+34611568705"
+                  href={CONTACT.phoneESHref}
                   className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
                 >
                   <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-                  <span className="text-lg font-medium tracking-wider">+34 611 56 87 05</span>
+                  <span className="text-lg font-medium tracking-wider">{CONTACT.phoneES}</span>
                 </a>
                 <p className="text-sm text-ink-light font-light">
                   Estamos en Valencia, frente al Jardín de Ayora.

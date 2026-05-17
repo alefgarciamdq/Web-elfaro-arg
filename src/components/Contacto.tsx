@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations';
+import { CONTACT } from '../data/contact';
 
 export default function Contacto() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -85,12 +86,12 @@ export default function Contacto() {
               No hace falta tenerlo todo claro para dar el primer paso. Una conversación inicial es suficiente para entender mejor la situación.
             </p>
             <div className="flex flex-col gap-4">
-              <a href="tel:+5492235923790" className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group">
+              <a href={CONTACT.phoneARHref} className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group">
                 <PhoneCall size={22} className="text-olive group-hover:scale-110 transition-transform" />
-                <span className="text-xl font-medium tracking-wider">+54 9 223 592 3790</span>
+                <span className="text-xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
               </a>
               <a
-                href="https://wa.me/5492235923790"
+                href={CONTACT.whatsappAR}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
@@ -98,9 +99,9 @@ export default function Contacto() {
                 <MessageCircle size={22} className="text-olive group-hover:scale-110 transition-transform" />
                 <span className="text-lg font-medium">WhatsApp</span>
               </a>
-              <a href="tel:+34611568705" className="inline-flex items-center gap-3 text-ink-light hover:text-olive transition-colors group ml-1">
+              <a href={CONTACT.phoneESHref} className="inline-flex items-center gap-3 text-ink-light hover:text-olive transition-colors group ml-1">
                 <PhoneCall size={16} className="text-olive/60" />
-                <span className="text-sm opacity-70">+34 611 56 87 05 (España)</span>
+                <span className="text-sm opacity-70">{CONTACT.phoneES} (España)</span>
               </a>
             </div>
           </motion.div>
@@ -232,14 +233,14 @@ export default function Contacto() {
                     <Phone size={24} className="text-olive mt-1 shrink-0" />
                     <div>
                       <h3 className="font-medium text-ink mb-1">Teléfono Argentina</h3>
-                      <a href="tel:+5492235923790" className="text-ink-light font-light text-sm hover:text-olive transition-colors">+54 9 223 592 3790</a>
+                      <a href={CONTACT.phoneARHref} className="text-ink-light font-light text-sm hover:text-olive transition-colors">{CONTACT.phoneAR}</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-6 rounded-2xl bg-sand-light border border-sand">
                     <Phone size={24} className="text-olive/60 mt-1 shrink-0" />
                     <div>
                       <h3 className="font-medium text-ink mb-1">Teléfono España</h3>
-                      <a href="tel:+34611568705" className="text-ink-light font-light text-sm hover:text-olive transition-colors">+34 611 56 87 05</a>
+                      <a href={CONTACT.phoneESHref} className="text-ink-light font-light text-sm hover:text-olive transition-colors">{CONTACT.phoneES}</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-6 rounded-2xl bg-sand-light border border-sand">

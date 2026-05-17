@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Users, HeartHandshake, Laptop, Home as HomeIcon, PhoneCall, ClipboardList } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations';
+import { CONTACT } from '../data/contact';
 
 export default function Dispositivos() {
   return (
@@ -42,11 +43,11 @@ export default function Dispositivos() {
               Contamos con diferentes modalidades de tratamiento que se ajustan al nivel de contención necesario en cada etapa. Cada persona necesita un camino propio.
             </p>
             <a
-              href="tel:+5492235923790"
+              href={CONTACT.phoneARHref}
               className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
             >
               <PhoneCall size={24} className="text-olive group-hover:scale-110 transition-transform" />
-              <span className="text-xl md:text-2xl font-medium tracking-wider">+54 9 223 592 3790</span>
+              <span className="text-xl md:text-2xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
             </a>
           </motion.div>
         </div>
@@ -177,7 +178,7 @@ export default function Dispositivos() {
               <ArrowRight size={16} />
             </Link>
             <a
-              href="https://wa.me/5492235923790"
+              href={CONTACT.whatsappAR}
               target="_blank"
               rel="noopener noreferrer"
               className="border border-olive/30 text-olive px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive/5 transition-colors inline-flex items-center justify-center gap-2"

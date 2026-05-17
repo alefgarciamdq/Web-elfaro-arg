@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { fadeUp, viewportConfig } from '../utils/animations';
+import { CONTACT } from '../data/contact';
 
 export default function Historia() {
   return (
@@ -41,11 +42,11 @@ export default function Historia() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <a
-                href="tel:+5492235923790"
+                href={CONTACT.phoneARHref}
                 className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
               >
                 <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-                <span className="text-lg md:text-xl font-medium tracking-wider">+54 9 223 592 3790</span>
+                <span className="text-lg md:text-xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
               </a>
             </motion.div>
           </div>

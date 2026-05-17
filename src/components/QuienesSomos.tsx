@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations';
+import { CONTACT } from '../data/contact';
 
 export default function QuienesSomos() {
   const team = [
@@ -280,11 +281,11 @@ export default function QuienesSomos() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <a 
-                href="tel:+34611568705" 
+                href={CONTACT.phoneESHref} 
                 className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
               >
                 <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-                <span className="text-lg md:text-xl font-medium tracking-wider">+34 611 56 87 05</span>
+                <span className="text-lg md:text-xl font-medium tracking-wider">{CONTACT.phoneES}</span>
               </a>
             </motion.div>
           </motion.div>

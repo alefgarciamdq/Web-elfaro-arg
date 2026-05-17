@@ -3,8 +3,9 @@ import { Menu, X, Heart, MapPin, Phone, Mail, Anchor, MessageSquare } from 'luci
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import CookieBanner from './CookieBanner';
+import { CONTACT } from '../data/contact';
 
-export default function Layout({ children }: { children?: React.ReactNode }) {
+export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const location = useLocation();
@@ -85,7 +86,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
               <a
-                href="https://wa.me/5492235923790"
+                href={CONTACT.whatsappAR}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-olive text-white px-5 py-2.5 rounded-full text-sm font-medium tracking-wide hover:bg-olive-light transition-colors"
@@ -133,7 +134,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
               ))}
               <div className="mt-6 pt-6 border-t border-sand flex flex-col gap-3">
                 <a
-                  href="https://wa.me/5492235923790"
+                  href={CONTACT.whatsappAR}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 bg-olive text-white px-6 py-4 rounded-full text-sm font-medium tracking-wide"
@@ -156,7 +157,6 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       {/* Main content */}
       <main className="flex-1 pt-20">
         <Outlet />
-        {children}
       </main>
 
       {/* Footer */}
@@ -233,14 +233,14 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="text-gold shrink-0" />
-                  <a href="tel:+5492235923790" className="text-sand/70 text-sm hover:text-offwhite transition-colors">
-                    +54 9 223 592 3790
+                  <a href={CONTACT.phoneARHref} className="text-sand/70 text-sm hover:text-offwhite transition-colors">
+                    {CONTACT.phoneAR}
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="text-gold/60 shrink-0" />
-                  <a href="tel:+34611568705" className="text-sand/50 text-sm hover:text-offwhite transition-colors">
-                    +34 611 56 87 05 (España)
+                  <a href={CONTACT.phoneESHref} className="text-sand/50 text-sm hover:text-offwhite transition-colors">
+                    {CONTACT.phoneES} (España)
                   </a>
                 </li>
                 <li className="flex items-center gap-3">

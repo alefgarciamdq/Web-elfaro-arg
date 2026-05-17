@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { CONTACT } from '../data/contact';
 
 export default function AvisoLegal() {
   return (
@@ -35,7 +36,7 @@ export default function AvisoLegal() {
               <li>Domicilio social: Plaza Sainetero Arniches 2, piso 4, puerta 7, CP 46014, Valencia, España</li>
               <li>Correo electrónico: <a href="mailto:info@mifaro.org" className="text-olive hover:underline">info@mifaro.org</a></li>
               <li>Correo de contacto adicional: <a href="mailto:alefgarcia@gmail.com" className="text-olive hover:underline">alefgarcia@gmail.com</a></li>
-              <li>Teléfono / WhatsApp: +34 611 56 87 05</li>
+              <li>Teléfono / WhatsApp: {CONTACT.phoneES}</li>
             </ul>
             <div className="mt-6 space-y-4 text-ink-light italic border-l-2 border-sand pl-6 py-2">
               <p>

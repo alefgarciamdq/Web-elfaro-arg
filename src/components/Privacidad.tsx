@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { CONTACT } from '../data/contact';
 
 export default function Privacidad() {
   return (
@@ -30,7 +31,7 @@ export default function Privacidad() {
               <li><strong className="font-medium text-ink">NIF:</strong> G98957525</li>
               <li><strong className="font-medium text-ink">Domicilio:</strong> Plaza Sainetero Arniches 2, piso 4, puerta 7, CP 46014, València / Valencia</li>
               <li><strong className="font-medium text-ink">Correos electrónicos:</strong> <a href="mailto:info@mifaro.org" className="text-olive hover:underline">info@mifaro.org</a>, <a href="mailto:alefgarcia@gmail.com" className="text-olive hover:underline">alefgarcia@gmail.com</a></li>
-              <li><strong className="font-medium text-ink">Teléfono / WhatsApp:</strong> +34 611 56 87 05</li>
+              <li><strong className="font-medium text-ink">Teléfono / WhatsApp:</strong> {CONTACT.phoneES}</li>
             </ul>
           </section>
 

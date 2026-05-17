@@ -6,6 +6,8 @@ import JsonLd from './JsonLd';
 import { blogPosts } from '../data/blogPosts';
 import RelatedArticles from './RelatedArticles';
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations';
+import { dispositivosBase } from '../data/dispositivos';
+import { CONTACT } from '../data/contact';
 
 export default function Home() {
   return (
@@ -105,7 +107,7 @@ export default function Home() {
               <ArrowRight size={16} />
             </Link>
             <a
-              href="https://wa.me/5492235923790"
+              href={CONTACT.whatsappAR}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-offwhite/80 backdrop-blur-sm text-olive border border-olive/20 px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-sand transition-colors inline-flex items-center justify-center gap-2"
@@ -121,14 +123,14 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.5 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 text-ink-light"
           >
-            <a href="tel:+5492235923790" className="inline-flex items-center gap-3 hover:text-olive transition-colors group">
+            <a href={CONTACT.phoneARHref} className="inline-flex items-center gap-3 hover:text-olive transition-colors group">
               <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-              <span className="text-xl font-medium tracking-wider">+54 9 223 592 3790</span>
+              <span className="text-xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
             </a>
             <span className="hidden sm:block text-sand">·</span>
-            <a href="tel:+34611568705" className="inline-flex items-center gap-2 hover:text-olive transition-colors group">
+            <a href={CONTACT.phoneESHref} className="inline-flex items-center gap-2 hover:text-olive transition-colors group">
               <PhoneCall size={14} className="text-olive/60 group-hover:scale-110 transition-transform" />
-              <span className="text-sm opacity-70">+34 611 56 87 05 (España)</span>
+              <span className="text-sm opacity-70">{CONTACT.phoneES} (España)</span>
             </a>
           </motion.div>
         </div>
@@ -181,28 +183,7 @@ export default function Home() {
             viewport={viewportConfig}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            {[
-              {
-                icon: <Clock size={24} />,
-                title: 'Centro de Día',
-                desc: 'Estructura de mayor contención con 8 o más horas diarias. Espacios grupales e individuales de lunes a viernes.',
-              },
-              {
-                icon: <HeartHandshake size={24} />,
-                title: 'Centro de Mediodía',
-                desc: 'Media jornada para quienes sostienen responsabilidades cotidianas. Grupos, talleres y terapia familiar.',
-              },
-              {
-                icon: <Users size={24} />,
-                title: 'Ambulatorio',
-                desc: 'Para procesos no complejos o post-tratamiento intensivo. Psicoterapia individual y grupal.',
-              },
-              {
-                icon: <Laptop size={24} />,
-                title: 'Online',
-                desc: 'Acompañamiento a distancia para personas y familias. Encuentros individuales, familiares y orientación.',
-              },
-            ].map((item) => (
+            {dispositivosBase.map((item) => (
               <motion.div key={item.title} variants={fadeUp} className="p-8 rounded-[2rem] bg-sand-light border border-sand hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-offwhite rounded-full flex items-center justify-center mb-6 text-olive shadow-sm">
                   {item.icon}

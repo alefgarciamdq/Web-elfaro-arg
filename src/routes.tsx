@@ -2,7 +2,8 @@ import React from 'react';
 import { RouteObject } from 'react-router-dom';
 import App from './App';
 import Home from './components/Home';
-import Dispositivos from './components/Dispositivos';
+import HomeBento from './components/HomeBento';
+import EstructurasTratamiento from './components/EstructurasTratamiento';
 import Talleres from './components/Talleres';
 import Espana from './components/Espana';
 import Historia from './components/Historia';
@@ -23,7 +24,7 @@ export const routes: RouteObject[] = [
     element: <App />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'dispositivos', element: <Dispositivos /> },
+      { path: 'estructuras-de-tratamiento', element: <EstructurasTratamiento /> },
       { path: 'talleres', element: <Talleres /> },
       { path: 'espana', element: <Espana /> },
       { path: 'historia', element: <Historia /> },

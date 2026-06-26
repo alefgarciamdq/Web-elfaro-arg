@@ -8,7 +8,7 @@ import { CONTACT } from '../data/contact';
 
 export default function Espana() {
   return (
-    <div className="bg-offwhite min-h-screen">
+    <div style={{ background: 'var(--crema)' }} className="min-h-screen">
       <Helmet>
         <title>El Faro en España · Mi Faro Valencia | Orientación y acompañamiento</title>
         <meta name="description" content="La historia de El Faro encontró proyección en Valencia, España. Mi Faro España ofrece orientación psicológica y acompañamiento emocional para personas, parejas y familias." />
@@ -28,7 +28,7 @@ export default function Espana() {
       }} />
 
       {/* Hero */}
-      <section className="relative pt-12 pb-16 lg:pt-24 lg:pb-24 overflow-hidden flex items-center min-h-[70vh] lg:min-h-[75vh]">
+      <section className="relative pt-12 pb-16 lg:pt-24 lg:pb-24 overflow-hidden flex items-center min-h-[70vh] lg:min-h-[75vh]" style={{ background: 'var(--azul-suave)' }}>
         <div className="absolute inset-0 z-0">
           <img
             src="https://i.postimg.cc/G3fZ8H3C/Mi-faro-valencia-psicologo.png"
@@ -36,7 +36,7 @@ export default function Espana() {
             className="w-full h-full object-cover object-[70%_center] opacity-50 mix-blend-multiply grayscale-[0.1]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-offwhite via-offwhite/80 to-transparent lg:from-offwhite/95 lg:via-offwhite/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a2f4a]/30 via-[#1a2f4a]/60 to-[#faf7f2]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -46,14 +46,14 @@ export default function Espana() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center gap-2 text-olive font-medium tracking-wide uppercase text-sm mb-6 bg-olive/10 px-4 py-2 rounded-full">
+              <div className="inline-flex items-center gap-2 font-medium tracking-wide uppercase text-sm mb-6 px-4 py-2 rounded-full" style={{ color: 'var(--azul-cielo)', background: 'var(--azul-suave)' }}>
                 <MapPin size={14} />
                 Valencia, España
               </div>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif text-ink leading-[1.1] mb-8">
-                Mi Faro en <span className="italic text-olive">Valencia</span>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl leading-[1.1] mb-8" style={{ fontFamily: 'var(--serif)', color: 'var(--azul-noche)' }}>
+                Mi Faro en <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>Valencia</span>
               </h1>
-              <p className="text-xl text-ink-light font-light leading-relaxed mb-8">
+              <p className="text-xl font-light leading-relaxed mb-8" style={{ color: 'var(--texto-suave)' }}>
                 La historia de El Faro encontró proyección en España. Mi Faro Valencia es un espacio de orientación y acompañamiento emocional, con la misma mirada humana y vincular que nos define desde 1993.
               </p>
               <div className="flex flex-wrap gap-4 mb-12">
@@ -61,25 +61,27 @@ export default function Espana() {
                   href="https://mifaro.es"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-md group"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-md group"
+                  style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}
                 >
                   Visitar mifaro.es
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </a>
-                <div className="flex items-center gap-3 text-ink-light/80 italic text-sm">
-                  <Coffee size={18} className="text-olive" />
+                <div className="flex items-center gap-3 italic text-sm" style={{ color: 'rgba(82, 82, 82, 0.8)' }}>
+                  <Coffee size={18} style={{ color: 'var(--azul-cielo)' }} />
                   Presencial y online
                 </div>
               </div>
               <div className="space-y-3">
                 <a
                   href={CONTACT.phoneESHref}
-                  className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
+                  className="inline-flex items-center gap-3 hover:text-olive transition-colors group"
+                  style={{ color: 'var(--texto)' }}
                 >
-                  <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
+                  <PhoneCall size={20} className="group-hover:scale-110 transition-transform" style={{ color: 'var(--azul-cielo)' }} />
                   <span className="text-lg font-medium tracking-wider">{CONTACT.phoneES}</span>
                 </a>
-                <p className="text-sm text-ink-light font-light">
+                <p className="text-sm font-light" style={{ color: 'var(--texto-suave)' }}>
                   Estamos en Valencia, frente al Jardín de Ayora.
                 </p>
               </div>
@@ -89,7 +91,7 @@ export default function Espana() {
       </section>
 
       {/* Narrativa */}
-      <section className="py-20 bg-sand/20">
+      <section className="py-20" style={{ background: 'rgba(201, 184, 154, 0.2)' }}>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -97,19 +99,19 @@ export default function Espana() {
           viewport={viewportConfig}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <Quote className="mx-auto text-olive/20 mb-8" size={48} />
-          <p className="text-2xl md:text-3xl font-serif leading-snug mb-8 text-ink">
+          <Quote className="mx-auto mb-8" size={48} style={{ color: 'rgba(61, 106, 158, 0.2)' }} />
+          <p className="text-2xl md:text-3xl leading-snug mb-8" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>
             «La apertura de Mi Faro en Valencia suma una nueva dimensión a la historia del Faro: la de un proyecto que, sin perder su raíz, empieza a encontrar también proyección en otros territorios.»
           </p>
-          <div className="w-12 h-px bg-olive mx-auto mb-8" />
-          <p className="text-lg text-ink-light font-light leading-relaxed">
+          <div className="w-12 h-px mx-auto mb-8" style={{ background: 'var(--azul-noche)' }} />
+          <p className="text-lg font-light leading-relaxed" style={{ color: 'var(--texto-suave)' }}>
             En Mi Faro España integramos la escucha psicológica con una mirada vincular y humana. Un lugar para parar, entender mejor lo que está pasando y encontrar un camino posible.
           </p>
         </motion.div>
       </section>
 
       {/* Servicios Valencia */}
-      <section className="py-24 bg-offwhite">
+      <section className="py-24" style={{ background: 'var(--crema)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeUp}
@@ -118,8 +120,8 @@ export default function Espana() {
             viewport={viewportConfig}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-serif text-ink mb-4">
-              Espacios de <span className="italic text-olive">acompañamiento en Valencia</span>
+            <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>
+              Espacios de <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>acompañamiento en Valencia</span>
             </h2>
           </motion.div>
 
@@ -150,9 +152,9 @@ export default function Espana() {
                 desc: 'Una primera conversación para entender mejor la situación y ver si hay un camino posible. Sin compromisos.',
               },
             ].map((s) => (
-              <div key={s.title} className="p-8 rounded-[2rem] bg-sand-light border border-sand hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-serif text-ink mb-3">{s.title}</h3>
-                <p className="text-ink-light font-light text-sm leading-relaxed">{s.desc}</p>
+              <div key={s.title} className="p-8 rounded-[2rem] hover:shadow-md transition-shadow" style={{ background: 'var(--azul-suave)', borderColor: 'var(--borde)', borderWidth: '1px', borderStyle: 'solid' }}>
+                <h3 className="text-xl mb-3" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>{s.title}</h3>
+                <p className="font-light text-sm leading-relaxed" style={{ color: 'var(--texto-suave)' }}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -162,7 +164,8 @@ export default function Espana() {
               href="https://mifaro.es"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors"
+              style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}
             >
               Ver el sitio de Mi Faro España
               <ArrowRight size={16} />
@@ -172,7 +175,7 @@ export default function Espana() {
       </section>
 
       {/* Proyección institucional */}
-      <section className="py-24 bg-olive text-offwhite">
+      <section className="py-24" style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -181,18 +184,18 @@ export default function Espana() {
               whileInView="visible"
               viewport={viewportConfig}
             >
-              <div className="inline-flex items-center gap-2 text-gold font-medium tracking-wide uppercase text-sm mb-6">
+              <div className="inline-flex items-center gap-2 font-medium tracking-wide uppercase text-sm mb-6" style={{ color: 'var(--arena)' }}>
                 <Network size={16} />
                 Red El Faro
               </div>
-              <h2 className="text-4xl md:text-5xl font-serif mb-6">
+              <h2 className="text-4xl md:text-5xl mb-6" style={{ fontFamily: 'var(--serif)' }}>
                 Una misma raíz,<br />
-                <span className="italic text-gold">dos territorios</span>
+                <span style={{ fontStyle: 'italic', color: 'var(--arena)' }}>dos territorios</span>
               </h2>
-              <p className="text-sand font-light leading-relaxed text-lg mb-8">
+              <p className="font-light leading-relaxed text-lg mb-8" style={{ color: 'var(--arena-claro)' }}>
                 El Faro en Mar del Plata y Mi Faro en Valencia comparten identidad, historia y equipo. Ale García, fundador del Faro, coordina ambas sedes y viaja regularmente entre Argentina y España.
               </p>
-              <p className="text-sand font-light leading-relaxed mb-8">
+              <p className="font-light leading-relaxed mb-8" style={{ color: 'var(--arena-claro)' }}>
                 Si estás en España y necesitás orientación, podés contactar directamente con Mi Faro Valencia. Si estás en Argentina, estamos aquí.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -200,7 +203,8 @@ export default function Espana() {
                   href="https://mifaro.es/contacto"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-gold text-ink px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-gold-light transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-gold-light transition-colors"
+                  style={{ background: 'var(--arena)', color: 'var(--azul-noche)' }}
                 >
                   Contactar Mi Faro Valencia
                   <ArrowRight size={16} />

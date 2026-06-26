@@ -63,7 +63,7 @@ export default function Contacto() {
   };
 
   return (
-    <div className="bg-offwhite min-h-screen">
+    <div style={{ background: 'var(--crema)' }} className="min-h-screen">
       <Helmet>
         <title>Contacto | El Faro · Mar del Plata</title>
         <meta name="description" content="Contactá con El Faro en Mar del Plata. Primera consulta sin compromiso, por teléfono, WhatsApp o formulario." />
@@ -71,7 +71,7 @@ export default function Contacto() {
       </Helmet>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-48 lg:pb-24 bg-sand-light">
+      <section className="pt-32 pb-16 lg:pt-48 lg:pb-24" style={{ background: 'var(--azul-suave)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -79,28 +79,29 @@ export default function Contacto() {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <h1 className="text-5xl md:text-6xl font-serif text-ink mb-6">
-              <span className="italic text-olive">Hablemos</span>
+            <h1 className="text-5xl md:text-6xl mb-6" style={{ fontFamily: 'var(--serif)', color: 'var(--azul-noche)' }}>
+              <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>Hablemos</span>
             </h1>
-            <p className="text-xl text-ink-light font-light leading-relaxed mb-8">
+            <p className="text-xl font-light leading-relaxed mb-8" style={{ color: 'var(--texto-suave)' }}>
               No hace falta tenerlo todo claro para dar el primer paso. Una conversación inicial es suficiente para entender mejor la situación.
             </p>
             <div className="flex flex-col gap-4">
-              <a href={CONTACT.phoneARHref} className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group">
-                <PhoneCall size={22} className="text-olive group-hover:scale-110 transition-transform" />
+              <a href={CONTACT.phoneARHref} className="inline-flex items-center gap-3 hover:text-olive transition-colors group" style={{ color: 'var(--texto)' }}>
+                <PhoneCall size={22} className="group-hover:scale-110 transition-transform" style={{ color: 'var(--azul-cielo)' }} />
                 <span className="text-xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
               </a>
               <a
                 href={CONTACT.whatsappAR}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
+                className="inline-flex items-center gap-3 hover:text-olive transition-colors group"
+                style={{ color: 'var(--texto)' }}
               >
-                <MessageCircle size={22} className="text-olive group-hover:scale-110 transition-transform" />
+                <MessageCircle size={22} className="group-hover:scale-110 transition-transform" style={{ color: 'var(--azul-cielo)' }} />
                 <span className="text-lg font-medium">WhatsApp</span>
               </a>
-              <a href={CONTACT.phoneESHref} className="inline-flex items-center gap-3 text-ink-light hover:text-olive transition-colors group ml-1">
-                <PhoneCall size={16} className="text-olive/60" />
+              <a href={CONTACT.phoneESHref} className="inline-flex items-center gap-3 hover:text-olive transition-colors group ml-1" style={{ color: 'var(--texto-suave)' }}>
+                <PhoneCall size={16} style={{ color: 'var(--azul-cielo)', opacity: 0.6 }} />
                 <span className="text-sm opacity-70">{CONTACT.phoneES} (España)</span>
               </a>
             </div>
@@ -109,28 +110,29 @@ export default function Contacto() {
       </section>
 
       {/* Form + Info */}
-      <section className="py-24 bg-offwhite">
+      <section className="py-24" style={{ background: 'var(--crema)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig}>
-              <h2 className="text-3xl font-serif text-ink mb-8">Formulario de contacto</h2>
+              <h2 className="text-3xl mb-8" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>Formulario de contacto</h2>
 
               {status === 'success' ? (
-                <div className="p-8 rounded-[2rem] bg-olive/10 border border-olive/20 text-center">
-                  <CheckCircle2 size={48} className="text-olive mx-auto mb-4" />
-                  <h3 className="text-2xl font-serif text-ink mb-2">Mensaje recibido</h3>
-                  <p className="text-ink-light font-light">Te respondemos en menos de 24 horas.</p>
+                <div className="p-8 rounded-[2rem] text-center" style={{ background: 'var(--azul-suave)', borderColor: 'rgba(61,106,158,0.2)', borderWidth: '1px', borderStyle: 'solid' }}>
+                  <CheckCircle2 size={48} className="mx-auto mb-4" style={{ color: 'var(--azul-cielo)' }} />
+                  <h3 className="text-2xl mb-2" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>Mensaje recibido</h3>
+                  <p className="font-light" style={{ color: 'var(--texto-suave)' }}>Te respondemos en menos de 24 horas.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label htmlFor="country" className="block text-sm font-medium text-ink mb-2">¿Desde dónde escribís?</label>
+                    <label htmlFor="country" className="block text-sm font-medium mb-2" style={{ color: 'var(--texto)' }}>¿Desde dónde escribís?</label>
                     <select
                       id="country"
                       value={formData.country}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-sand bg-offwhite text-ink focus:outline-none focus:border-olive transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border focus:outline-none focus:border-olive transition-colors"
+                      style={{ borderColor: 'var(--borde)', background: 'var(--crema)', color: 'var(--texto)' }}
                     >
                       <option value="">Seleccioná un país</option>
                       <option value="argentina">Argentina</option>
@@ -141,40 +143,43 @@ export default function Contacto() {
                   </div>
 
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-ink mb-2">Nombre</label>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2" style={{ color: 'var(--texto)' }}>Nombre</label>
                     <input
                       id="name"
                       type="text"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Tu nombre"
-                      className="w-full px-4 py-3 rounded-xl border border-sand bg-offwhite text-ink focus:outline-none focus:border-olive transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border focus:outline-none focus:border-olive transition-colors"
+                      style={{ borderColor: 'var(--borde)', background: 'var(--crema)', color: 'var(--texto)' }}
                     />
                     {errors.name && <p className="text-terra text-sm mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-ink mb-2">Email</label>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2" style={{ color: 'var(--texto)' }}>Email</label>
                     <input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="tu@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-sand bg-offwhite text-ink focus:outline-none focus:border-olive transition-colors"
+                      className="w-full px-4 py-3 rounded-xl border focus:outline-none focus:border-olive transition-colors"
+                      style={{ borderColor: 'var(--borde)', background: 'var(--crema)', color: 'var(--texto)' }}
                     />
                     {errors.email && <p className="text-terra text-sm mt-1">{errors.email}</p>}
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-ink mb-2">Mensaje</label>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2" style={{ color: 'var(--texto)' }}>Mensaje</label>
                     <textarea
                       id="message"
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Contanos brevemente la situación..."
-                      className="w-full px-4 py-3 rounded-xl border border-sand bg-offwhite text-ink focus:outline-none focus:border-olive transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl border focus:outline-none focus:border-olive transition-colors resize-none"
+                      style={{ borderColor: 'var(--borde)', background: 'var(--crema)', color: 'var(--texto)' }}
                     />
                     {errors.message && <p className="text-terra text-sm mt-1">{errors.message}</p>}
                   </div>
@@ -187,9 +192,9 @@ export default function Contacto() {
                       onChange={handleChange}
                       className="mt-1"
                     />
-                    <label htmlFor="consent" className="text-sm text-ink-light font-light">
+                    <label htmlFor="consent" className="text-sm font-light" style={{ color: 'var(--texto-suave)' }}>
                       Acepto la{' '}
-                      <Link to="/privacidad" className="text-olive hover:underline">política de privacidad</Link>
+                      <Link to="/privacidad" className="hover:underline" style={{ color: 'var(--azul-cielo)' }}>política de privacidad</Link>
                       {' '}y el tratamiento de mis datos.
                     </label>
                   </div>
@@ -205,7 +210,8 @@ export default function Contacto() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors disabled:opacity-50 inline-flex items-center justify-center gap-2"
+                    className="w-full px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors disabled:opacity-50 inline-flex items-center justify-center gap-2"
+                    style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}
                   >
                     {status === 'sending' ? (
                       <><Loader2 size={18} className="animate-spin" /> Enviando...</>
@@ -220,41 +226,41 @@ export default function Contacto() {
             {/* Info */}
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportConfig} className="space-y-8">
               <div>
-                <h2 className="text-3xl font-serif text-ink mb-8">Dónde estamos</h2>
+                <h2 className="text-3xl mb-8" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>Dónde estamos</h2>
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-sand-light border border-sand">
-                    <MapPin size={24} className="text-olive mt-1 shrink-0" />
+                  <div className="flex items-start gap-4 p-6 rounded-2xl border" style={{ background: 'var(--azul-suave)', borderColor: 'var(--borde)' }}>
+                    <MapPin size={24} className="mt-1 shrink-0" style={{ color: 'var(--azul-cielo)' }} />
                     <div>
-                      <h3 className="font-medium text-ink mb-1">El Faro · Mar del Plata</h3>
-                      <p className="text-ink-light font-light text-sm">Mar del Plata, Buenos Aires, Argentina</p>
+                      <h3 className="font-medium mb-1" style={{ color: 'var(--texto)' }}>El Faro · Mar del Plata</h3>
+                      <p className="font-light text-sm" style={{ color: 'var(--texto-suave)' }}>Garay 2073, Mar del Plata, Buenos Aires, Argentina</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-sand-light border border-sand">
-                    <Phone size={24} className="text-olive mt-1 shrink-0" />
+                  <div className="flex items-start gap-4 p-6 rounded-2xl border" style={{ background: 'var(--azul-suave)', borderColor: 'var(--borde)' }}>
+                    <Phone size={24} className="mt-1 shrink-0" style={{ color: 'var(--azul-cielo)' }} />
                     <div>
-                      <h3 className="font-medium text-ink mb-1">Teléfono Argentina</h3>
-                      <a href={CONTACT.phoneARHref} className="text-ink-light font-light text-sm hover:text-olive transition-colors">{CONTACT.phoneAR}</a>
+                      <h3 className="font-medium mb-1" style={{ color: 'var(--texto)' }}>Teléfono Argentina</h3>
+                      <a href={CONTACT.phoneARHref} className="font-light text-sm hover:text-olive transition-colors" style={{ color: 'var(--texto-suave)' }}>{CONTACT.phoneAR}</a>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-sand-light border border-sand">
-                    <Phone size={24} className="text-olive/60 mt-1 shrink-0" />
+                  <div className="flex items-start gap-4 p-6 rounded-2xl border" style={{ background: 'var(--azul-suave)', borderColor: 'var(--borde)' }}>
+                    <Phone size={24} className="mt-1 shrink-0" style={{ color: 'var(--azul-cielo)', opacity: 0.6 }} />
                     <div>
-                      <h3 className="font-medium text-ink mb-1">Teléfono España</h3>
-                      <a href={CONTACT.phoneESHref} className="text-ink-light font-light text-sm hover:text-olive transition-colors">{CONTACT.phoneES}</a>
+                      <h3 className="font-medium mb-1" style={{ color: 'var(--texto)' }}>Teléfono España</h3>
+                      <a href={CONTACT.phoneESHref} className="font-light text-sm hover:text-olive transition-colors" style={{ color: 'var(--texto-suave)' }}>{CONTACT.phoneES}</a>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4 p-6 rounded-2xl bg-sand-light border border-sand">
-                    <Mail size={24} className="text-olive mt-1 shrink-0" />
+                  <div className="flex items-start gap-4 p-6 rounded-2xl border" style={{ background: 'var(--azul-suave)', borderColor: 'var(--borde)' }}>
+                    <Mail size={24} className="mt-1 shrink-0" style={{ color: 'var(--azul-cielo)' }} />
                     <div>
-                      <h3 className="font-medium text-ink mb-1">Email</h3>
-                      <a href="mailto:info@programaelfaro.com.ar" className="text-ink-light font-light text-sm hover:text-olive transition-colors">info@programaelfaro.com.ar</a>
+                      <h3 className="font-medium mb-1" style={{ color: 'var(--texto)' }}>Email</h3>
+                      <a href="mailto:info@programaelfaro.com.ar" className="font-light text-sm hover:text-olive transition-colors" style={{ color: 'var(--texto-suave)' }}>info@programaelfaro.com.ar</a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-olive/10 border border-olive/20">
-                <p className="text-sm text-ink-light font-light leading-relaxed italic">
+              <div className="p-6 rounded-2xl border" style={{ background: 'var(--azul-suave)', borderColor: 'rgba(61, 106, 158, 0.2)' }}>
+                <p className="text-sm font-light leading-relaxed italic" style={{ color: 'var(--texto-suave)' }}>
                   «No hace falta saber exactamente qué está pasando para escribirnos. Una primera conversación es suficiente para empezar a entenderlo juntos.»
                 </p>
               </div>

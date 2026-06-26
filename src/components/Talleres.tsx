@@ -7,7 +7,7 @@ import { CONTACT } from '../data/contact';
 
 export default function Talleres() {
   return (
-    <div className="bg-offwhite min-h-screen">
+    <div style={{ background: 'var(--crema)' }} className="min-h-screen">
       <Helmet>
         <title>Talleres y expresión emotiva | El Faro · Mar del Plata</title>
         <meta name="description" content="Psicodrama, talleres de expresión emotiva NIP, teatro, podcast y radio. En El Faro la terapia se cruza con el arte desde 1993." />
@@ -18,7 +18,7 @@ export default function Talleres() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-sand-light">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden" style={{ background: 'var(--azul-suave)' }}>
         <div className="absolute inset-0 z-0">
           <img
             src="https://i.postimg.cc/jjh5Wb2K/Adicciones_Valencia_mar_del_plata.jpg"
@@ -26,7 +26,7 @@ export default function Talleres() {
             className="w-full h-full object-cover blur-[2px] opacity-40 mix-blend-multiply"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-sand-light/20 via-sand-light/60 to-offwhite" />
+          <div className="absolute inset-0 bg-gradient-to-b from-sand-light/20 via-sand-light/60 to-offwhite" style={{ background: 'linear-gradient(to bottom, rgba(26, 47, 74, 0.3), rgba(26, 47, 74, 0.6), #faf7f2)' }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -35,11 +35,11 @@ export default function Talleres() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h1 className="text-5xl md:text-7xl font-serif text-ink mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl mb-6 leading-tight" style={{ fontFamily: 'var(--serif)', color: 'var(--azul-noche)' }}>
               Talleres y<br />
-              <span className="italic text-olive">expresión emotiva</span>
+              <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>expresión emotiva</span>
             </h1>
-            <p className="text-xl text-ink-light font-light leading-relaxed mb-10">
+            <p className="text-xl font-light leading-relaxed mb-10" style={{ color: 'var(--texto-suave)' }}>
               En El Faro, el encuentro entre la terapia y el arte no es un complemento: es parte de nuestra identidad desde el primer día. El movimiento, la voz, el juego y la creación son caminos de transformación tan válidos como la palabra.
             </p>
           </motion.div>
@@ -47,17 +47,17 @@ export default function Talleres() {
       </section>
 
       {/* Cita */}
-      <section className="py-20 bg-olive text-offwhite">
+      <section className="py-20" style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-2xl md:text-3xl font-serif leading-relaxed mb-6">
             «El rico intercambio que se genera cuando la terapia se cruza con el arte, el movimiento o la expresión emotiva ha dado luz a El Faro cada día.»
           </p>
-          <div className="w-12 h-px bg-gold mx-auto" />
+          <div className="w-12 h-px mx-auto" style={{ background: 'var(--arena)' }} />
         </div>
       </section>
 
       {/* Talleres */}
-      <section className="py-24 bg-offwhite">
+      <section className="py-24" style={{ background: 'var(--crema)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={staggerContainer}
@@ -104,13 +104,13 @@ export default function Talleres() {
                 detail: 'Grupos abiertos y cerrados según etapa del proceso.',
               },
             ].map((t) => (
-              <motion.div key={t.title} variants={fadeUp} className="p-8 rounded-[2rem] bg-sand-light border border-sand hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 bg-offwhite rounded-full flex items-center justify-center mb-6 text-olive shadow-sm">
+              <motion.div key={t.title} variants={fadeUp} className="p-8 rounded-[2rem] hover:shadow-md transition-shadow" style={{ background: 'var(--azul-suave)', borderColor: 'var(--borde)', borderWidth: '1px', borderStyle: 'solid' }}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 shadow-sm" style={{ background: 'var(--crema)', color: 'var(--azul-cielo)' }}>
                   {t.icon}
                 </div>
-                <h3 className="text-2xl font-serif text-ink mb-3">{t.title}</h3>
-                <p className="text-ink-light font-light leading-relaxed mb-4 text-sm">{t.desc}</p>
-                <p className="text-olive text-xs font-medium italic">{t.detail}</p>
+                <h3 className="text-2xl mb-3" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>{t.title}</h3>
+                <p className="font-light leading-relaxed mb-4 text-sm" style={{ color: 'var(--texto-suave)' }}>{t.desc}</p>
+                <p className="text-xs font-medium italic" style={{ color: 'var(--azul-cielo)' }}>{t.detail}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -118,19 +118,20 @@ export default function Talleres() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-sand-light">
+      <section className="py-24" style={{ background: 'var(--azul-suave)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-serif text-ink mb-6">
+          <h2 className="text-4xl md:text-5xl mb-6" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>
             ¿Querés participar<br />
-            <span className="italic text-olive">de algún espacio?</span>
+            <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>de algún espacio?</span>
           </h2>
-          <p className="text-ink-light font-light text-lg mb-10">
+          <p className="font-light text-lg mb-10" style={{ color: 'var(--texto-suave)' }}>
             Algunos talleres son parte del proceso terapéutico. Otros están abiertos a personas que no están en tratamiento. Escribinos y te contamos.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contacto"
-              className="bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors inline-flex items-center justify-center gap-2"
+              className="px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors inline-flex items-center justify-center gap-2"
+              style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}
             >
               Contactar
               <ArrowRight size={16} />
@@ -139,7 +140,8 @@ export default function Talleres() {
               href={CONTACT.whatsappAR}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-olive/30 text-olive px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive/5 transition-colors inline-flex items-center justify-center gap-2"
+              className="border border-olive/30 px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive/5 transition-colors inline-flex items-center justify-center gap-2"
+              style={{ color: 'var(--azul-cielo)' }}
             >
               WhatsApp
             </a>

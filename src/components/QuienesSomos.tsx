@@ -169,35 +169,35 @@ export default function QuienesSomos() {
       variants={fadeUp}
       className="flex flex-col items-center text-center px-4"
     >
-      <div className={`${person.size} rounded-full overflow-hidden mb-6 shadow-xl border-8 border-offwhite/30 bg-offwhite group relative transition-transform duration-500 hover:scale-105`}>
+      <div className={`${person.size} rounded-full overflow-hidden mb-6 shadow-xl border-8 group relative transition-transform duration-500 hover:scale-105`} style={{ borderColor: 'rgba(255,255,255,0.3)', background: 'var(--crema)' }}>
         <img 
           src={person.img} 
           alt={person.name} 
           className={`w-full h-full object-cover sepia-[.10] contrast-[0.95] saturate-[0.90] transition-all duration-700 group-hover:scale-110 ${person.imagePosition || ''}`}
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-olive/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'var(--azul-suave)' }} />
       </div>
       
       <div className="max-w-[280px]">
-        <h3 className={`${person.isNexo ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} font-serif text-ink mb-1 leading-tight`}>
+        <h3 className={`${person.isNexo ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'} mb-1 leading-tight`} style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>
           {person.name}
         </h3>
-        <p className="text-[10px] md:text-xs font-semibold tracking-widest uppercase text-olive mb-1 leading-tight">
+        <p className="text-[10px] md:text-xs font-semibold tracking-widest uppercase mb-1 leading-tight" style={{ color: 'var(--azul-cielo)' }}>
           {person.role}
         </p>
         {person.area && (
-          <p className="text-[9px] md:text-[10px] font-medium tracking-wide text-ink/80 mb-2 leading-tight">
+          <p className="text-[9px] md:text-[10px] font-medium tracking-wide mb-2 leading-tight" style={{ color: 'rgba(26,26,26,0.8)' }}>
             {person.area}
           </p>
         )}
         {person.location && (
-          <p className="text-[9px] md:text-[10px] text-ink-light tracking-widest uppercase mb-4 opacity-70">
+          <p className="text-[9px] md:text-[10px] tracking-widest uppercase mb-4 opacity-70" style={{ color: 'var(--texto-suave)' }}>
             {person.location}
           </p>
         )}
         {person.quote && (
-          <div className="text-ink-light font-light italic text-[11px] leading-relaxed mt-4 border-t border-olive/10 pt-4 opacity-80">
+          <div className="font-light italic text-[11px] leading-relaxed mt-4 border-t pt-4 opacity-80" style={{ color: 'var(--texto-suave)', borderColor: 'rgba(61,106,158,0.1)' }}>
             {person.quote}
           </div>
         )}
@@ -206,23 +206,23 @@ export default function QuienesSomos() {
   );
 
   return (
-    <div className="bg-sand-light min-h-screen">
+    <div style={{ background: 'var(--crema)' }} className="min-h-screen">
       <Helmet>
-        <title>Quiénes lo hacemos | El equipo de Mi Faro · Valencia y Argentina</title>
-        <meta name="description" content="Conoce al equipo de Mi Faro: psicólogos, terapeuta familiar, trabajadores sociales y profesionales con trayectoria en salud mental y adicciones en Valencia y Argentina." />
+        <title>Quiénes lo hacemos | El equipo de El Faro · Mar del Plata</title>
+        <meta name="description" content="Conocé al equipo de El Faro: psicólogos, trabajadores sociales y profesionales con trayectoria en salud mental y adicciones en Mar del Plata." />
         <link rel="canonical" href="https://programaelfaro.com.ar/quienes-lo-hacemos" />
-        <meta property="og:title" content="Quiénes lo hacemos | El equipo de Mi Faro · Valencia y Argentina" />
-        <meta property="og:description" content="Conoce al equipo de Mi Faro: psicólogos, terapeuta familiar, trabajadores sociales y profesionales con más de 30 años de experiencia." />
+        <meta property="og:title" content="Quiénes lo hacemos | El equipo de El Faro · Mar del Plata" />
+        <meta property="og:description" content="Conocé al equipo de El Faro: psicólogos, trabajadores sociales y profesionales con más de 30 años de experiencia." />
         <meta property="og:image" content="https://i.postimg.cc/LswM4gxq/file_000000009108720a82938bdcbe45a897_2.jpg" />
         <meta property="og:url" content="https://programaelfaro.com.ar/quienes-lo-hacemos" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Quiénes lo hacemos | Mi Faro" />
-        <meta name="twitter:description" content="Conoce al equipo de Mi Faro: psicólogos, terapeuta familiar y profesionales con más de 30 años de experiencia en Valencia y Argentina." />
+        <meta name="twitter:title" content="Quiénes lo hacemos | El Faro" />
+        <meta name="twitter:description" content="Conocé al equipo de El Faro: psicólogos, trabajadores sociales y profesionales con más de 30 años de experiencia." />
         <meta name="twitter:image" content="https://i.postimg.cc/LswM4gxq/file_000000009108720a82938bdcbe45a897_2.jpg" />
       </Helmet>
       {/* Hero */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[85vh]">
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden flex items-center min-h-[85vh]" style={{ background: 'var(--azul-suave)' }}>
         {/* Fondo con imagen integrada */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -232,7 +232,7 @@ export default function QuienesSomos() {
             referrerPolicy="no-referrer"
           />
           {/* Overlay gradiente para legibilidad */}
-          <div className="absolute inset-0 bg-gradient-to-r from-offwhite via-offwhite/85 to-transparent lg:from-offwhite/95 lg:via-offwhite/70 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-sand-light/30 via-sand-light/60 to-offwhite" style={{ background: 'linear-gradient(to bottom, rgba(26, 47, 74, 0.3), rgba(26, 47, 74, 0.6), #faf7f2)' }} />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -242,33 +242,35 @@ export default function QuienesSomos() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 text-olive font-medium tracking-wide uppercase text-sm mb-6 bg-olive/10 px-4 py-2 rounded-full">
+            <div className="inline-flex items-center gap-2 font-medium tracking-wide uppercase text-sm mb-6 px-4 py-2 rounded-full" style={{ color: 'var(--azul-cielo)', background: 'var(--azul-suave)' }}>
               <ShieldCheck size={16} />
               Quienes hacen posible este camino
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-ink mb-8 leading-tight">
-              Lo hacemos <span className="italic text-olive">posible</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-8 leading-tight" style={{ fontFamily: 'var(--serif)', color: 'var(--azul-noche)' }}>
+              Lo hacemos <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>posible</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-serif text-ink-light mb-8">
+            <h2 className="text-2xl md:text-3xl mb-8" style={{ fontFamily: 'var(--serif)', color: 'var(--texto-suave)' }}>
               Equipo interdisciplinar con trayectoria entre España y Argentina
             </h2>
-            <p className="text-xl md:text-2xl text-ink font-light leading-relaxed mb-8">
-              Mi Faro se sostiene en un equipo interdisciplinar y en una red de trayectorias profesionales que articulan experiencia, criterio y acompañamiento entre España y Argentina.
+            <p className="text-xl md:text-2xl font-light leading-relaxed mb-8" style={{ color: 'var(--texto)' }}>
+              El Faro se sostiene en un equipo interdisciplinar y en una red de trayectorias profesionales que articulan experiencia, criterio y acompañamiento entre España y Argentina.
             </p>
-            <p className="text-lg text-ink-light font-light leading-relaxed max-w-3xl mb-10">
+            <p className="text-lg font-light leading-relaxed max-w-3xl mb-10" style={{ color: 'var(--texto-suave)' }}>
               Nuestro proyecto se nutre de la escucha, del intercambio y del pensamiento compartido. Las reuniones conjuntas permiten que el trabajo se enriquezca a través del diálogo entre equipos, la circulación de experiencias y la puesta en común de recursos profesionales. De ese intercambio entre profesionales del ámbito psicológico, médico y social nace una forma de acompañar que integra distintas miradas, trayectorias y experiencias en el trabajo con personas, familias y vínculos.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link
                 to="/contacto"
-                className="bg-ink text-white px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-ink-light transition-colors inline-flex items-center justify-center gap-2 shadow-md"
+                className="px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive-light transition-colors inline-flex items-center justify-center gap-2 shadow-md"
+                style={{ background: 'var(--azul-noche)', color: 'var(--blanco)' }}
               >
                 Solicitar orientación
               </Link>
               <Link
                 to="/contacto"
-                className="bg-white/80 backdrop-blur-sm text-olive border border-olive/20 px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-olive/20 transition-colors inline-flex items-center justify-center gap-2 shadow-sm"
+                className="bg-white/10 backdrop-blur-sm border px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-white/20 transition-colors inline-flex items-center justify-center gap-2 shadow-sm"
+                style={{ background: 'var(--azul-suave)', color: 'var(--azul-cielo)', borderColor: 'rgba(61,106,158,0.3)' }}
               >
                 <Coffee size={16} />
                 Tomar un café y charlar
@@ -281,11 +283,12 @@ export default function QuienesSomos() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <a 
-                href={CONTACT.phoneESHref} 
-                className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
+                href={CONTACT.phoneARHref} 
+                className="inline-flex items-center gap-3 hover:text-olive transition-colors group"
+                style={{ color: 'var(--texto)' }}
               >
-                <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-                <span className="text-lg md:text-xl font-medium tracking-wider">{CONTACT.phoneES}</span>
+                <PhoneCall size={20} className="group-hover:scale-110 transition-transform" style={{ color: 'var(--azul-cielo)' }} />
+                <span className="text-lg md:text-xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
               </a>
             </motion.div>
           </motion.div>
@@ -355,17 +358,17 @@ export default function QuienesSomos() {
 
       {/* Cierre */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 text-center max-w-4xl mx-auto">
-        <div className="w-12 h-px bg-olive mx-auto mb-10" />
-        <p className="text-2xl md:text-3xl font-serif text-ink leading-relaxed">
-          Y junto a ellos, <span className="italic text-olive">una red más amplia de colegas, colaboradores y personas</span> que acompañan la continuidad cotidiana del proyecto.
+        <div className="w-12 h-px mx-auto mb-10" style={{ background: 'var(--azul-noche)' }} />
+        <p className="text-2xl md:text-3xl leading-relaxed" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>
+          Y junto a ellos, <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>una red más amplia de colegas, colaboradores y personas</span> que acompañan la continuidad cotidiana del proyecto.
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-6">
-          <Link to="/historia" className="text-olive hover:underline font-medium">Nuestra historia</Link>
-          <Link to="/contacto" className="text-olive hover:underline font-medium">Contacto</Link>
+          <Link to="/historia" className="hover:underline font-medium" style={{ color: 'var(--azul-cielo)' }}>Nuestra historia</Link>
+          <Link to="/contacto" className="hover:underline font-medium" style={{ color: 'var(--azul-cielo)' }}>Contacto</Link>
         </div>
-        <div className="w-12 h-px bg-olive mx-auto mt-10" />
-        <p className="text-[9px] md:text-[10px] text-ink-light/40 font-light max-w-2xl mx-auto leading-relaxed mt-16 pb-8">
-          * Mi Faro cuenta con profesionales del ámbito de la salud mental, la medicina, la intervención social y el acompañamiento terapéutico. Las titulaciones, habilitaciones y datos profesionales correspondientes se encuentran disponibles para consulta cuando sea necesario. La participación de cada profesional se enmarca en su país, titulación y ámbito de actuación.
+        <div className="w-12 h-px mx-auto mt-10" style={{ background: 'var(--azul-noche)' }} />
+        <p className="text-[9px] md:text-[10px] font-light max-w-2xl mx-auto leading-relaxed mt-16 pb-8" style={{ color: 'var(--texto-suave)', opacity: 0.4 }}>
+          * El Faro cuenta con profesionales del ámbito de la salud mental, la medicina, la intervención social y el acompañamiento terapéutico. Las titulaciones, habilitaciones y datos profesionales correspondientes se encuentran disponibles para consulta cuando sea necesario. La participación de cada profesional se enmarca en su país, titulación y ámbito de actuación.
         </p>
       </section>
 

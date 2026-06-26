@@ -76,7 +76,7 @@ export default function Home() {
           </p>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <Link to="/contacto" style={{
-              background: 'var(--arena)', color: 'var(--azul-noche)',
+              background: 'var(--sol)', color: 'var(--carbon)',
               padding: '13px 26px', borderRadius: '6px',
               fontSize: '13.5px', fontWeight: 600, textDecoration: 'none',
             }}>
@@ -144,7 +144,7 @@ export default function Home() {
 
       {/* BANDA RED (sección 2) */}
       <div style={{
-        background: 'var(--arena-claro)',
+        background: 'var(--arena-banda)',
         borderTop: '1px solid var(--borde)',
         borderBottom: '1px solid var(--borde)',
         padding: '13px 48px',
@@ -218,7 +218,7 @@ export default function Home() {
                 lineHeight: 1, fontWeight: 500, paddingTop: '2px',
               }}>{item.n}</div>
               <div>
-                <h3 style={{ fontSize: '15px', color: 'var(--azul-noche)', fontWeight: 600, marginBottom: '5px' }}>{item.t}</h3>
+                <h3 style={{ fontSize: '15px', color: 'var(--carbon)', fontWeight: 600, marginBottom: '5px' }}>{item.t}</h3>
                 <p style={{ fontSize: '14px', color: 'var(--texto-suave)', lineHeight: 1.62, fontWeight: 300 }}>{item.p}</p>
               </div>
             </div>

@@ -1,80 +1,103 @@
 @import "tailwindcss";
 
-/* ── TOKENS EL FARO ARGENTINA ── */
 :root {
-  /* Azules — identidad argentina */
-  --azul-noche:       #1a2f4a;
-  --azul-medio:       #2a4a6e;
-  --azul-cielo:       #3d6a9e;
-  --azul-palido:      #ddeaf6;
-  --azul-suave:       #eef4fb;
+  /* ── PALETA ATLÁNTICO SUR — El Faro Argentina ── */
 
-  /* Cálidos — identidad compartida con mifaro.es */
-  --arena:            #c9b89a;
-  --arena-claro:      #f5ede0;
-  --tierra:           #8a6c4e;
-  --crema:            #faf7f2;
+  /* Azules */
+  --oceano:      #2F5F7C;   /* color institucional principal */
+  --bruma:       #AFC7D8;   /* acento suave, números, detalles */
+  --salino:      #DCEAF1;   /* fondos de cards destacadas */
 
-  /* Neutros */
-  --blanco:           #ffffff;
-  --texto:            #1a1a1a;
-  --texto-suave:      #525252;
-  --texto-muy-suave:  #888888;
-  --borde:            #e8e2d8;
-  --borde-suave:      #f0ece6;
+  /* Cálidos */
+  --arena:       #E9E3D6;   /* nav, fondos cálidos */
+  --arena-banda: #DDD6C8;   /* banda de red — un tono más oscuro */
+  --marfil:      #F8F6F2;   /* fondo base de página */
+
+  /* Fondos sin blanco puro */
+  --fondo-card:  #F2F0EC;   /* cards y secciones tipo "blanco" */
+  --fondo-serv:  #EEEAE4;   /* sección servicios */
+
+  /* Texto */
+  --carbon:      #24333D;   /* texto principal */
+  --piedra:      #6D7477;   /* texto secundario */
+  --blanco-txt:  #ffffff;   /* SOLO para texto sobre fondos oscuros */
+
+  /* Acentos */
+  --sol:         #D9B56B;   /* dorado — solo detalles, nunca fondos */
+  --eucalipto:   #7E9488;   /* eyebrows, esperanza */
+
+  /* Bordes */
+  --borde:       #D8DFE3;
+  --borde-cal:   #E0D9CC;
+
+  /* Aliases para compatibilidad con JSX existente */
+  --azul-noche:       var(--oceano);
+  --azul-medio:       #1e4560;
+  --azul-cielo:       var(--oceano);
+  --azul-palido:      var(--salino);
+  --azul-suave:       var(--salino);
+  --arena-claro:      var(--arena-banda);
+  --tierra:           var(--piedra);
+  --crema:            var(--marfil);
+  --blanco:           var(--fondo-card);
+  --texto:            var(--carbon);
+  --texto-suave:      var(--piedra);
+  --texto-muy-suave:  #909699;
+  --borde-suave:      var(--borde-cal);
 
   /* Tipografía */
-  --serif:  'Playfair Display', Georgia, serif;
-  --sans:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Espaciado */
-  --seccion-v:  72px;
-  --col-h:      48px;
-  --radio:      10px;
+  --seccion-v: 72px;
+  --col-h:     48px;
+  --radio:     10px;
 }
 
 @theme {
   --font-serif: var(--serif);
-  --font-sans: var(--sans);
+  --font-sans:  var(--sans);
 
-  --color-azul-noche: var(--azul-noche);
-  --color-azul-medio: var(--azul-medio);
-  --color-azul-cielo: var(--azul-cielo);
-  --color-azul-palido: var(--azul-palido);
-  --color-azul-suave: var(--azul-suave);
+  --color-oceano:      var(--oceano);
+  --color-bruma:       var(--bruma);
+  --color-salino:      var(--salino);
+  --color-arena:       var(--arena);
+  --color-marfil:      var(--marfil);
+  --color-piedra:      var(--piedra);
+  --color-carbon:      var(--carbon);
+  --color-sol:         var(--sol);
+  --color-eucalipto:   var(--eucalipto);
+  --color-fondo-card:  var(--fondo-card);
+  --color-fondo-serv:  var(--fondo-serv);
 
-  --color-arena: var(--arena);
-  --color-arena-claro: var(--arena-claro);
-  --color-tierra: var(--tierra);
-  --color-crema: var(--crema);
-
-  --color-blanco: var(--blanco);
-  --color-texto: var(--texto);
-  --color-texto-suave: var(--texto-suave);
-  --color-texto-muy-suave: var(--texto-muy-suave);
-  --color-borde: var(--borde);
-  --color-borde-suave: var(--borde-suave);
+  /* aliases Tailwind */
+  --color-azul-noche:  var(--oceano);
+  --color-azul-cielo:  var(--oceano);
+  --color-azul-suave:  var(--salino);
+  --color-azul-palido: var(--salino);
+  --color-arena-claro: var(--arena-banda);
+  --color-tierra:      var(--piedra);
+  --color-crema:       var(--marfil);
+  --color-blanco:      var(--fondo-card);
+  --color-texto:       var(--carbon);
+  --color-texto-suave: var(--piedra);
+  --color-borde:       var(--borde-cal);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: var(--sans);
-  background: var(--crema);
-  color: var(--texto);
+  background: var(--marfil);
+  color: var(--carbon);
   -webkit-font-smoothing: antialiased;
   font-size: 15px;
 }
 
-body { font-size: 15px; }
-
 h1, h2, h3 {
   font-family: var(--serif);
   font-weight: 400;
-}
-
-h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: var(--serif);
 }
 
 .pill-image {

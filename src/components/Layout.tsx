@@ -28,13 +28,13 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col bg-transparent text-texto font-sans relative">
       <Helmet>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </Helmet>
 
       {/* Nav */}
       <nav style={{
-        background: 'var(--blanco)',
-        borderBottom: '1px solid var(--borde)',
+        background: 'var(--arena)',
+        borderBottom: '1px solid var(--borde-cal)',
         height: '68px',
         display: 'flex',
         alignItems: 'center',

@@ -7,9 +7,9 @@ import { CONTACT } from '../data/contact';
 
 export default function Historia() {
   return (
-    <div className="bg-offwhite min-h-screen">
+    <div style={{ background: 'var(--crema)' }} className="min-h-screen">
       <Helmet>
-        <title>Nuestra Historia | El Faro · Más de 30 años en salud mental y adicciones</title>
+        <title>Nuestra Historia | El Faro · Más de 30 años en salud mental and adicciones</title>
         <meta name="description" content="La historia de El Faro: desde Mar del Plata en 1993 hasta Valencia. Más de 30 años acompañando a personas y familias en salud mental, adicciones, arte y comunidad." />
         <link rel="canonical" href="https://programaelfaro.com.ar/historia" />
         <meta property="og:title" content="Nuestra Historia | El Faro · 30 años" />
@@ -18,7 +18,7 @@ export default function Historia() {
       </Helmet>
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-sand-light">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden" style={{ background: 'var(--azul-suave)' }}>
         <div className="absolute inset-0 z-0">
           <img
             src="https://i.postimg.cc/rySbyr08/IMG-3803.jpg"
@@ -26,14 +26,14 @@ export default function Historia() {
             className="w-full h-full object-cover blur-[1px] contrast-[0.85] sepia-[.15] saturate-[0.9] opacity-45 mix-blend-multiply"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-sand-light/30 via-sand-light/60 to-offwhite" />
+          <div className="absolute inset-0 bg-gradient-to-b from-sand-light/30 via-sand-light/60 to-offwhite" style={{ background: 'linear-gradient(to bottom, rgba(26, 47, 74, 0.3), rgba(26, 47, 74, 0.6), #faf7f2)' }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-ink mb-6 leading-tight">
-              Nuestra <span className="italic text-olive">historia</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 leading-tight" style={{ fontFamily: 'var(--serif)', color: 'var(--azul-noche)' }}>
+              Nuestra <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>historia</span>
             </h1>
-            <p className="text-xl text-ink-light font-light leading-relaxed mb-10">
+            <p className="text-xl font-light leading-relaxed mb-10" style={{ color: 'var(--texto-suave)' }}>
               El Faro nace de una historia de más de 30 años en salud mental y adicciones. Un camino que comenzó en Mar del Plata en 1993 y que hoy encuentra también proyección en Valencia, España.
             </p>
             <motion.div
@@ -43,9 +43,10 @@ export default function Historia() {
             >
               <a
                 href={CONTACT.phoneARHref}
-                className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
+                className="inline-flex items-center gap-3 hover:text-olive transition-colors group"
+                style={{ color: 'var(--texto)' }}
               >
-                <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
+                <PhoneCall size={20} className="group-hover:scale-110 transition-transform" style={{ color: 'var(--azul-cielo)' }} />
                 <span className="text-lg md:text-xl font-medium tracking-wider">{CONTACT.phoneAR}</span>
               </a>
             </motion.div>
@@ -54,9 +55,9 @@ export default function Historia() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-offwhite">
+      <section className="py-24" style={{ background: 'var(--crema)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative border-l border-sand ml-6 md:ml-0 md:border-l-0">
+          <div className="relative ml-6 md:ml-0 md:border-l-0" style={{ borderColor: 'var(--borde)' }}>
 
             {/* 1993 */}
             <motion.div
@@ -66,11 +67,11 @@ export default function Historia() {
               viewport={viewportConfig}
               className="mb-16 relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16"
             >
-              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full bg-olive border-4 border-offwhite shadow-md z-10" />
+              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full border-4 shadow-md z-10" style={{ background: 'var(--azul-cielo)', borderColor: 'var(--crema)' }} />
               <div className="md:text-right md:pr-12">
-                <p className="text-olive font-medium tracking-wide uppercase text-sm mb-2">1993</p>
-                <h2 className="text-3xl font-serif text-ink mb-4">El origen en Mar del Plata</h2>
-                <div className="space-y-4 text-ink-light font-light leading-relaxed">
+                <p className="font-medium tracking-wide uppercase text-sm mb-2" style={{ color: 'var(--azul-cielo)' }}>1993</p>
+                <h2 className="text-3xl mb-4" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>El origen en Mar del Plata</h2>
+                <div className="space-y-4 font-light leading-relaxed" style={{ color: 'var(--texto-suave)' }}>
                   <p>
                     El Faro abre sus puertas en Mar del Plata de la mano de Alejandro García como una alternativa al consumo problemático de drogas. Inspirado en un modelo humanista, centrado en el vínculo y la persona.
                   </p>
@@ -97,7 +98,7 @@ export default function Historia() {
               viewport={viewportConfig}
               className="mb-16 relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16"
             >
-              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full bg-olive border-4 border-offwhite shadow-md z-10" />
+              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full border-4 shadow-md z-10" style={{ background: 'var(--azul-cielo)', borderColor: 'var(--crema)' }} />
               <div className="hidden md:block md:pr-12">
                 <img
                   src="https://i.postimg.cc/jjh5Wb2K/Adicciones_Valencia_mar_del_plata.jpg"
@@ -107,9 +108,9 @@ export default function Historia() {
                 />
               </div>
               <div className="md:pl-12">
-                <p className="text-olive font-medium tracking-wide uppercase text-sm mb-2">Los primeros años</p>
-                <h2 className="text-3xl font-serif text-ink mb-4">Innovación y crecimiento</h2>
-                <div className="space-y-4 text-ink-light font-light leading-relaxed">
+                <p className="font-medium tracking-wide uppercase text-sm mb-2" style={{ color: 'var(--azul-cielo)' }}>Los primeros años</p>
+                <h2 className="text-3xl mb-4" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>Innovación y crecimiento</h2>
+                <div className="space-y-4 font-light leading-relaxed" style={{ color: 'var(--texto-suave)' }}>
                   <p>
                     El acceso a la formación continua dentro y fuera del país abrió infinitas posibilidades: gestionar diferentes dispositivos terapéuticos para responder a los nuevos paradigmas en torno al consumo y la salud mental.
                   </p>
@@ -128,11 +129,11 @@ export default function Historia() {
               viewport={viewportConfig}
               className="mb-16 relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16"
             >
-              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full bg-olive border-4 border-offwhite shadow-md z-10" />
+              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full border-4 shadow-md z-10" style={{ background: 'var(--azul-cielo)', borderColor: 'var(--crema)' }} />
               <div className="md:text-right md:pr-12">
-                <p className="text-olive font-medium tracking-wide uppercase text-sm mb-2">Identidad</p>
-                <h2 className="text-3xl font-serif text-ink mb-4">Arte, expresión y terapia</h2>
-                <div className="space-y-4 text-ink-light font-light leading-relaxed">
+                <p className="font-medium tracking-wide uppercase text-sm mb-2" style={{ color: 'var(--azul-cielo)' }}>Identidad</p>
+                <h2 className="text-3xl mb-4" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>Arte, expresión y terapia</h2>
+                <div className="space-y-4 font-light leading-relaxed" style={{ color: 'var(--texto-suave)' }}>
                   <p>
                     El rico intercambio entre terapia y arte fue definiendo la identidad del Faro: psicodrama, talleres de expresión emotiva (NIP), teatro, podcast, radio. Espacios donde no solo prima la palabra, sino el cuerpo, la emoción y la creación.
                   </p>
@@ -159,7 +160,7 @@ export default function Historia() {
               viewport={viewportConfig}
               className="mb-16 relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-16"
             >
-              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full bg-gold border-4 border-offwhite shadow-md z-10" />
+              <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-2 w-4 h-4 rounded-full border-4 shadow-md z-10" style={{ background: 'var(--arena)', borderColor: 'var(--crema)' }} />
               <div className="hidden md:block md:pr-12">
                 <img
                   src="https://i.postimg.cc/G3fZ8H3C/Mi-faro-valencia-psicologo.png"
@@ -169,9 +170,9 @@ export default function Historia() {
                 />
               </div>
               <div className="md:pl-12">
-                <p className="text-gold font-medium tracking-wide uppercase text-sm mb-2">Hoy</p>
-                <h2 className="text-3xl font-serif text-ink mb-4">Una raíz, dos territorios</h2>
-                <div className="space-y-4 text-ink-light font-light leading-relaxed">
+                <p className="font-medium tracking-wide uppercase text-sm mb-2" style={{ color: 'var(--arena)' }}>Hoy</p>
+                <h2 className="text-3xl mb-4" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>Una raíz, dos territorios</h2>
+                <div className="space-y-4 font-light leading-relaxed" style={{ color: 'var(--texto-suave)' }}>
                   <p>
                     Alejandro García se instala en Valencia y abre Mi Faro España: un espacio de orientación psicológica y acompañamiento emocional para personas, parejas y familias, con la misma mirada que define al Faro desde 1993.
                   </p>
@@ -182,7 +183,8 @@ export default function Historia() {
                 <div className="mt-6">
                   <Link
                     to="/espana"
-                    className="inline-flex items-center gap-2 text-olive hover:text-olive-light transition-colors font-medium text-sm"
+                    className="inline-flex items-center gap-2 hover:text-olive-light transition-colors font-medium text-sm"
+                    style={{ color: 'var(--azul-cielo)' }}
                   >
                     <Globe size={16} />
                     Ver Mi Faro España
@@ -195,11 +197,11 @@ export default function Historia() {
       </section>
 
       {/* Valores */}
-      <section className="py-24 bg-sand-light">
+      <section className="py-24" style={{ background: 'var(--azul-suave)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif text-ink mb-4">
-              Lo que nos <span className="italic text-olive">define</span>
+            <h2 className="text-4xl md:text-5xl mb-4" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>
+              Lo que nos <span style={{ fontStyle: 'italic', color: 'var(--azul-cielo)' }}>define</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -207,7 +209,7 @@ export default function Historia() {
               {
                 icon: <Heart size={24} />,
                 title: 'Humanista y vincular',
-                desc: 'El centro del tratamiento es la persona, no la patología. Los vínculos —familiares, afectivos, sociales— son parte del proceso desde el primer momento.',
+                desc: 'El centro del tratamiento es la persona, no la patología. Los vínculos -familiares, afectivos, sociales- son parte del proceso desde el primer momento.',
               },
               {
                 icon: <Users size={24} />,
@@ -217,15 +219,15 @@ export default function Historia() {
               {
                 icon: <MapPin size={24} />,
                 title: 'Arraigado en la comunidad',
-                desc: 'El Faro trabaja con la red: familias, amigos, parejas. El entorno no es ajeno al tratamiento —es parte constitutiva del proceso de recuperación.',
+                desc: 'El Faro trabaja con la red: familias, amigos, parejas. El entorno no es ajeno al tratamiento -es parte constitutiva del proceso de recuperación.',
               },
             ].map((v) => (
-              <div key={v.title} className="p-8 rounded-[2rem] bg-offwhite border border-sand text-center">
-                <div className="w-12 h-12 bg-olive/10 rounded-full flex items-center justify-center mb-6 text-olive mx-auto">
+              <div key={v.title} className="p-8 rounded-[2rem] text-center" style={{ background: 'var(--crema)', borderColor: 'var(--borde)', borderWidth: '1px', borderStyle: 'solid' }}>
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto" style={{ background: 'var(--azul-suave)', color: 'var(--azul-cielo)' }}>
                   {v.icon}
                 </div>
-                <h3 className="text-xl font-serif text-ink mb-3">{v.title}</h3>
-                <p className="text-ink-light font-light text-sm leading-relaxed">{v.desc}</p>
+                <h3 className="text-xl mb-3" style={{ fontFamily: 'var(--serif)', color: 'var(--texto)' }}>{v.title}</h3>
+                <p className="font-light text-sm leading-relaxed" style={{ color: 'var(--texto-suave)' }}>{v.desc}</p>
               </div>
             ))}
           </div>

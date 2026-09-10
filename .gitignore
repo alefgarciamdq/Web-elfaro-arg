@@ -1,0 +1,17 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.claude/
+
+# Auditoría local y archivos de prueba
+google-chrome-stable_current_aarch64.rpm
+lighthouse-home-produccion.html
+lighthouse-home.html
+prueba-home.png
+tools/mifaro-auditor/reports/
+.aider*

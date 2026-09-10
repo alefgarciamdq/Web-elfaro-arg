@@ -7,7 +7,7 @@ import CookieBanner from './CookieBanner';
 import { trackWhatsAppClick, trackPhoneClick } from '../utils/telemetry';
 
 const getWhatsAppText = (pathname: string): string => {
-  if (pathname === '/') return 'Si esto te resuena, podemos hablarlo';
+  if (pathname === '/') return 'Si esto te hace ruido, podemos hablar';
   if (pathname.startsWith('/recursos/voces/')) return '¿Te identificas con esta historia? Escribinos';
   if (pathname.startsWith('/recursos/')) return '¿Quieres hablarlo con alguien? Estamos aquí';
   if (pathname.includes('-mar-del-plata')) return '¿Esto describe lo que estás viviendo? Hablemos';

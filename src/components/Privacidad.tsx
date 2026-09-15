@@ -5,9 +5,9 @@ export default function Privacidad() {
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto font-sans">
       <Head>
-        <title>Política de Privacidad | Mi Faro</title>
+        <title>Política de Privacidad | El Faro Argentina</title>
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Política de privacidad de Mi Faro Valencia. Información sobre el tratamiento de datos personales y derechos del usuario." />
+        <meta name="description" content="Política de privacidad de El Faro Argentina. Información sobre el tratamiento de datos personales y derechos del usuario." />
       </Head>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -20,7 +20,7 @@ export default function Privacidad() {
           
           <section>
             <p className="text-lg text-ink-light">
-              En Mi Faro nos tomamos muy en serio la privacidad y la protección de los datos personales de nuestros usuarios. Esta política explica cómo recopilamos, utilizamos y protegemos su información.
+              En El Faro Argentina nos tomamos muy en serio la privacidad y la protección de los datos personales de nuestros usuarios. Esta política explica cómo recopilamos, utilizamos y protegemos su información.
             </p>
           </section>
 

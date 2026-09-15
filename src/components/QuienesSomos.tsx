@@ -210,17 +210,17 @@ export default function QuienesSomos() {
   return (
     <div className="bg-sand-light min-h-screen">
       <Head>
-        <title>Quiénes lo hacemos | El equipo de Mi Faro · Valencia y Argentina</title>
-        <meta name="description" content="Conoce al equipo de Mi Faro: psicólogos, terapeuta familiar, trabajadores sociales y profesionales con trayectoria en salud mental y adicciones en Valencia y Argentina." />
-        <link rel="canonical" href="https://mifaro.es/quienes-lo-hacemos" />
-        <meta property="og:title" content="Quiénes lo hacemos | El equipo de Mi Faro · Valencia y Argentina" />
-        <meta property="og:description" content="Conoce al equipo de Mi Faro: psicólogos, terapeuta familiar, trabajadores sociales y profesionales con más de 30 años de experiencia." />
+        <title>Quiénes lo hacemos | El Faro Argentina</title>
+        <meta name="description" content="Conocé al equipo y la red profesional de El Faro Argentina. Más de 30 años de trabajo en salud mental, adicciones, vínculos y familias." />
+        <link rel="canonical" href="https://programaelfaro.com.ar/quienes-lo-hacemos" />
+        <meta property="og:title" content="Quiénes lo hacemos | El Faro Argentina" />
+        <meta property="og:description" content="Conocé al equipo y la red profesional de El Faro Argentina. Más de 30 años de trabajo en salud mental, adicciones, vínculos y familias." />
         <meta property="og:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830091/mifaro/file_000000009108720a82938bdcbe45a897_2_LswM4gxq.jpg" />
-        <meta property="og:url" content="https://mifaro.es/quienes-lo-hacemos" />
+        <meta property="og:url" content="https://programaelfaro.com.ar/quienes-lo-hacemos" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Quiénes lo hacemos | Mi Faro" />
-        <meta name="twitter:description" content="Conoce al equipo de Mi Faro: psicólogos, terapeuta familiar y profesionales con más de 30 años de experiencia en Valencia y Argentina." />
+        <meta name="twitter:title" content="Quiénes lo hacemos | El Faro Argentina" />
+        <meta name="twitter:description" content="Conocé al equipo y la red profesional de El Faro Argentina. Más de 30 años de trabajo en salud mental, adicciones, vínculos y familias." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830091/mifaro/file_000000009108720a82938bdcbe45a897_2_LswM4gxq.jpg" />
       </Head>
       {/* Hero */}
@@ -255,7 +255,7 @@ export default function QuienesSomos() {
               Equipo interdisciplinar con trayectoria entre España y Argentina
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-ink font-light leading-relaxed mb-6 sm:mb-8">
-              Mi Faro se sostiene en un equipo interdisciplinar y en una red de trayectorias profesionales que articulan experiencia, criterio y acompañamiento entre España y Argentina.
+              El Faro se sostiene en un equipo interdisciplinar y en una red de trayectorias profesionales que articulan experiencia, criterio y acompañamiento entre España y Argentina.
             </p>
             <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed max-w-3xl mb-8 sm:mb-10">
               Nuestro proyecto se nutre de la escucha, del intercambio y del pensamiento compartido. Las reuniones conjuntas permiten que el trabajo se enriquezca a través del diálogo entre equipos, la circulación de experiencias y la puesta en común de recursos profesionales. De ese intercambio entre profesionales del ámbito psicológico, médico y social nace una forma de acompañar que integra distintas miradas, trayectorias y experiencias en el trabajo con personas, familias y vínculos.
@@ -283,12 +283,12 @@ export default function QuienesSomos() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <a 
-                href="tel:+34611568705" 
-                onClick={() => trackPhoneClick('quienes_lo_hacemos', '+34611568705')}
+                href="tel:+5492235923790" 
+                onClick={() => trackPhoneClick('quienes_lo_hacemos', '+5492235923790')}
                 className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
               >
                 <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-                <span className="text-base sm:text-lg md:text-xl font-medium tracking-wider">+34 611 56 87 05</span>
+                <span className="text-base sm:text-lg md:text-xl font-medium tracking-wider">+54 9 223 592 3790</span>
               </a>
             </motion.div>
           </motion.div>
@@ -366,10 +366,10 @@ export default function QuienesSomos() {
           <Link to="/historia" className="text-olive hover:underline font-medium">Nuestra historia</Link>
           <Link to="/contacto" className="text-olive hover:underline font-medium">Contacto</Link>
           <a
-            href="https://wa.me/34611568705"
+            href="https://wa.me/5492235923790"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('quienes_lo_hacemos', 'https://wa.me/34611568705')}
+            onClick={() => trackWhatsAppClick('quienes_lo_hacemos', 'https://wa.me/5492235923790')}
             className="text-olive hover:underline font-medium"
           >
             WhatsApp
@@ -377,7 +377,7 @@ export default function QuienesSomos() {
         </div>
         <div className="w-12 h-px bg-olive mx-auto mt-10" />
         <p className="text-[9px] md:text-[10px] text-ink-light/40 font-light max-w-2xl mx-auto leading-relaxed mt-16 pb-8">
-          * Mi Faro cuenta con profesionales del ámbito de la salud mental, la medicina, la intervención social y el acompañamiento terapéutico. Las titulaciones, habilitaciones y datos profesionales correspondientes se encuentran disponibles para consulta cuando sea necesario. La participación de cada profesional se enmarca en su país, titulación y ámbito de actuación.
+          * El Faro cuenta con profesionales del ámbito de la salud mental, la medicina, la intervención social y el acompañamiento terapéutico. Las titulaciones, habilitaciones y datos profesionales correspondientes se encuentran disponibles para consulta cuando sea necesario. La participación de cada profesional se enmarca en su país, titulación y ámbito de actuación.
         </p>
       </section>
 
@@ -403,10 +403,10 @@ export default function QuienesSomos() {
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <a 
-              href="https://wa.me/34611568705" 
+              href="https://wa.me/5492235923790" 
               target="_blank" 
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('quienes_lo_hacemos_cta', 'https://wa.me/34611568705')}
+              rel="noopener noreferrer" 
+              onClick={() => trackWhatsAppClick('quienes_lo_hacemos_cta', 'https://wa.me/5492235923790')}
               className="inline-flex items-center justify-center gap-3 bg-white text-ink border border-sand/30 px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-sand/10 transition-all font-sans shadow-sm w-full sm:w-auto text-center"
             >
               WhatsApp

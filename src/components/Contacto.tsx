@@ -163,14 +163,14 @@ export default function Contacto() {
                   Escríbenos directamente por mensaje de WhatsApp para una orientación inicial o coordinar una entrevista.
                 </p>
                 <a 
-                  href="https://wa.me/5492235607009" 
+                  href="https://wa.me/5492235923790" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick('contact_card', 'https://wa.me/5492235607009')}
+                  onClick={() => trackWhatsAppClick('contact_card', 'https://wa.me/5492235923790')}
                   className="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-faro-gold text-faro-bg px-10 py-5 rounded-2xl font-semibold tracking-wide text-lg hover:bg-faro-gold/90 transition-all shadow-md"
                 >
                   <MessageCircle size={22} />
-                  Enviar WhatsApp (+54 9 2235 60-7009)
+                  Enviar WhatsApp (+54 9 223 592 3790)
                 </a>
               </div>
 
@@ -341,7 +341,7 @@ export default function Contacto() {
             <div className="space-y-3 text-faro-ink/80 font-light">
               <p className="flex items-center justify-center gap-3"><MapPin size={18} className="text-faro-gold" /> Garay 2073, Mar del Plata, Argentina</p>
               <p className="flex items-center justify-center gap-3"><Phone size={18} className="text-faro-gold" /> Fijo: +54 223 4921953</p>
-              <p className="flex items-center justify-center gap-3"><MessageCircle size={18} className="text-faro-gold" /> WhatsApp: +54 9 2235 60-7009</p>
+              <p className="flex items-center justify-center gap-3"><MessageCircle size={18} className="text-faro-gold" /> WhatsApp: +54 9 223 592 3790</p>
               <p className="flex items-center justify-center gap-3 text-xs opacity-75">Atención de Lunes a Viernes</p>
             </div>
           </div>

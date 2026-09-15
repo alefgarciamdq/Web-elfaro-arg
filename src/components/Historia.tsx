@@ -216,12 +216,12 @@ export default function Historia() {
             <Link to="/quienes-lo-hacemos" className="text-faro-gold hover:underline font-medium">Quiénes lo hacemos</Link>
             <Link to="/contacto" className="text-faro-gold hover:underline font-medium">Contacto Mar del Plata</Link>
             <a
-              href="https://wa.me/5492235607009"
+              href="https://wa.me/5492235923790"
               target="_blank"
               rel="noopener noreferrer"
               className="text-faro-gold hover:underline font-medium"
             >
-              WhatsApp (+54 9 2235 60-7009)
+              WhatsApp (+54 9 223 592 3790)
             </a>
           </div>
         </motion.div>

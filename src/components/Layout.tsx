@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Anchor, MessageSquare } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Menu, X, Phone, Anchor, MessageSquare, ChevronDown } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Head } from 'vite-react-ssg';
 import CookieBanner from './CookieBanner';
@@ -17,14 +17,36 @@ const getWhatsAppText = (pathname: string): string => {
 
 export default function Layout({ children }: { children?: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const location = useLocation();
   const [isWhatsAppExpanded, setIsWhatsAppExpanded] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsDropdownOpen(false);
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   useEffect(() => {
     setIsWhatsAppExpanded(false);
@@ -61,12 +83,33 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
     };
   }, [location.pathname, isWhatsAppExpanded]);
 
-  const navLinks = [
+  const desktopNavLinks = [
     { name: 'Inicio', path: '/' },
-    { name: 'Nuestros Orígenes', path: '/asociacion' },
+    { name: 'Adicciones', path: '/adicciones-mar-del-plata' },
+    { name: 'Psicología', path: '/psicologo-mar-del-plata' },
+    { name: 'Terapia', path: '/terapia-mar-del-plata' },
+  ];
+
+  const elFaroSublinks = [
+    { name: 'Nuestros orígenes', path: '/asociacion' },
     { name: 'Historia', path: '/historia' },
     { name: 'Quiénes lo hacemos', path: '/quienes-lo-hacemos' },
   ];
+
+  const mobileServiceLinks = [
+    { name: 'Adicciones', path: '/adicciones-mar-del-plata' },
+    { name: 'Psicología', path: '/psicologo-mar-del-plata' },
+    { name: 'Terapia', path: '/terapia-mar-del-plata' },
+    { name: 'Cómo pedir ayuda', path: '/como-pedir-ayuda-psicologia-mar-del-plata' },
+  ];
+
+  const mobileInstitutionalLinks = [
+    { name: 'Nuestros orígenes', path: '/asociacion' },
+    { name: 'Historia', path: '/historia' },
+    { name: 'Quiénes lo hacemos', path: '/quienes-lo-hacemos' },
+  ];
+
+  const isElFaroActive = elFaroSublinks.some((link) => location.pathname === link.path);
 
   return (
     <div className="min-h-screen flex flex-col bg-faro-bg text-faro-ink font-sans">
@@ -104,22 +147,27 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                   <Anchor size={24} className="fill-current" />
                 </div>
               )}
-              <span className="font-sans text-[20px] sm:text-[22px] lg:text-[24px] font-semibold tracking-tight text-faro-ink whitespace-nowrap">
-                El Faro Argentina
-              </span>
+              <div className="flex flex-col text-left">
+                <span className="font-sans text-[18px] sm:text-[20px] lg:text-[22px] font-semibold tracking-tight text-faro-ink leading-tight">
+                  EL FARO
+                </span>
+                <span className="font-sans text-[10px] sm:text-[11px] lg:text-[12px] font-normal tracking-wide text-faro-ink/75 leading-none mt-0.5">
+                  Argentina
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center ml-auto gap-4 xl:gap-8">
+            <nav className="hidden lg:flex items-center ml-auto gap-3 xl:gap-6">
               <a 
                 href="tel:+542234921953" 
                 onClick={() => trackPhoneClick('header', '+542234921953')}
-                className="flex items-center gap-2 text-faro-ink hover:text-faro-gold transition-colors group mr-4 shrink-0 whitespace-nowrap"
+                className="flex items-center gap-2 text-faro-ink hover:text-faro-gold transition-colors group mr-2 xl:mr-4 shrink-0 whitespace-nowrap"
               >
                 <Phone size={16} className="text-faro-gold group-hover:scale-110 transition-transform" />
-                <span className="text-sm font-medium tracking-wide">+54 223 4921953</span>
+                <span className="text-xs xl:text-sm font-medium tracking-wide">+54 223 4921953</span>
               </a>
-              {navLinks.map((link) => (
+              {desktopNavLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
@@ -132,9 +180,69 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                   {link.name}
                 </Link>
               ))}
+
+              {/* Dropdown EL FARO */}
+              <div 
+                ref={dropdownRef} 
+                className="relative"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <button
+                  type="button"
+                  onClick={() => setIsDropdownOpen((prev) => !prev)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setIsDropdownOpen((prev) => !prev);
+                    }
+                  }}
+                  aria-expanded={isDropdownOpen}
+                  aria-haspopup="true"
+                  className={`text-xs xl:text-sm tracking-wide uppercase transition-colors whitespace-nowrap flex items-center gap-1 cursor-pointer py-2 ${
+                    isElFaroActive
+                      ? 'text-faro-gold font-medium'
+                      : 'text-faro-ink/80 hover:text-faro-gold'
+                  }`}
+                >
+                  <span>EL FARO</span>
+                  <ChevronDown 
+                    size={14} 
+                    className={`transition-transform duration-200 ${isDropdownOpen ? 'rotate-180 text-faro-gold' : ''}`} 
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {isDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 6 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 w-52 py-2 rounded-2xl bg-faro-bg-alt/95 backdrop-blur-md border border-faro-olive/40 shadow-xl z-50"
+                    >
+                      {elFaroSublinks.map((sublink) => (
+                        <Link
+                          key={sublink.path}
+                          to={sublink.path}
+                          onClick={() => setIsDropdownOpen(false)}
+                          className={`block px-4 py-2 text-xs xl:text-sm font-sans tracking-wide transition-colors ${
+                            location.pathname === sublink.path
+                              ? 'text-faro-gold font-semibold bg-faro-olive/20'
+                              : 'text-faro-ink/85 hover:text-faro-gold hover:bg-faro-olive/15'
+                          }`}
+                        >
+                          {sublink.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <Link
                 to="/contacto"
-                className="bg-faro-gold text-faro-bg px-5 xl:px-6 py-2 xl:py-2.5 rounded-full text-xs xl:text-sm tracking-wide font-semibold uppercase hover:bg-faro-gold/90 transition-colors whitespace-nowrap shadow-md"
+                className="bg-faro-gold text-faro-bg px-5 xl:px-6 py-2 xl:py-2.5 rounded-full text-xs xl:text-sm tracking-wide font-semibold uppercase hover:bg-faro-gold/90 transition-colors whitespace-nowrap shadow-md ml-1"
               >
                 HABLEMOS
               </Link>
@@ -159,31 +267,58 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-faro-bg-alt/80 backdrop-blur-md pt-28 px-4 lg:hidden border-b border-faro-olive/30 flex flex-col items-center"
+            className="fixed inset-0 z-40 bg-faro-bg-alt/95 backdrop-blur-md pt-24 pb-8 px-6 lg:hidden border-b border-faro-olive/30 flex flex-col items-center overflow-y-auto"
           >
-            <nav className="flex flex-col gap-6 items-center w-full max-w-sm">
+            <nav className="flex flex-col gap-4 items-center w-full max-w-sm my-auto">
               <a 
                 href="tel:+542234921953" 
                 onClick={() => trackPhoneClick('header_mobile', '+542234921953')}
-                className="flex items-center gap-3 text-faro-ink hover:text-faro-gold transition-colors py-2"
+                className="flex items-center gap-2.5 text-faro-ink hover:text-faro-gold transition-colors py-1 mb-2"
               >
-                <Phone size={20} className="text-faro-gold" />
-                <span className="text-xl font-medium tracking-wide">+54 223 4921953</span>
+                <Phone size={18} className="text-faro-gold" />
+                <span className="text-lg font-medium tracking-wide">+54 223 4921953</span>
               </a>
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`text-xl font-serif ${
-                    location.pathname === link.path ? 'text-faro-gold' : 'text-faro-ink'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+
+              {/* Grupo 1: Servicios */}
+              <div className="flex flex-col gap-3 items-center w-full">
+                {mobileServiceLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`text-xl font-serif tracking-wide transition-colors ${
+                      location.pathname === link.path ? 'text-faro-gold font-medium' : 'text-faro-ink'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Separación visual */}
+              <div className="w-16 h-px bg-faro-olive/40 my-1" />
+
+              {/* Grupo 2: Institucional */}
+              <div className="flex flex-col gap-2.5 items-center w-full">
+                {mobileInstitutionalLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className={`text-base font-serif tracking-wide transition-colors ${
+                      location.pathname === link.path ? 'text-faro-gold font-medium' : 'text-faro-ink/80'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Separación visual */}
+              <div className="w-16 h-px bg-faro-olive/40 my-1" />
+
+              {/* Botón HABLEMOS */}
               <Link
                 to="/contacto"
-                className="w-full text-center bg-faro-gold text-faro-bg font-semibold px-8 py-3 rounded-full text-sm tracking-wide uppercase hover:bg-faro-gold/90 transition-colors mt-4 shadow-md"
+                className="w-full text-center bg-faro-gold text-faro-bg font-semibold px-8 py-3 rounded-full text-sm tracking-wide uppercase hover:bg-faro-gold/90 transition-colors shadow-md mt-2"
               >
                 HABLEMOS
               </Link>
@@ -211,10 +346,10 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3 sm:gap-4 items-end scale-90 sm:scale-100 origin-bottom-right">
         {/* WhatsApp */}
         <a
-          href="https://wa.me/5492235607009"
+          href="https://wa.me/5492235923790"
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackWhatsAppClick('floating_button', 'https://wa.me/5492235607009')}
+          onClick={() => trackWhatsAppClick('floating_button', 'https://wa.me/5492235923790')}
           className={`bg-[#25D366] text-white h-14 rounded-full shadow-lg hover:scale-105 motion-safe:transition-all duration-500 ease-out flex items-center overflow-hidden whitespace-nowrap select-none ${
             isWhatsAppExpanded ? 'max-w-[450px] px-4 gap-2.5' : 'max-w-[56px] w-14 justify-center px-0'
           }`}
@@ -288,13 +423,13 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                     Fijo: +54 223 4921953
                   </a>
                   <a 
-                    href="https://wa.me/5492235607009" 
+                    href="https://wa.me/5492235923790" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    onClick={() => trackWhatsAppClick('footer', 'https://wa.me/5492235607009')}
+                    onClick={() => trackWhatsAppClick('footer', 'https://wa.me/5492235923790')}
                     className="hover:text-faro-gold transition-colors block mt-1"
                   >
-                    WhatsApp: +54 9 2235 60-7009
+                    WhatsApp: +54 9 223 592 3790
                   </a>
                 </li>
               </ul>

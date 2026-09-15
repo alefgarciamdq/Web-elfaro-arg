@@ -5,9 +5,9 @@ export default function AvisoLegal() {
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto font-sans">
       <Head>
-        <title>Aviso Legal | Mi Faro</title>
+        <title>Aviso Legal | El Faro Argentina</title>
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Aviso legal de Mi Faro Valencia. Información sobre titularidad, condiciones de uso y propiedad intelectual del sitio web." />
+        <meta name="description" content="Aviso legal de El Faro Argentina. Información sobre titularidad, condiciones de uso y propiedad intelectual del sitio web." />
       </Head>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -20,7 +20,7 @@ export default function AvisoLegal() {
           
           <section>
             <p className="text-lg text-ink-light">
-              El presente Aviso Legal regula el acceso, navegación y uso del sitio web de Mi Faro, así como las responsabilidades derivadas de la utilización de sus contenidos.
+              El presente Aviso Legal regula el acceso, navegación y uso del sitio web de El Faro Argentina, así como las responsabilidades derivadas de la utilización de sus contenidos.
             </p>
           </section>
 

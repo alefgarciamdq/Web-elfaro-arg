@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div className="bg-offwhite min-h-screen flex items-center justify-center pt-20">
       <Head>
-        <title>Página no encontrada | Mi Faro</title>
+        <title>Página no encontrada | El Faro Argentina</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -42,7 +42,7 @@ export default function NotFound() {
               className="inline-flex items-center gap-2 bg-offwhite border border-sand text-ink px-8 py-4 rounded-full text-sm font-medium tracking-wide uppercase hover:bg-sand-light transition-colors w-full sm:w-auto justify-center"
             >
               <MessageSquare size={18} />
-              Hablar con Mi Faro
+              Hablar con El Faro
               <ArrowRight size={16} />
             </Link>
           </div>

@@ -46,13 +46,13 @@ export default function PsicologoMarDelPlata() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://wa.me/5492235607009"
+              href="https://wa.me/5492235923790"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('placeholder_psicologo', 'https://wa.me/5492235607009')}
+              onClick={() => trackWhatsAppClick('placeholder_psicologo', 'https://wa.me/5492235923790')}
               className="inline-flex items-center justify-center gap-3 bg-ink text-white px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-ink-light transition-all shadow-md"
             >
-              Escribinos por WhatsApp (+54 9 2235 60-7009)
+              Escribinos por WhatsApp (+54 9 223 592 3790)
               <ArrowRight size={18} />
             </a>
           </div>

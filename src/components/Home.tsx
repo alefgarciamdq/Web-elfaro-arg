@@ -61,7 +61,7 @@ export default function Home() {
           },
           {
             "@type": "ContactPoint",
-            "telephone": "+54-9-2235-60-7009",
+            "telephone": "+54 9 223 592 3790",
             "contactType": "customer service",
             "areaServed": "AR",
             "availableLanguage": ["Spanish"]
@@ -155,10 +155,10 @@ export default function Home() {
                 <ArrowRight size={18} />
               </Link>
               <a 
-                href="https://wa.me/5492235607009" 
+                href="https://wa.me/5492235923790" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('hero_section', 'https://wa.me/5492235607009')}
+                onClick={() => trackWhatsAppClick('hero_section', 'https://wa.me/5492235923790')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-faro-bg-alt text-faro-ink border border-faro-olive/40 px-10 py-5 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-faro-olive/30 transition-all font-sans shadow-sm"
               >
                 Escribinos por WhatsApp
@@ -185,14 +185,14 @@ export default function Home() {
             </a>
             <span className="hidden sm:inline text-faro-olive font-light">•</span>
             <a
-              href="https://wa.me/34611568705"
+              href="https://wa.me/5492235923790"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('hero_section_tel', 'https://wa.me/34611568705')}
+              onClick={() => trackWhatsAppClick('hero_section_tel', 'https://wa.me/5492235923790')}
               className="inline-flex items-center gap-3 text-faro-ink hover:text-faro-gold transition-colors group"
             >
               <PhoneCall size={22} className="text-faro-gold group-hover:scale-110 transition-transform" />
-              <span className="text-lg md:text-xl font-medium tracking-wider">+34 611 568 705</span>
+              <span className="text-lg md:text-xl font-medium tracking-wider">+54 9 223 592 3790</span>
             </a>
           </motion.div>
         </div>
@@ -464,7 +464,7 @@ export default function Home() {
               </div>
               <div className="mt-8 pt-4 border-t border-faro-olive/30 text-center lg:text-left">
                 <span className="text-xs font-semibold uppercase tracking-wider text-faro-gold bg-faro-gold/10 px-3 py-1.5 rounded-full">
-                  Tel. +54 223 4921953 / +54 9 2235 60-7009
+                  Tel. +54 223 4921953 / +54 9 223 592 3790
                 </span>
               </div>
             </div>

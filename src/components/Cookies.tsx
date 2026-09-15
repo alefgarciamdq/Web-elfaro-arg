@@ -5,9 +5,9 @@ export default function Cookies() {
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto font-sans">
       <Head>
-        <title>Política de Cookies | Mi Faro</title>
+        <title>Política de Cookies | El Faro Argentina</title>
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content="Política de cookies de Mi Faro Valencia. Información sobre el uso de cookies técnicas en el sitio web." />
+        <meta name="description" content="Política de cookies de El Faro Argentina. Información sobre el uso de cookies técnicas en el sitio web." />
       </Head>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ export default function Cookies() {
           <section>
             <h2 className="text-xl font-medium text-ink mb-4 uppercase tracking-wide">2. ¿Qué tipos de cookies utilizamos?</h2>
             <p className="text-ink-light mb-4">
-              En el sitio web de Mi Faro utilizamos las siguientes categorías de cookies:
+              En el sitio web de El Faro Argentina utilizamos las siguientes categorías de cookies:
             </p>
             <ul className="list-disc pl-6 space-y-4 text-ink-light">
               <li>

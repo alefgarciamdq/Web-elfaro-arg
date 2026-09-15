@@ -89,7 +89,7 @@ El proyecto incluye dos sistemas de color integrados en `@theme`:
 
 1. **`src/components/Layout.tsx`**:
    - **Navbar**: Estilizado con `bg-faro-bg-alt/80 backdrop-blur-md`, marca "El Faro Argentina", teléfono fijo de Mar del Plata (`+54 223 4921953`) y botón CTA "HABLEMOS".
-   - **Floating WhatsApp**: Botón flotante desplegable adaptado a Mar del Plata (`+54 9 2235 60-7009`).
+   - **Floating WhatsApp**: Botón flotante desplegable adaptado a Mar del Plata (`+54 9 223 592 3790`).
    - **Footer**: Información institucional de la sede en Garay 2073, Mar del Plata, enlaces legales y navegación principal.
 
 2. **`src/components/Home.tsx`**:

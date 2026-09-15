@@ -102,13 +102,13 @@ export default function Asociacion() {
               <ArrowRight size={18} />
             </Link>
             <a
-              href="https://wa.me/5492235607009"
+              href="https://wa.me/5492235923790"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('asociacion_whatsapp', 'https://wa.me/5492235607009')}
+              onClick={() => trackWhatsAppClick('asociacion_whatsapp', 'https://wa.me/5492235923790')}
               className="inline-flex items-center justify-center gap-3 bg-faro-bg-alt text-faro-ink border border-faro-olive/40 px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-faro-olive/30 transition-all font-sans shadow-sm"
             >
-              Escribinos por WhatsApp (+54 9 2235 60-7009)
+              Escribinos por WhatsApp (+54 9 223 592 3790)
             </a>
           </div>
         </div>

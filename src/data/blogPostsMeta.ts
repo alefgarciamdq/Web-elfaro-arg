@@ -419,7 +419,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     "id": "por-que-cuesta-salir-relacion-toxica-valencia",
     "title": "¿Por qué cuesta tanto salir de una relación que hace daño?",
     "excerpt": "Sabes que esa relación te hace daño, y aun así, volver parece más fácil que marcharte. Te explicamos qué papel juegan el refuerzo intermitente y el vínculo traumático — y qué ayuda a romper el ciclo.",
-    "imageUrl": "/por-que-cuesta-salir-relacion-toxica.jpg",
+    "imageUrl": "/por-que-cuesta-salir-relacion-toxica.webp",
     "imagePosition": "object-[90%_50%]",
     "date": "26 de Julio, 2026",
     "publishedAt": "2026-07-26",

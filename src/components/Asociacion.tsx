@@ -25,12 +25,14 @@ export default function Asociacion() {
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Programa El Faro - Mar del Plata",
-        "description": "Modelo comunitario no-residencial de acompañamiento emocional y consumos problemáticos en Mar del Plata.",
+        "name": "Asociación Civil Arco Baleno",
+        "legalName": "Asociación Civil Arco Baleno",
+        "taxID": "30-68558066-3",
+        "description": "Entidad civil sin fines de lucro titular de El Faro en Mar del Plata. Modelo comunitario no-residencial de acompañamiento emocional y consumos problemáticos.",
         "url": "https://programaelfaro.com.ar/asociacion",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Garay 2073",
+          "streetAddress": "Alvarado 3001",
           "addressLocality": "Mar del Plata",
           "addressRegion": "Buenos Aires",
           "addressCountry": "AR"
@@ -102,10 +104,10 @@ export default function Asociacion() {
               <ArrowRight size={18} />
             </Link>
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('asociacion_whatsapp', 'https://wa.me/5492235923790')}
+              onClick={() => trackWhatsAppClick('asociacion_whatsapp', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
               className="inline-flex items-center justify-center gap-3 bg-faro-bg-alt text-faro-ink border border-faro-olive/40 px-8 py-4 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-faro-olive/30 transition-all font-sans shadow-sm"
             >
               Escribinos por WhatsApp (+54 9 223 592 3790)

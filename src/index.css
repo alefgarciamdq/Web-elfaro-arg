@@ -35,8 +35,8 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-offwhite);
-  color: var(--color-ink);
+  background-color: var(--color-faro-bg);
+  color: var(--color-faro-ink);
   -webkit-font-smoothing: antialiased;
 }
 

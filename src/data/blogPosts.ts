@@ -5049,7 +5049,7 @@ Según los datos disponibles, el factor protector más consistente ha sido la re
     metaTitle: '¿Por qué cuesta salir de una relación tóxica? | Refuerzo intermitente y vínculo traumático',
     metaDescription: 'Muchas personas saben que una relación les hace daño y, aun así, no consiguen salir. Descubre qué papel juegan el refuerzo intermitente y el vínculo traumático.',
     excerpt: 'Sabes que esa relación te hace daño, y aun así, volver parece más fácil que marcharte. Te explicamos qué papel juegan el refuerzo intermitente y el vínculo traumático — y qué ayuda a romper el ciclo.',
-    imageUrl: '/por-que-cuesta-salir-relacion-toxica.jpg',
+    imageUrl: '/por-que-cuesta-salir-relacion-toxica.webp',
     imagePosition: 'object-[90%_50%]',
     date: '26 de Julio, 2026',
     publishedAt: '2026-07-26',

@@ -46,18 +46,38 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://programaelfaro.com.ar/aviso-legal</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://programaelfaro.com.ar/voces</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://programaelfaro.com.ar/privacidad</loc>
+    <loc>https://programaelfaro.com.ar/voces/maria-hijo-adicciones-mar-del-plata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://programaelfaro.com.ar/cookies</loc>
+    <loc>https://programaelfaro.com.ar/voces/andres-adicciones-mar-del-plata</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://programaelfaro.com.ar/voces/carlos-hija-adicciones-mar-del-plata</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://programaelfaro.com.ar/lecturas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://programaelfaro.com.ar/lecturas/como-saber-cuando-un-consumo-se-volvio-problematico</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://programaelfaro.com.ar/lecturas/cuando-las-adicciones-organizan-la-vida-familiar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

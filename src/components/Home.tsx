@@ -6,7 +6,7 @@ import { Head } from 'vite-react-ssg';
 import JsonLd from './JsonLd';
 import ReviewsBlock from './ReviewsBlock';
 import VoicesCarousel from './VoicesCarousel';
-import RelatedArticles from './RelatedArticles';
+import LecturasDelFaro from './LecturasDelFaro';
 import AnimatedStepLoop from './guide/AnimatedStepLoop';
 import { fadeUp, viewportConfig } from '../utils/animations';
 import { trackWhatsAppClick, trackPhoneClick } from '../utils/telemetry';
@@ -15,33 +15,36 @@ export default function Home() {
   return (
     <div className="bg-faro-bg text-faro-ink min-h-screen">
       <Head>
-        <title>tratamiento de adicciones en Mar del Plata | El Faro</title>
+        <title>Tratamiento de adicciones en Mar del Plata | El Faro</title>
         <meta name="description" content="Centro de adicciones en Mar del Plata. Tratamiento ambulatorio, salud mental y trabajo con familias desde 1993." />
         <meta property="og:title" content="El Faro | Tratamiento de adicciones y salud mental en Mar del Plata" />
         <meta property="og:description" content="Más de treinta años de trabajo con personas, familias y comunidad frente a consumos problemáticos y malestar emocional." />
         <meta property="og:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/mifaro/hero-hombre-faro-atlantico" />
-        <meta property="og:url" content="https://programaelfaro.com.ar" />
+        <meta property="og:url" content="https://programaelfaro.com.ar/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="El Faro | Tratamiento de adicciones y salud mental en Mar del Plata" />
         <meta name="twitter:description" content="Tratamiento ambulatorio, salud mental y trabajo con familias desde 1993." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/mifaro/hero-hombre-faro-atlantico" />
-        <link rel="canonical" href="https://programaelfaro.com.ar" />
-        <link rel="alternate" hrefLang="es-AR" href="https://programaelfaro.com.ar" />
+        <link rel="canonical" href="https://programaelfaro.com.ar/" />
+        <link rel="alternate" hrefLang="es-AR" href="https://programaelfaro.com.ar/" />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="preload" as="image" href="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/mifaro/hero-hombre-faro-atlantico" fetchPriority="high" />
       </Head>
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "El Faro Argentina",
-        "url": "https://programaelfaro.com.ar"
+        "url": "https://programaelfaro.com.ar/"
       }} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "El Faro Argentina",
-        "url": "https://programaelfaro.com.ar",
-        "logo": "https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830171/mifaro/Mi_faro_wvHsGngJ.png",
+        "legalName": "Asociación Civil Arco Baleno",
+        "taxID": "30-68558066-3",
+        "url": "https://programaelfaro.com.ar/",
+        "logo": "https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830147/mifaro/IMG-0990_mgVHpGR8.jpg",
         "description": "Centro de orientación, acompañamiento humanista y dispositivos no-residenciales en adicciones y salud mental en Mar del Plata, Argentina.",
         "address": {
           "@type": "PostalAddress",
@@ -77,8 +80,10 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Programa El Faro - Mar del Plata",
+        "legalName": "Asociación Civil Arco Baleno",
+        "taxID": "30-68558066-3",
         "description": "Dispositivos no-residenciales, centro de día, mediodía, psicoterapia individual, familiar y talleres en Mar del Plata.",
-        "url": "https://programaelfaro.com.ar",
+        "url": "https://programaelfaro.com.ar/",
         "telephone": "+542234921953",
         "address": {
           "@type": "PostalAddress",
@@ -117,17 +122,19 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-20">
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-7xl font-serif text-faro-ink mb-10 leading-tight"
+            className="mb-10"
           >
-            ¿Cuánto más tenés que pasar para que puedas pedir ayuda?
-            <span className="block text-lg sm:text-xl md:text-2xl font-sans text-faro-ink/75 font-normal tracking-wide mt-6">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif text-faro-ink leading-tight">
+              ¿Cuánto más tenés que pasar para que puedas pedir ayuda?
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl font-sans text-faro-ink/75 font-normal tracking-wide mt-6">
               Tratamiento de adicciones y salud mental en Mar del Plata. Desde 1993.
-            </span>
-          </motion.h1>
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -136,7 +143,7 @@ export default function Home() {
             className="text-xl md:text-2xl font-serif text-faro-ink/85 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             <p>
-              En El Faro no te dejamos solo con lo que te pasa. Escuchamos, ordenamos y juntos pensamos cómo seguir. Trabajamos con personas que atraviesan consumos problemáticos, adicciones y otra dependecnias, y con familias que ya no encuentran cómo sostener la situación.
+              En El Faro no estás solo con lo que te pasa. Estamos con vos. Escuchamos, ordenamos y juntos pensamos cómo seguir. Trabajamos con personas que atraviesan consumos problemáticos, adicciones y otras dependencias, y con familias que ya no encuentran cómo sostener la situación.
             </p>
           </motion.div>
 
@@ -155,10 +162,10 @@ export default function Home() {
                 <ArrowRight size={18} />
               </Link>
               <a 
-                href="https://wa.me/5492235923790" 
+                href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
                 target="_blank" 
                 rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('hero_section', 'https://wa.me/5492235923790')}
+                onClick={() => trackWhatsAppClick('hero_section', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-faro-bg-alt text-faro-ink border border-faro-olive/40 px-10 py-5 rounded-full text-sm font-semibold tracking-widest uppercase hover:bg-faro-olive/30 transition-all font-sans shadow-sm"
               >
                 Escribinos por WhatsApp
@@ -185,10 +192,10 @@ export default function Home() {
             </a>
             <span className="hidden sm:inline text-faro-olive font-light">•</span>
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('hero_section_tel', 'https://wa.me/5492235923790')}
+              onClick={() => trackWhatsAppClick('hero_section_tel', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
               className="inline-flex items-center gap-3 text-faro-ink hover:text-faro-gold transition-colors group"
             >
               <PhoneCall size={22} className="text-faro-gold group-hover:scale-110 transition-transform" />
@@ -240,20 +247,26 @@ export default function Home() {
               El Faro es una institución de Mar del Plata fundada en 1993 por Alejandro García. Hace más de treinta años trabajamos en adicciones, salud mental, familias, grupos y comunidad.
             </p>
             <p className="text-faro-ink/80 max-w-3xl mx-auto font-light text-xl leading-relaxed">
-              Somos un centro de adicciones con una forma de trabajo humana, profesional y no residencial. Recibimos a personas que necesitan tratar un consumo, ordenar una crisis, recuperar un vínculo o volver a encontrar un lugar propio en su vida cotidiana. La familia también tiene un espacio dentro del proceso.
+              Somos un centro de salud mental y adicciones con una metodología cercana, humana, profesional y no residencial. Recibimos a personas que necesitan tratar un consumo, ordenar una crisis, recuperar un vínculo o volver a encontrar un lugar propio en su vida cotidiana. La familia también tiene un espacio dentro del proceso.
             </p>
           </motion.div>
 
           <div className="mb-20 rounded-[3rem] overflow-hidden shadow-sm border border-faro-olive/30 group">
-            <img 
-              src="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto,w_900/v1779830127/mifaro/Psicologo-Mar-del-Plata_fbDW2Xz3.jpg"
-              alt="El Faro Argentina en Mar del Plata" 
-              className="w-full h-auto max-h-[600px] object-cover transition-transform duration-[3000ms] hover:scale-105 opacity-90"
-              referrerPolicy="no-referrer"
-              decoding="async"
-              width={900}
-              height={600}
-            />
+            <picture className="w-full h-full block">
+              <source 
+                type="image/webp" 
+                srcSet="/adicciones/adicciones-encuentro-terapeutico-el-faro.webp" 
+              />
+              <img 
+                src="/adicciones/adicciones-encuentro-terapeutico-el-faro.jpg"
+                alt="Encuentro de orientación y acompañamiento terapéutico en El Faro" 
+                className="w-full h-auto max-h-[600px] object-cover object-[center_35%] md:object-center transition-transform duration-[3000ms] hover:scale-105 opacity-90"
+                loading="lazy"
+                decoding="async"
+                width={1536}
+                height={1024}
+              />
+            </picture>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -272,7 +285,7 @@ export default function Home() {
             <div className="bg-faro-bg-alt/80 p-10 rounded-[2rem] border border-faro-olive/30 shadow-sm hover:border-faro-gold/40 transition-colors">
               <h3 className="text-xl font-serif text-faro-ink mb-4">La familia no queda afuera</h3>
               <p className="text-faro-ink/75 font-light text-sm leading-relaxed">
-                Cuando hay consumos problemáticos, todo el entorno se ve afectado. Trabajamos con madres, padres, parejas, hermanos y personas cercanas.
+                Cuando hay una crisis existencial o emocional, una pérdida o consumos problemáticos, todo el entorno se ve afectado. Trabajamos con madres, padres, parejas, hermanos y personas cercanas.
               </p>
             </div>
           </div>
@@ -295,40 +308,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Guía Conversacional */}
-      <section className="py-12 bg-faro-bg border-b border-faro-olive/20 pb-6">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-faro-bg-alt/60 p-8 rounded-[2.5rem] border border-faro-olive/30 shadow-sm">
-            <h3 className="text-2xl font-serif text-faro-ink mb-4">No hace falta tener todo resuelto para venir</h3>
-            <p className="text-faro-ink/80 font-light mb-6">
-              A veces hay una situación que se repite o una preocupación que ya ocupa demasiado lugar en la casa, en el trabajo o en los vínculos. La primera entrevista permite frenar, mirar lo que está pasando y pensar por dónde empezar.
-            </p>
-            <Link 
-              to="/como-pedir-ayuda-psicologia-mar-del-plata"
-              className="text-faro-gold font-medium border-b border-faro-gold pb-1 hover:text-faro-ink hover:border-faro-ink transition-colors inline-flex items-center gap-2 group"
-            >
-              Conocer cómo podemos ayudarte
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Guías de Orientación y Reconocimiento */}
+      <section className="py-16 sm:py-20 bg-faro-bg border-b border-faro-olive/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="bg-faro-bg-alt/60 p-8 sm:p-10 rounded-[2.5rem] border border-faro-olive/30 shadow-sm flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-serif text-faro-ink mb-4">No hace falta tener todo resuelto para venir</h3>
+                <p className="text-faro-ink/80 font-light leading-relaxed mb-6">
+                  A veces hay una situación que se repite o una preocupación que ya ocupa demasiado lugar en la casa, en el trabajo o en los vínculos. La primera entrevista permite frenar, mirar lo que está pasando y pensar por dónde empezar.
+                </p>
+              </div>
+              <div className="pt-2">
+                <Link 
+                  to="/como-pedir-ayuda-psicologia-mar-del-plata"
+                  className="text-faro-gold font-medium border-b border-faro-gold pb-1 hover:text-faro-ink hover:border-faro-ink transition-colors inline-flex items-center gap-2 group"
+                >
+                  Conocer cómo podemos ayudarte
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
 
-      {/* Guía de Reconocimiento de Adicciones */}
-      <section className="py-6 bg-faro-bg border-b border-faro-olive/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-faro-bg-alt/60 p-8 rounded-[2.5rem] border border-faro-olive/30 shadow-sm">
-            <h3 className="text-2xl font-serif text-faro-ink mb-4">Cuando el consumo empieza a ordenar la vida de todos</h3>
-            <p className="text-faro-ink/80 font-light mb-6">
-              El consumo problemático no siempre aparece de golpe. Puede empezar con cambios de ánimo, aislamiento, mentiras, deudas o conflictos en casa. En El Faro trabajamos sin culpas ni etiquetas rápidas, pero sin minimizar lo que está pasando.
-            </p>
-            <Link 
-              to="/adicciones-mar-del-plata"
-              className="text-faro-gold font-medium border-b border-faro-gold pb-1 hover:text-faro-ink hover:border-faro-ink transition-colors inline-flex items-center gap-2 group"
-            >
-              Ver tratamiento de adicciones
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+            <div className="bg-faro-bg-alt/60 p-8 sm:p-10 rounded-[2.5rem] border border-faro-olive/30 shadow-sm flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-serif text-faro-ink mb-4">Cuando el consumo empieza a ordenar la vida de todos</h3>
+                <p className="text-faro-ink/80 font-light leading-relaxed mb-6">
+                  El consumo problemático no siempre aparece de golpe. Puede empezar con cambios de ánimo, aislamiento, mentiras, deudas o conflictos en casa. En El Faro trabajamos sin culpas ni etiquetas rápidas, pero sin minimizar lo que está pasando.
+                </p>
+              </div>
+              <div className="pt-2">
+                <Link 
+                  to="/adicciones-mar-del-plata"
+                  className="text-faro-gold font-medium border-b border-faro-gold pb-1 hover:text-faro-ink hover:border-faro-ink transition-colors inline-flex items-center gap-2 group"
+                >
+                  Ver tratamiento de adicciones
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -356,7 +374,7 @@ export default function Home() {
               <ShieldCheck size={24} className="text-faro-gold mb-4" />
               <h3 className="text-2xl font-serif text-faro-ink mb-3 group-hover:text-faro-gold transition-colors">Centro de Día y Mediodía</h3>
               <p className="text-faro-ink/75 font-light leading-relaxed mb-6 text-sm flex-grow">
-                Dispositivos no residenciales para quienes necesitan más presencia terapéutica durante la semana. Una alternativa de rehabilitación de drogas sin internación, integrada a la vida personal, familiar y comunitaria.
+                Dispositivos no residenciales para quienes necesitan más presencia terapéutica durante la semana. Una alternativa de tratamiento y rehabilitación integrada a la vida personal, familiar y comunitaria.
               </p>
               <span className="text-faro-gold font-medium text-xs uppercase tracking-widest flex items-center gap-2">Tratamiento ambulatorio</span>
             </div>
@@ -423,10 +441,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-serif text-faro-ink mb-4">
-              El Faro, centro de adicciones en <span className="italic text-faro-gold">Mar del Plata</span>
+              El Faro, Centro de Salud Mental y Adicciones en <span className="italic text-faro-gold">Mar del Plata</span>
             </h2>
             <p className="text-faro-ink/80 max-w-2xl mx-auto font-light text-lg">
-              Trabajamos con personas y familias que necesitan un lugar serio, cercano y profesional para tratar consumos problemáticos, alcoholismo, crisis emocionales y dificultades vinculares.
+              Acompañamos a personas y familias que necesitan un lugar cercano y profesional para resolver consumos problemáticos, alcoholismo, crisis emocionales y dificultades vinculares.
             </p>
           </motion.div>
 
@@ -476,14 +494,14 @@ export default function Home() {
                     <Network size={28} />
                   </div>
                 </div>
-                <h3 className="text-2xl font-serif text-faro-ink mb-4 text-center lg:text-left">Tratamiento sin internación</h3>
+                <h3 className="text-2xl font-serif text-faro-ink mb-4 text-center lg:text-left">Tratamiento integral</h3>
                 <p className="text-faro-ink/75 font-light text-sm leading-relaxed text-center lg:text-left">
-                  Centro de día, centro de mediodía, grupos, psicoterapia y trabajo familiar para sostener procesos intensivos sin cortar los lazos con la vida cotidiana.
+                  Psicoterapia individual y grupal, trabajo con familias, Centro de Día, Centro de Mediodía y otros espacios terapéuticos que se articulan de acuerdo con cada situación.
                 </p>
               </div>
               <div className="mt-8 pt-4 border-t border-faro-olive/30 text-center lg:text-left">
                 <span className="text-xs font-semibold uppercase tracking-wider text-faro-gold bg-faro-gold/10 px-3 py-1.5 rounded-full">
-                  Acompañamiento integral
+                  TRATAMIENTO INTEGRAL
                 </span>
               </div>
             </div>
@@ -532,7 +550,7 @@ export default function Home() {
                   to="/historia"
                   className="inline-flex items-center gap-2 text-faro-ink font-medium hover:text-faro-gold transition-colors border-b border-faro-ink hover:border-faro-gold pb-1"
                 >
-                  Conoce nuestra historia
+                  Conocé nuestra historia
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -633,7 +651,8 @@ export default function Home() {
       {/* Rutas del Faro (dynamic reviews block) */}
       <ReviewsBlock dark />
 
-      <RelatedArticles limit={3} variant="dark" />
+      {/* Lecturas del Faro (6 contenidos editoriales con procedencia Mar del Plata y Valencia) */}
+      <LecturasDelFaro variant="dark" />
 
       {/* Invitación Red */}
       <section className="py-24 bg-faro-bg-alt/60 border-t border-faro-olive/30">

@@ -1,15 +1,16 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Anchor, MessageSquare, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Anchor, MessageSquare, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Head } from 'vite-react-ssg';
 import CookieBanner from './CookieBanner';
 import { trackWhatsAppClick, trackPhoneClick } from '../utils/telemetry';
 
 const getWhatsAppText = (pathname: string): string => {
   if (pathname === '/') return 'Si esto te hace ruido, podemos hablar';
-  if (pathname.startsWith('/recursos/voces/')) return '¿Te identificas con esta historia? Escribinos';
-  if (pathname.startsWith('/recursos/')) return '¿Quieres hablarlo con alguien? Estamos aquí';
+  if (pathname.startsWith('/voces')) return '¿Te identificás con esta historia? Escribinos';
+  if (pathname.startsWith('/lecturas')) return '¿Querés hablarlo con alguien? Estamos acá';
+  if (pathname.startsWith('/recursos/voces/')) return '¿Te identificás con esta historia? Escribinos';
+  if (pathname.startsWith('/recursos/')) return '¿Querés hablarlo con alguien? Estamos acá';
   if (pathname.includes('-mar-del-plata')) return '¿Esto describe lo que estás viviendo? Hablemos';
 
   return 'Escribinos por WhatsApp';
@@ -88,6 +89,8 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
     { name: 'Adicciones', path: '/adicciones-mar-del-plata' },
     { name: 'Psicología', path: '/psicologo-mar-del-plata' },
     { name: 'Terapia', path: '/terapia-mar-del-plata' },
+    { name: 'Voces', path: '/voces' },
+    { name: 'Lecturas', path: '/lecturas' },
   ];
 
   const elFaroSublinks = [
@@ -101,6 +104,11 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
     { name: 'Psicología', path: '/psicologo-mar-del-plata' },
     { name: 'Terapia', path: '/terapia-mar-del-plata' },
     { name: 'Cómo pedir ayuda', path: '/como-pedir-ayuda-psicologia-mar-del-plata' },
+  ];
+
+  const mobileEditorialLinks = [
+    { name: 'Las Voces del Faro', path: '/voces' },
+    { name: 'Lecturas del Faro', path: '/lecturas' },
   ];
 
   const mobileInstitutionalLinks = [
@@ -212,33 +220,46 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                   />
                 </button>
 
-                <AnimatePresence>
-                  {isDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 6 }}
-                      transition={{ duration: 0.15 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 w-52 py-2 rounded-2xl bg-faro-bg-alt/95 backdrop-blur-md border border-faro-olive/40 shadow-xl z-50"
+                <div
+                  className={`absolute top-full left-1/2 -translate-x-1/2 w-52 py-2 rounded-2xl bg-faro-bg-alt/95 backdrop-blur-md border border-faro-olive/40 shadow-xl z-50 transition-all duration-150 ease-out motion-reduce:transition-none ${
+                    isDropdownOpen
+                      ? 'opacity-100 translate-y-0 pointer-events-auto visible'
+                      : 'opacity-0 translate-y-1.5 pointer-events-none invisible'
+                  }`}
+                  aria-hidden={!isDropdownOpen}
+                >
+                  {elFaroSublinks.map((sublink) => (
+                    <Link
+                      key={sublink.path}
+                      to={sublink.path}
+                      onClick={() => setIsDropdownOpen(false)}
+                      className={`block px-4 py-2 text-xs xl:text-sm font-sans tracking-wide transition-colors ${
+                        location.pathname === sublink.path
+                          ? 'text-faro-gold font-semibold bg-faro-olive/20'
+                          : 'text-faro-ink/85 hover:text-faro-gold hover:bg-faro-olive/15'
+                      }`}
                     >
-                      {elFaroSublinks.map((sublink) => (
-                        <Link
-                          key={sublink.path}
-                          to={sublink.path}
-                          onClick={() => setIsDropdownOpen(false)}
-                          className={`block px-4 py-2 text-xs xl:text-sm font-sans tracking-wide transition-colors ${
-                            location.pathname === sublink.path
-                              ? 'text-faro-gold font-semibold bg-faro-olive/20'
-                              : 'text-faro-ink/85 hover:text-faro-gold hover:bg-faro-olive/15'
-                          }`}
-                        >
-                          {sublink.name}
-                        </Link>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      {sublink.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
+
+              {/* Separador sutil hacia enlace externo */}
+              <span className="h-3.5 w-px bg-faro-olive/40 mx-0.5 xl:mx-1 hidden lg:inline-block" aria-hidden="true" />
+
+              {/* Mi Faro Valencia (Proyecto relacionado en España) */}
+              <a
+                href="https://mifaro.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs xl:text-sm tracking-wide text-faro-ink/70 hover:text-faro-gold transition-colors whitespace-nowrap flex items-center gap-1 group font-sans"
+                title="Visitar Mi Faro Valencia (se abre en una nueva pestaña)"
+              >
+                <span>Mi Faro Valencia</span>
+                <ArrowUpRight size={13} className="text-faro-gold/70 group-hover:text-faro-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+                <span className="sr-only">(se abre en una nueva pestaña)</span>
+              </a>
 
               <Link
                 to="/contacto"
@@ -261,99 +282,120 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
       </header>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-faro-bg-alt/95 backdrop-blur-md pt-24 pb-8 px-6 lg:hidden border-b border-faro-olive/30 flex flex-col items-center overflow-y-auto"
+      <div
+        className={`fixed inset-0 z-40 bg-faro-bg-alt/95 backdrop-blur-md pt-24 pb-8 px-6 lg:hidden border-b border-faro-olive/30 flex flex-col items-center overflow-y-auto transition-all duration-200 ease-out motion-reduce:transition-none ${
+          isMenuOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto visible'
+            : 'opacity-0 -translate-y-5 pointer-events-none invisible'
+        }`}
+        aria-hidden={!isMenuOpen}
+      >
+        <nav className="flex flex-col gap-4 items-center w-full max-w-sm my-auto">
+          <a 
+            href="tel:+542234921953" 
+            onClick={() => trackPhoneClick('header_mobile', '+542234921953')}
+            className="flex items-center gap-2.5 text-faro-ink hover:text-faro-gold transition-colors py-1 mb-2"
           >
-            <nav className="flex flex-col gap-4 items-center w-full max-w-sm my-auto">
-              <a 
-                href="tel:+542234921953" 
-                onClick={() => trackPhoneClick('header_mobile', '+542234921953')}
-                className="flex items-center gap-2.5 text-faro-ink hover:text-faro-gold transition-colors py-1 mb-2"
-              >
-                <Phone size={18} className="text-faro-gold" />
-                <span className="text-lg font-medium tracking-wide">+54 223 4921953</span>
-              </a>
+            <Phone size={18} className="text-faro-gold" />
+            <span className="text-lg font-medium tracking-wide">+54 223 4921953</span>
+          </a>
 
-              {/* Grupo 1: Servicios */}
-              <div className="flex flex-col gap-3 items-center w-full">
-                {mobileServiceLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`text-xl font-serif tracking-wide transition-colors ${
-                      location.pathname === link.path ? 'text-faro-gold font-medium' : 'text-faro-ink'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Separación visual */}
-              <div className="w-16 h-px bg-faro-olive/40 my-1" />
-
-              {/* Grupo 2: Institucional */}
-              <div className="flex flex-col gap-2.5 items-center w-full">
-                {mobileInstitutionalLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`text-base font-serif tracking-wide transition-colors ${
-                      location.pathname === link.path ? 'text-faro-gold font-medium' : 'text-faro-ink/80'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Separación visual */}
-              <div className="w-16 h-px bg-faro-olive/40 my-1" />
-
-              {/* Botón HABLEMOS */}
+          {/* Grupo 1: Servicios */}
+          <div className="flex flex-col gap-3 items-center w-full">
+            {mobileServiceLinks.map((link) => (
               <Link
-                to="/contacto"
-                className="w-full text-center bg-faro-gold text-faro-bg font-semibold px-8 py-3 rounded-full text-sm tracking-wide uppercase hover:bg-faro-gold/90 transition-colors shadow-md mt-2"
+                key={link.path}
+                to={link.path}
+                className={`text-xl font-serif tracking-wide transition-colors ${
+                  location.pathname === link.path ? 'text-faro-gold font-medium' : 'text-faro-ink'
+                }`}
               >
-                HABLEMOS
+                {link.name}
               </Link>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            ))}
+          </div>
+
+          {/* Separación visual */}
+          <div className="w-16 h-px bg-faro-olive/40 my-1" />
+
+          {/* Grupo 2: Editorial */}
+          <div className="flex flex-col gap-2.5 items-center w-full">
+            {mobileEditorialLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-lg font-serif tracking-wide transition-colors ${
+                  location.pathname === link.path || location.pathname.startsWith(link.path)
+                    ? 'text-faro-gold font-medium' 
+                    : 'text-faro-ink/90'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Separación visual */}
+          <div className="w-16 h-px bg-faro-olive/40 my-1" />
+
+          {/* Grupo 3: Institucional */}
+          <div className="flex flex-col gap-2.5 items-center w-full">
+            {mobileInstitutionalLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`text-base font-serif tracking-wide transition-colors ${
+                  location.pathname === link.path ? 'text-faro-gold font-medium' : 'text-faro-ink/80'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Separación visual */}
+          <div className="w-16 h-px bg-faro-olive/40 my-1" />
+
+          {/* Enlace externo: Mi Faro Valencia */}
+          <a
+            href="https://mifaro.es"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-sans tracking-wide text-faro-ink/75 hover:text-faro-gold flex items-center gap-1.5 py-1.5 transition-colors group"
+            title="Visitar Mi Faro Valencia (se abre en una nueva pestaña)"
+          >
+            <span>Mi Faro Valencia</span>
+            <ArrowUpRight size={14} className="text-faro-gold/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
+            <span className="sr-only">(se abre en una nueva pestaña)</span>
+          </a>
+
+          {/* Botón HABLEMOS */}
+          <Link
+            to="/contacto"
+            className="w-full text-center bg-faro-gold text-faro-bg font-semibold px-8 py-3 rounded-full text-sm tracking-wide uppercase hover:bg-faro-gold/90 transition-colors shadow-md mt-2"
+          >
+            HABLEMOS
+          </Link>
+        </nav>
+      </div>
 
       {/* Main Content */}
       <main className="flex-grow pt-20">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={location.pathname}
-            initial={false}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-          >
-            {children || <Outlet />}
-          </motion.div>
-        </AnimatePresence>
+        {children || <Outlet />}
       </main>
 
       {/* Floating Contact System */}
       <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3 sm:gap-4 items-end scale-90 sm:scale-100 origin-bottom-right">
         {/* WhatsApp */}
         <a
-          href="https://wa.me/5492235923790"
+          href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => trackWhatsAppClick('floating_button', 'https://wa.me/5492235923790')}
+          onClick={() => trackWhatsAppClick('floating_button', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
           className={`bg-[#25D366] text-white h-14 rounded-full shadow-lg hover:scale-105 motion-safe:transition-all duration-500 ease-out flex items-center overflow-hidden whitespace-nowrap select-none ${
             isWhatsAppExpanded ? 'max-w-[450px] px-4 gap-2.5' : 'max-w-[56px] w-14 justify-center px-0'
           }`}
-          aria-label={`Abrir conversación por WhatsApp con El Faro Argentina: ${getWhatsAppText(location.pathname)}. Se abre en una nueva pestaña.`}
+          aria-label={`Contactar por WhatsApp a El Faro Argentina: ${getWhatsAppText(location.pathname)}. Se abre en una nueva pestaña.`}
         >
           <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className="shrink-0">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -400,39 +442,54 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
                 )}
                 <span className="font-sans text-xl font-semibold tracking-tight text-faro-ink">El Faro Argentina</span>
               </Link>
-              <p className="text-xs text-faro-ink/75 font-light leading-relaxed pr-4">
+              <p className="text-xs text-faro-ink/75 font-light leading-relaxed pr-4 mb-4">
                 El Faro abre sus puertas en 1993 en Mar del Plata como modelo humanista no-residencial centrado en la persona y el vínculo.
               </p>
+              <div className="text-[11px] text-faro-ink/65 font-light space-y-1 border-t border-faro-olive/20 pt-3">
+                <p className="font-medium text-faro-ink/80">Asociación Civil Arco Baleno</p>
+                <p>CUIT: 30-68558066-3</p>
+                <p>Alvarado 3001 · Mar del Plata</p>
+              </div>
             </div>
 
-            {/* Col 2: Contacto */}
+            {/* Col 2: Sedes y Contacto */}
             <div className="lg:col-span-1">
-              <h2 className="text-xs font-semibold tracking-widest uppercase text-faro-gold mb-4">Contacto Mar del Plata</h2>
-              <ul className="space-y-3 text-xs text-faro-ink/75 font-light">
-                <li>
-                  <span className="block text-faro-ink font-medium mb-1">Dirección</span>
-                  <p>Garay 2073, Mar del Plata, Argentina</p>
-                </li>
-                <li>
-                  <span className="block text-faro-ink font-medium mb-1">Teléfonos</span>
+              <h2 className="text-xs font-semibold tracking-widest uppercase text-faro-gold mb-4">Sedes y Contacto</h2>
+              <div className="space-y-4 text-xs text-faro-ink/75 font-light">
+                <div>
+                  <span className="block text-faro-ink font-medium mb-1">Mar del Plata · Argentina (Sede Principal)</span>
+                  <p>Garay 2073 · Orientación y atención presencial</p>
+                  <div className="mt-1 space-y-0.5">
+                    <a 
+                      href="tel:+542234921953" 
+                      onClick={() => trackPhoneClick('footer', '+542234921953')}
+                      className="hover:text-faro-gold transition-colors block"
+                    >
+                      Fijo: +54 223 4921953
+                    </a>
+                    <a 
+                      href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      onClick={() => trackWhatsAppClick('footer', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
+                      className="hover:text-faro-gold transition-colors block"
+                    >
+                      WhatsApp: +54 9 223 592 3790
+                    </a>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-faro-olive/20">
+                  <span className="block text-faro-ink font-medium mb-1">Valencia · España (Presencia)</span>
                   <a 
-                    href="tel:+542234921953" 
-                    onClick={() => trackPhoneClick('footer', '+542234921953')}
+                    href="tel:+34611568705" 
+                    onClick={() => trackPhoneClick('footer_valencia', '+34611568705')}
                     className="hover:text-faro-gold transition-colors block"
                   >
-                    Fijo: +54 223 4921953
+                    Teléfono: +34 611 568 705
                   </a>
-                  <a 
-                    href="https://wa.me/5492235923790" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    onClick={() => trackWhatsAppClick('footer', 'https://wa.me/5492235923790')}
-                    className="hover:text-faro-gold transition-colors block mt-1"
-                  >
-                    WhatsApp: +54 9 223 592 3790
-                  </a>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
 
             {/* Col 3: Navegación Institucional */}
@@ -440,14 +497,29 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
               <h2 className="text-xs font-semibold tracking-widest uppercase text-faro-gold mb-4">Navegación</h2>
               <ul className="space-y-2 text-xs text-faro-ink/75 font-light">
                 <li><Link to="/" className="hover:text-faro-gold transition-colors">Inicio</Link></li>
-                <li><Link to="/asociacion" className="hover:text-faro-gold transition-colors">Nuestros Orígenes</Link></li>
-                <li><Link to="/historia" className="hover:text-faro-gold transition-colors">Nuestra Historia</Link></li>
-                <li><Link to="/quienes-lo-hacemos" className="hover:text-faro-gold transition-colors">Quiénes lo hacemos</Link></li>
+                <li><Link to="/voces" className="hover:text-faro-gold transition-colors font-medium text-faro-ink">Las Voces del Faro</Link></li>
+                <li><Link to="/lecturas" className="hover:text-faro-gold transition-colors font-medium text-faro-ink">Lecturas del Faro</Link></li>
                 <li><Link to="/adicciones-mar-del-plata" className="hover:text-faro-gold transition-colors">Adicciones y consumos</Link></li>
                 <li><Link to="/psicologo-mar-del-plata" className="hover:text-faro-gold transition-colors">Psicoterapia individual y grupal</Link></li>
                 <li><Link to="/terapia-mar-del-plata" className="hover:text-faro-gold transition-colors">Terapia familiar y de pareja</Link></li>
                 <li><Link to="/como-pedir-ayuda-psicologia-mar-del-plata" className="hover:text-faro-gold transition-colors">Cómo pedir ayuda</Link></li>
+                <li><Link to="/asociacion" className="hover:text-faro-gold transition-colors">Nuestros Orígenes</Link></li>
+                <li><Link to="/historia" className="hover:text-faro-gold transition-colors">Nuestra Historia</Link></li>
+                <li><Link to="/quienes-lo-hacemos" className="hover:text-faro-gold transition-colors">Quiénes lo hacemos</Link></li>
                 <li><Link to="/contacto" className="hover:text-faro-gold transition-colors">Contacto</Link></li>
+                <li className="pt-1">
+                  <a 
+                    href="https://mifaro.es" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="hover:text-faro-gold transition-colors inline-flex items-center gap-1 text-faro-ink/70"
+                    title="Visitar Mi Faro Valencia (se abre en una nueva pestaña)"
+                  >
+                    <span>Mi Faro Valencia</span>
+                    <ArrowUpRight size={12} className="opacity-60" aria-hidden="true" />
+                    <span className="sr-only">(se abre en una nueva pestaña)</span>
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -455,7 +527,7 @@ export default function Layout({ children }: { children?: React.ReactNode }) {
 
           <div className="pt-8 border-t border-faro-olive/30 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-faro-ink/60 uppercase tracking-widest">
             <div>
-              &copy; {new Date().getFullYear()} El Faro Argentina. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} El Faro Argentina · Asociación Civil Arco Baleno · CUIT 30-68558066-3
             </div>
             <div className="flex gap-4">
               <Link to="/aviso-legal" className="hover:text-faro-gold transition-colors">Aviso legal</Link>

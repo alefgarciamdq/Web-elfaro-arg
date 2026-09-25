@@ -4,6 +4,7 @@ import { Head } from 'vite-react-ssg';
 import { Link } from 'react-router-dom';
 import { fadeUp, viewportConfig } from '../utils/animations';
 import { trackPhoneClick } from '../utils/telemetry';
+import JsonLd from './JsonLd';
 
 export default function Historia() {
   return (
@@ -22,6 +23,22 @@ export default function Historia() {
         <meta name="twitter:description" content="La historia de El Faro Argentina: nacidos en Mar del Plata en 1993. Más de 30 años acompañando a personas y familias." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830162/mifaro/IMG-3803_rySbyr08.jpg" />
       </Head>
+
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "Nuestra Historia · El Faro Argentina",
+        "description": "Historia y trayectoria de más de 30 años en Mar del Plata acompañando en salud mental, adicciones y vínculos familiares desde 1993.",
+        "url": "https://programaelfaro.com.ar/historia",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "El Faro Argentina",
+          "legalName": "Asociación Civil Arco Baleno",
+          "taxID": "30-68558066-3",
+          "foundingDate": "1993",
+          "url": "https://programaelfaro.com.ar/"
+        }
+      }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-faro-bg-alt/40 border-b border-faro-olive/30">
@@ -216,7 +233,7 @@ export default function Historia() {
             <Link to="/quienes-lo-hacemos" className="text-faro-gold hover:underline font-medium">Quiénes lo hacemos</Link>
             <Link to="/contacto" className="text-faro-gold hover:underline font-medium">Contacto Mar del Plata</Link>
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
               className="text-faro-gold hover:underline font-medium"

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { fadeUp, viewportConfig } from '../utils/animations';
 import { trackFormSubmitSuccess, trackWhatsAppClick, trackPhoneClick } from '../utils/telemetry';
+import JsonLd from './JsonLd';
 
 export default function Contacto() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -40,7 +41,7 @@ export default function Contacto() {
     setStatus('sending');
 
     try {
-      const response = await fetch('https://formspree.io/f/xpqograd', {
+      const response = await fetch('https://formspree.io/f/xzdklgpb', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,18 +81,40 @@ export default function Contacto() {
     <div className="bg-faro-bg text-faro-ink min-h-screen">
       <Head>
         <title>Contacto · El Faro Argentina · Mar del Plata</title>
-        <meta name="description" content="Escríbenos o llámanos. Garay 2073, Mar del Plata, Argentina. Primera conversación sin compromiso para orientarte sobre qué tiene más sentido en tu situación." />
+        <meta name="description" content="Escribinos o llamanos. Garay 2073, Mar del Plata, Argentina. Un primer encuentro sin compromiso para orientarte sobre qué tiene más sentido en tu situación." />
         <link rel="canonical" href="https://programaelfaro.com.ar/contacto" />
         <meta property="og:title" content="Contacto · El Faro Argentina · Mar del Plata" />
-        <meta property="og:description" content="Escríbenos o llámanos en Mar del Plata. Primera conversación sin compromiso." />
+        <meta property="og:description" content="Escribinos o llamanos en Mar del Plata. Un primer encuentro sin compromiso." />
         <meta property="og:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830063/mifaro/Adicciones_valencia_4yK1z7PX.jpg" />
         <meta property="og:url" content="https://programaelfaro.com.ar/contacto" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contacto · El Faro Argentina" />
-        <meta name="twitter:description" content="Escríbenos o llámanos en Mar del Plata. Primera conversación sin compromiso." />
+        <meta name="twitter:description" content="Escribinos o llamanos en Mar del Plata. Un primer encuentro sin compromiso." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830063/mifaro/Adicciones_valencia_4yK1z7PX.jpg" />
       </Head>
+
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contacto · El Faro Argentina",
+        "description": "Canales de contacto y primera consulta en Mar del Plata. Atención presencial en Garay 2073 y atención online.",
+        "url": "https://programaelfaro.com.ar/contacto",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "El Faro Argentina",
+          "legalName": "Asociación Civil Arco Baleno",
+          "taxID": "30-68558066-3",
+          "telephone": "+54 223 4921953",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Garay 2073",
+            "addressLocality": "Mar del Plata",
+            "addressRegion": "Buenos Aires",
+            "addressCountry": "AR"
+          }
+        }
+      }} />
 
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-48 lg:pb-24 overflow-hidden bg-faro-bg-alt/40 border-b border-faro-olive/30">
@@ -117,7 +140,7 @@ export default function Contacto() {
               Hablemos
             </h1>
             <p className="text-xl text-faro-ink/80 font-light leading-relaxed">
-              Estamos en Mar del Plata. Una primera conversación sin compromiso para orientarte sobre qué tiene más sentido en tu situación.
+              Estamos en Mar del Plata. Un primer encuentro sin compromiso para orientarte sobre qué tiene más sentido en tu situación.
             </p>
           </motion.div>
         </div>
@@ -163,10 +186,10 @@ export default function Contacto() {
                   Escríbenos directamente por mensaje de WhatsApp para una orientación inicial o coordinar una entrevista.
                 </p>
                 <a 
-                  href="https://wa.me/5492235923790" 
+                  href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick('contact_card', 'https://wa.me/5492235923790')}
+                  onClick={() => trackWhatsAppClick('contact_card', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
                   className="inline-flex items-center justify-center gap-3 w-full sm:w-auto bg-faro-gold text-faro-bg px-10 py-5 rounded-2xl font-semibold tracking-wide text-lg hover:bg-faro-gold/90 transition-all shadow-md"
                 >
                   <MessageCircle size={22} />
@@ -258,6 +281,9 @@ export default function Contacto() {
 
                     <div>
                       <label htmlFor="message" className="block text-xs font-medium text-faro-gold uppercase tracking-widest mb-2">Mensaje</label>
+                      <p className="text-xs text-faro-ink/70 font-light leading-relaxed mb-2.5">
+                        Para este primer contacto no necesitás incluir información clínica detallada ni otros datos sensibles. Podemos hablar de eso en un espacio adecuado.
+                      </p>
                       <textarea 
                         id="message" 
                         rows={4} 
@@ -332,18 +358,32 @@ export default function Contacto() {
         </div>
       </section>
 
-      {/* Sede Mar del Plata */}
+      {/* Sedes y Presencia */}
       <section className="py-24 bg-faro-bg-alt/40 border-t border-faro-olive/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-serif text-faro-ink mb-12 italic">Nuestra sede en Mar del Plata</h2>
-          <div className="max-w-lg mx-auto space-y-6 text-center bg-faro-bg-alt p-10 rounded-[2.5rem] border border-faro-olive/30">
-            <h4 className="text-2xl font-serif text-faro-gold">Garay 2073</h4>
-            <div className="space-y-3 text-faro-ink/80 font-light">
-              <p className="flex items-center justify-center gap-3"><MapPin size={18} className="text-faro-gold" /> Garay 2073, Mar del Plata, Argentina</p>
-              <p className="flex items-center justify-center gap-3"><Phone size={18} className="text-faro-gold" /> Fijo: +54 223 4921953</p>
-              <p className="flex items-center justify-center gap-3"><MessageCircle size={18} className="text-faro-gold" /> WhatsApp: +54 9 223 592 3790</p>
-              <p className="flex items-center justify-center gap-3 text-xs opacity-75">Atención de Lunes a Viernes</p>
+          <h2 className="text-2xl font-serif text-faro-ink mb-12 italic">Nuestras sedes y presencia</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto text-center">
+            
+            <div className="space-y-6 bg-faro-bg-alt p-10 rounded-[2.5rem] border border-faro-olive/30">
+              <span className="text-[11px] uppercase tracking-widest text-faro-gold font-medium block">Sede Principal</span>
+              <h4 className="text-2xl font-serif text-faro-ink">Mar del Plata · Argentina</h4>
+              <div className="space-y-3 text-faro-ink/80 font-light text-sm">
+                <p className="flex items-center justify-center gap-3"><MapPin size={18} className="text-faro-gold shrink-0" /> Garay 2073, Mar del Plata</p>
+                <p className="flex items-center justify-center gap-3"><Phone size={18} className="text-faro-gold shrink-0" /> Fijo: +54 223 4921953</p>
+                <p className="flex items-center justify-center gap-3"><MessageCircle size={18} className="text-faro-gold shrink-0" /> WhatsApp: +54 9 223 592 3790</p>
+                <p className="flex items-center justify-center gap-3 text-xs opacity-75">Orientación y atención presencial</p>
+              </div>
             </div>
+
+            <div className="space-y-6 bg-faro-bg-alt p-10 rounded-[2.5rem] border border-faro-olive/30">
+              <span className="text-[11px] uppercase tracking-widest text-faro-gold font-medium block">Presencia en España</span>
+              <h4 className="text-2xl font-serif text-faro-ink">Valencia · España</h4>
+              <div className="space-y-3 text-faro-ink/80 font-light text-sm">
+                <p className="flex items-center justify-center gap-3"><Phone size={18} className="text-faro-gold shrink-0" /> Teléfono: +34 611 568 705</p>
+                <p className="flex items-center justify-center gap-3 text-xs opacity-75">Red profesional y consultas internacionales</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -1,14 +1,19 @@
 import React from 'react';
 import { RouteObject } from 'react-router-dom';
 import App from './App';
-import Home from './components/Home';
 
 export const routes: RouteObject[] = [
   {
     path: '/',
     element: <App />,
     children: [
-      { index: true, element: <Home /> },
+      {
+        index: true,
+        lazy: async () => {
+          const { default: Home } = await import('./components/Home');
+          return { Component: Home };
+        }
+      },
       {
         path: 'adicciones-mar-del-plata',
         lazy: async () => {
@@ -84,6 +89,55 @@ export const routes: RouteObject[] = [
         lazy: async () => {
           const { default: Cookies } = await import('./components/Cookies');
           return { Component: Cookies };
+        }
+      },
+      {
+        path: 'voces',
+        lazy: async () => {
+          const { default: VocesHub } = await import('./components/VocesHub');
+          return { Component: VocesHub };
+        }
+      },
+      {
+        path: 'voces/maria-hijo-adicciones-mar-del-plata',
+        lazy: async () => {
+          const { default: VozMariaHijoAdicciones } = await import('./components/VozMariaHijoAdicciones');
+          return { Component: VozMariaHijoAdicciones };
+        }
+      },
+      {
+        path: 'voces/andres-adicciones-mar-del-plata',
+        lazy: async () => {
+          const { default: VozAndresAdicciones } = await import('./components/VozAndresAdicciones');
+          return { Component: VozAndresAdicciones };
+        }
+      },
+      {
+        path: 'voces/carlos-hija-adicciones-mar-del-plata',
+        lazy: async () => {
+          const { default: VozCarlosHijaAdicciones } = await import('./components/VozCarlosHijaAdicciones');
+          return { Component: VozCarlosHijaAdicciones };
+        }
+      },
+      {
+        path: 'lecturas',
+        lazy: async () => {
+          const { default: LecturasHub } = await import('./components/LecturasHub');
+          return { Component: LecturasHub };
+        }
+      },
+      {
+        path: 'lecturas/como-saber-cuando-un-consumo-se-volvio-problematico',
+        lazy: async () => {
+          const { default: ArticuloConsumoProblematico } = await import('./components/ArticuloConsumoProblematico');
+          return { Component: ArticuloConsumoProblematico };
+        }
+      },
+      {
+        path: 'lecturas/cuando-las-adicciones-organizan-la-vida-familiar',
+        lazy: async () => {
+          const { default: ArticuloAdiccionesFamilia } = await import('./components/ArticuloAdiccionesFamilia');
+          return { Component: ArticuloAdiccionesFamilia };
         }
       },
       {

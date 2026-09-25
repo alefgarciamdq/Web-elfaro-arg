@@ -5,11 +5,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PLACE_ID = 'ChIJ4az5Fiqa3YgRlHLl-oPAQp8';
+const PLACE_ID = 'ChIJJTcKJKbdhJUR7avL6H50Bmg'; // El Faro Mar del Plata
 const OUTPUT_FILE = path.join(__dirname, '../src/data/reviews.json');
 
 const FALLBACK_DATA = {
-  rating: 5.0,
+  rating: 4.2,
   reviews: []
 };
 
@@ -61,7 +61,7 @@ async function fetchReviews() {
     console.log('Successfully fetched Place details.');
     
     const output = {
-      rating: data.rating || 5.0,
+      rating: data.rating || 4.2,
       reviews: (data.reviews || []).map(r => ({
         authorName: formatAuthorName(r.authorAttribution?.displayName),
         rating: r.rating || 5,

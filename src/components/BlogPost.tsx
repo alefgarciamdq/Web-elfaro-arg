@@ -616,7 +616,7 @@ export default function BlogPost() {
           "name": "Mi Faro",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830171/mifaro/Mi_faro_wvHsGngJ.png"
+            "url": "https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830147/mifaro/IMG-0990_mgVHpGR8.jpg"
           }
         },
         "datePublished": (() => {

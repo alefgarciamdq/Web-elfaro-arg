@@ -15,3 +15,9 @@ lighthouse-home.html
 prueba-home.png
 tools/mifaro-auditor/reports/
 .aider*
+
+# Artefactos locales de desarrollo y auditoria
+.vite/
+scratch/
+tools/
+imagenes/

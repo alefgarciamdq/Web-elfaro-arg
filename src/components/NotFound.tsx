@@ -25,7 +25,7 @@ export default function NotFound() {
           </h1>
           
           <p className="text-xl text-ink-light font-light leading-relaxed mb-12">
-            La página que buscas no existe o ha cambiado de lugar. Puedes volver al inicio o escribirnos si necesitas orientación.
+            La página que buscás no existe o cambió de lugar. Podés volver al inicio o escribirnos si necesitás orientación.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

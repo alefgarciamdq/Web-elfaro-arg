@@ -173,10 +173,10 @@ export default function ComoPedirAyudaPsicologiaMarDelPlata() {
                 </Link>
 
                 <a 
-                  href="https://wa.me/5492235923790" 
+                  href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick('como_pedir_ayuda_hero', 'https://wa.me/5492235923790')}
+                  onClick={() => trackWhatsAppClick('como_pedir_ayuda_hero', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
                   className="inline-flex items-center justify-center gap-3 bg-white text-ink border border-sand/40 px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-sand/20 transition-all font-sans shadow-sm"
                 >
                   WhatsApp (+54 9 223 592 3790)
@@ -716,10 +716,10 @@ export default function ComoPedirAyudaPsicologiaMarDelPlata() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('como_pedir_ayuda_footer', 'https://wa.me/5492235923790')}
+              onClick={() => trackWhatsAppClick('como_pedir_ayuda_footer', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
               className="inline-flex items-center justify-center px-8 py-3.5 bg-olive text-white font-medium rounded-full hover:bg-olive-light transition-colors text-sm tracking-wide uppercase"
             >
               Escribinos por WhatsApp

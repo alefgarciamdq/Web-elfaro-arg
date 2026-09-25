@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Head } from 'vite-react-ssg';
 import { trackWhatsAppClick, trackPhoneClick } from '../utils/telemetry';
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations';
+import JsonLd from './JsonLd';
 
 export default function QuienesSomos() {
   const team = [
@@ -223,6 +224,22 @@ export default function QuienesSomos() {
         <meta name="twitter:description" content="Conocé al equipo y la red profesional de El Faro Argentina. Más de 30 años de trabajo en salud mental, adicciones, vínculos y familias." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/v1779830091/mifaro/file_000000009108720a82938bdcbe45a897_2_LswM4gxq.jpg" />
       </Head>
+
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "Quiénes lo hacemos · El Faro Argentina",
+        "description": "Equipo interdisciplinario y red profesional de El Faro Argentina en salud mental, adicciones y vínculos.",
+        "url": "https://programaelfaro.com.ar/quienes-lo-hacemos",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "El Faro Argentina",
+          "legalName": "Asociación Civil Arco Baleno",
+          "taxID": "30-68558066-3",
+          "url": "https://programaelfaro.com.ar/"
+        }
+      }} />
+
       {/* Hero */}
       <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-48 lg:pb-32 overflow-hidden lg:flex lg:items-center lg:min-h-[85vh] isolate">
         {/* Fondo con imagen integrada */}
@@ -283,12 +300,12 @@ export default function QuienesSomos() {
               transition={{ duration: 1, delay: 0.6 }}
             >
               <a 
-                href="tel:+5492235923790" 
-                onClick={() => trackPhoneClick('quienes_lo_hacemos', '+5492235923790')}
+                href="tel:+542234921953" 
+                onClick={() => trackPhoneClick('quienes_lo_hacemos', '+542234921953')}
                 className="inline-flex items-center gap-3 text-ink hover:text-olive transition-colors group"
               >
                 <PhoneCall size={20} className="text-olive group-hover:scale-110 transition-transform" />
-                <span className="text-base sm:text-lg md:text-xl font-medium tracking-wider">+54 9 223 592 3790</span>
+                <span className="text-base sm:text-lg md:text-xl font-medium tracking-wider">+54 223 4921953</span>
               </a>
             </motion.div>
           </motion.div>
@@ -366,10 +383,10 @@ export default function QuienesSomos() {
           <Link to="/historia" className="text-olive hover:underline font-medium">Nuestra historia</Link>
           <Link to="/contacto" className="text-olive hover:underline font-medium">Contacto</Link>
           <a
-            href="https://wa.me/5492235923790"
+            href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppClick('quienes_lo_hacemos', 'https://wa.me/5492235923790')}
+            onClick={() => trackWhatsAppClick('quienes_lo_hacemos', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
             className="text-olive hover:underline font-medium"
           >
             WhatsApp
@@ -403,10 +420,10 @@ export default function QuienesSomos() {
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
             <a 
-              href="https://wa.me/5492235923790" 
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
               target="_blank" 
               rel="noopener noreferrer" 
-              onClick={() => trackWhatsAppClick('quienes_lo_hacemos_cta', 'https://wa.me/5492235923790')}
+              onClick={() => trackWhatsAppClick('quienes_lo_hacemos_cta', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
               className="inline-flex items-center justify-center gap-3 bg-white text-ink border border-sand/30 px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-sand/10 transition-all font-sans shadow-sm w-full sm:w-auto text-center"
             >
               WhatsApp

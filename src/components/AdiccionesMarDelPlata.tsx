@@ -4,19 +4,15 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   MessageSquare, 
-  Heart, 
   ShieldCheck, 
   Compass, 
-  Coffee, 
   Users, 
   PhoneCall, 
-  Sparkles,
-  ArrowUpRight
+  Sparkles
 } from 'lucide-react';
 import { Head } from 'vite-react-ssg';
 import JsonLd from './JsonLd';
 import FAQBlock from './FAQBlock';
-import SituacionesFrecuentes from './SituacionesFrecuentes';
 import { trackWhatsAppClick, trackPhoneClick, trackCtaClick } from '../utils/telemetry';
 import { fadeUp, staggerContainer, viewportConfig } from '../utils/animations';
 import { FAQ, Situacion } from '../types';
@@ -111,7 +107,7 @@ export default function AdiccionesMarDelPlata() {
   ];
 
   return (
-    <div className="bg-offwhite min-h-screen text-ink selection:bg-gold/30 selection:text-ink">
+    <div className="bg-[#111613] text-[#DDD8CD] font-sans selection:bg-[#D4AF37]/30 selection:text-[#F6F2EA] min-h-screen">
       <Head>
         <title>Tratamiento de adicciones en Mar del Plata · El Faro Argentina</title>
         <meta 
@@ -164,54 +160,59 @@ export default function AdiccionesMarDelPlata() {
         ]
       }} />
 
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden flex items-center min-h-[80vh] bg-sand-light/20">
+      {/* ── 1. HERO FOTOGRÁFICO INMERSIVO ── */}
+      <section className="relative min-h-[85vh] lg:min-h-[92vh] flex items-center overflow-hidden bg-[#111613]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/mifaro/hero-hombre-faro-atlantico" 
             alt="Espacio terapéutico y horizonte del mar en Mar del Plata" 
-            className="w-full h-full object-cover opacity-35 mix-blend-multiply grayscale-[0.1]"
+            width={1600}
+            height={900}
+            className="w-full h-full object-cover object-[center_35%] lg:object-[center_28%] opacity-50 filter contrast-[1.05]"
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-offwhite via-offwhite/90 to-offwhite/60 lg:to-transparent" />
+          {/* Overlays de integración profunda: Fotografía → Fondo Carbón */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#111613] via-[#111613]/90 to-[#111613]/40 lg:from-[#111613] lg:via-[#111613]/85 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#141A15] via-transparent to-[#111613]/60" />
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#141A15] via-[#141A15]/80 to-transparent" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="max-w-3xl">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 w-full pt-32 pb-24 lg:pt-40 lg:pb-32">
+          <div className="max-w-3xl lg:max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-olive/10 border border-olive/20 text-olive text-xs font-semibold tracking-widest uppercase mb-6">
-                <span className="w-2 h-2 rounded-full bg-olive animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-8 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse" />
                 El Faro Argentina · Mar del Plata · Desde 1993
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-ink leading-[1.1] mb-6">
-                Orientación y tratamiento en <span className="italic text-olive">adicciones</span> y consumos problemáticos
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-[5rem] font-serif text-[#F6F2EA] leading-[1.08] mb-8 tracking-tight">
+                Orientación y tratamiento en <span className="italic text-[#D4AF37]">adicciones</span> y consumos problemáticos
               </h1>
 
-              <p className="text-lg sm:text-xl text-ink-light font-light leading-relaxed mb-8 max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl text-[#C8C4BB] font-light leading-relaxed mb-10 max-w-2xl">
                 No hace falta tocar fondo para empezar a salir. Si te encontrás ante la duda de buscar apoyo o de cuándo dar el primer paso, ofrecemos un espacio de escucha y orientación profesional para personas y familias en Mar del Plata.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <Link
                   to="/contacto"
-                  className="inline-flex items-center justify-center gap-3 bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-md group"
+                  className="inline-flex items-center justify-center gap-3 bg-[#D4AF37] text-[#111613] px-9 py-4 rounded-full text-sm font-semibold tracking-wider uppercase hover:bg-[#E5C358] transition-all shadow-xl group"
                 >
                   Pedir orientación
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </Link>
 
                 <a 
-                  href="https://wa.me/5492235923790" 
+                  href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick('adicciones_hero', 'https://wa.me/5492235923790')}
-                  className="inline-flex items-center justify-center gap-3 bg-white text-ink border border-sand/40 px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-sand/20 transition-all font-sans shadow-sm"
+                  onClick={() => trackWhatsAppClick('adicciones_hero', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
+                  className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/15 text-[#F6F2EA] border border-white/20 px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase transition-all backdrop-blur-sm"
                 >
                   WhatsApp (+54 9 223 592 3790)
                 </a>
@@ -221,8 +222,8 @@ export default function AdiccionesMarDelPlata() {
         </div>
       </section>
 
-      {/* Narrativa Editorial / Cita */}
-      <section className="py-20 bg-sand/10 text-ink border-y border-sand/20">
+      {/* ── 2. NARRATIVA EDITORIAL / CITA ── */}
+      <section className="py-20 bg-[#141A15] text-[#DDD8CD] border-y border-white/10">
         <motion.div 
           variants={fadeUp}
           initial="hidden"
@@ -230,32 +231,54 @@ export default function AdiccionesMarDelPlata() {
           viewport={viewportConfig}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <MessageSquare className="mx-auto text-olive/30 mb-6" size={42} />
-          <blockquote className="text-2xl sm:text-3xl md:text-4xl font-serif leading-snug text-ink mb-4">
+          <MessageSquare className="mx-auto text-[#D4AF37]/40 mb-6" size={42} />
+          <blockquote className="text-2xl sm:text-3xl md:text-4xl font-serif leading-snug text-[#F6F2EA] mb-4">
             «La adicción es un síntoma de un malestar mayor, es un intento potente de decir lo que aún no se sabe pero se siente.»
           </blockquote>
-          <p className="text-sm sm:text-base font-serif italic text-ink-light/80 mb-8">
+          <p className="text-sm sm:text-base font-serif italic text-[#D4AF37] mb-8">
             Ale García
           </p>
-          <p className="text-xl sm:text-2xl md:text-3xl font-serif leading-snug text-ink mb-8">
+          <p className="text-xl sm:text-2xl md:text-3xl font-serif leading-snug text-[#F6F2EA] mb-8">
             «No buscamos solo abstinencia. En el centro de tu tratamiento estás vos: buscamos que recuperes tu vida, tus vínculos, tu libertad…»
           </p>
-          <div className="w-16 h-0.5 bg-olive/40 mx-auto mb-8" />
-          <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed max-w-3xl mx-auto">
+          <div className="w-16 h-0.5 bg-[#D4AF37]/30 mx-auto mb-8" />
+          <p className="text-base sm:text-lg text-[#C8C4BB] font-light leading-relaxed max-w-3xl mx-auto">
             En El Faro entendemos que el consumo problemático siempre está ligado a una historia singular y a una red de afectos. Por eso, además del proceso individual, acompañamos a las familias para recomponer el diálogo y desarticular el desgaste. Nuestro trabajo en Mar del Plata se apoya en una trayectoria comunitaria pionera que prioriza la palabra, el lazo social y salidas posibles que no aíslen a la persona de su vida cotidiana.
           </p>
         </motion.div>
       </section>
 
-      {/* Situaciones Frecuentes */}
-      <SituacionesFrecuentes 
-        title="Cuándo conviene consultar"
-        situaciones={situacionesAdicciones}
-      />
+      {/* ── 3. SITUACIONES FRECUENTES ── */}
+      <section className="py-24 bg-[#111613] border-b border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="bg-white/[0.03] border border-white/10 rounded-[2.5rem] p-8 md:p-14"
+          >
+            <h2 className="text-3xl font-serif text-[#F6F2EA] mb-12 text-center md:text-left">Cuándo conviene consultar</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+              {situacionesAdicciones.map((situacion, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className="mt-2 w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-serif text-[#F6F2EA] mb-2">{situacion.title}</h3>
+                    <p className="text-[#C8C4BB] font-light text-sm leading-relaxed">
+                      {situacion.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-      {/* Bloque Editorial: Datos Oficiales y Experiencia Compartida */}
-      <section className="py-24 sm:py-28 bg-white border-b border-sand/30">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── 4. BLOQUE EDITORIAL: DATOS OFICIALES Y EXPERIENCIA COMPARTIDA ── */}
+      <section className="py-24 sm:py-28 bg-[#141A15] border-b border-white/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -263,10 +286,10 @@ export default function AdiccionesMarDelPlata() {
             viewport={viewportConfig}
             className="max-w-3xl mb-16 sm:mb-20"
           >
-            <span className="text-xs uppercase tracking-[0.2em] text-olive font-semibold block mb-3">
+            <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-semibold block mb-3">
               Experiencia compartida
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-ink leading-[1.2]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA] leading-[1.2]">
               Cuando algo empieza a preocuparte, hacer algo también puede empezar de a poco.
             </h2>
           </motion.div>
@@ -279,21 +302,21 @@ export default function AdiccionesMarDelPlata() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="border-t border-sand/60 pt-8 space-y-4 flex flex-col justify-between"
+              className="border-t border-white/10 pt-8 space-y-4 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-semibold tracking-[0.2em] text-olive/80 uppercase block mb-3">
+                <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37]/90 uppercase block mb-3">
                   01 · Preocupación propia
                 </span>
-                <div className="font-serif text-5xl sm:text-6xl text-ink tracking-tight mb-4 flex items-baseline">
+                <div className="font-serif text-5xl sm:text-6xl text-[#F6F2EA] tracking-tight mb-4 flex items-baseline">
                   <StatCounter value={5.9} decimals={1} />
-                  <span className="text-3xl sm:text-4xl text-olive font-serif ml-1">%</span>
+                  <span className="text-3xl sm:text-4xl text-[#D4AF37] font-serif ml-1">%</span>
                 </div>
-                <p className="text-sm sm:text-base text-ink-light font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-[#C8C4BB] font-light leading-relaxed">
                   De las personas que consumieron alguna sustancia durante el último año, este porcentaje manifestó sentir preocupación por su propia forma de consumir.
                 </p>
               </div>
-              <p className="text-xs text-ink-light/70 font-light italic pt-2">
+              <p className="text-xs text-[#9E988D] font-light italic pt-2">
                 Preocuparse no equivale a tener un diagnóstico ni una dependencia: es una primera señal interna de que algo merece ser escuchado.
               </p>
             </motion.div>
@@ -304,21 +327,21 @@ export default function AdiccionesMarDelPlata() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="border-t border-sand/60 pt-8 space-y-4 flex flex-col justify-between"
+              className="border-t border-white/10 pt-8 space-y-4 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-semibold tracking-[0.2em] text-olive/80 uppercase block mb-3">
+                <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37]/90 uppercase block mb-3">
                   02 · Intento de actuar
                 </span>
-                <div className="font-serif text-5xl sm:text-6xl text-ink tracking-tight mb-4 flex items-baseline">
+                <div className="font-serif text-5xl sm:text-6xl text-[#F6F2EA] tracking-tight mb-4 flex items-baseline">
                   <StatCounter value={69.4} decimals={1} />
-                  <span className="text-3xl sm:text-4xl text-olive font-serif ml-1">%</span>
+                  <span className="text-3xl sm:text-4xl text-[#D4AF37] font-serif ml-1">%</span>
                 </div>
-                <p className="text-sm sm:text-base text-ink-light font-light leading-relaxed">
+                <p className="text-sm sm:text-base text-[#C8C4BB] font-light leading-relaxed">
                   Entre quienes manifestaron sentir esa preocupación, casi 7 de cada 10 intentaron realizar alguna acción concreta al respecto.
                 </p>
               </div>
-              <p className="text-xs text-ink-light/70 font-light italic pt-2">
+              <p className="text-xs text-[#9E988D] font-light italic pt-2">
                 La preocupación no suele quedarse inmóvil: la gran mayoría de las personas intenta modificar hábitos, cuidarse o buscar alternativas.
               </p>
             </motion.div>
@@ -329,41 +352,41 @@ export default function AdiccionesMarDelPlata() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="border-t border-sand/60 pt-8 space-y-5 flex flex-col justify-between"
+              className="border-t border-white/10 pt-8 space-y-5 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-semibold tracking-[0.2em] text-olive/80 uppercase block mb-3">
+                <span className="text-xs font-semibold tracking-[0.2em] text-[#D4AF37]/90 uppercase block mb-3">
                   03 · Dar el siguiente paso
                 </span>
 
-                {/* 22,6% Red afectiva: paso previo o contextual */}
+                {/* 22,6% Red afectiva */}
                 <div className="pt-1 pb-4">
                   <div className="flex items-baseline gap-2 mb-1.5">
-                    <span className="font-serif text-2xl sm:text-3xl text-ink/80 font-normal">
+                    <span className="font-serif text-2xl sm:text-3xl text-[#F6F2EA] font-normal">
                       <StatCounter value={22.6} decimals={1} />
-                      <span className="text-lg text-olive/80 ml-0.5">%</span>
+                      <span className="text-lg text-[#D4AF37] ml-0.5">%</span>
                     </span>
-                    <span className="text-xs font-medium text-ink/90 uppercase tracking-wider">
+                    <span className="text-xs font-medium text-[#C8C4BB] uppercase tracking-wider">
                       Red afectiva
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-ink-light font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#C8C4BB] font-light leading-relaxed">
                     Hablar con alguien cercano puede ser una forma de empezar a poner en palabras lo que preocupa.
                   </p>
                 </div>
 
-                {/* 20,4% Institución o profesional: mayor jerarquía visual */}
-                <div className="p-5 rounded-2xl bg-sand-light/35 border border-sand/50 space-y-2">
+                {/* 20,4% Institución o profesional */}
+                <div className="p-5 rounded-2xl bg-white/[0.04] border border-[#D4AF37]/30 space-y-2">
                   <div className="flex items-baseline gap-2.5">
-                    <div className="font-serif text-3xl sm:text-4xl text-ink tracking-tight flex items-baseline">
+                    <div className="font-serif text-3xl sm:text-4xl text-[#F6F2EA] tracking-tight flex items-baseline">
                       <StatCounter value={20.4} decimals={1} />
-                      <span className="text-xl sm:text-2xl text-olive font-serif ml-0.5">%</span>
+                      <span className="text-xl sm:text-2xl text-[#D4AF37] font-serif ml-0.5">%</span>
                     </div>
-                    <span className="text-xs font-semibold text-ink uppercase tracking-wider">
+                    <span className="text-xs font-semibold text-[#F6F2EA] uppercase tracking-wider">
                       Institución o profesional
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-ink-light font-light leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#C8C4BB] font-light leading-relaxed">
                     Cuando la preocupación persiste, se repite o empieza a afectar tu vida, una consulta profesional permite ordenar lo que está pasando y pensar qué hacer a partir de ahí.
                   </p>
                 </div>
@@ -377,16 +400,16 @@ export default function AdiccionesMarDelPlata() {
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="mt-14 pt-8 sm:pt-10 border-t border-sand/40 max-w-3xl space-y-6"
+            className="mt-14 pt-8 sm:pt-10 border-t border-white/10 max-w-3xl space-y-6"
           >
-            <p className="font-serif text-xl sm:text-2xl text-ink italic leading-relaxed">
+            <p className="font-serif text-xl sm:text-2xl text-[#F6F2EA] italic leading-relaxed">
               «No necesitás saber si es una adicción antes de consultar. Podemos empezar por entender juntos qué está pasando.»
             </p>
             <div>
               <Link
                 to="/contacto"
                 onClick={() => trackCtaClick('adicciones_datos', 'Hablar con El Faro', '/contacto')}
-                className="inline-flex items-center justify-center gap-3 bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-md group"
+                className="inline-flex items-center justify-center gap-3 bg-[#D4AF37] text-[#111613] px-8 py-4 rounded-full text-sm font-semibold tracking-wider uppercase hover:bg-[#E5C358] transition-all shadow-md group"
               >
                 Hablar con El Faro
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
@@ -394,70 +417,84 @@ export default function AdiccionesMarDelPlata() {
             </div>
           </motion.div>
 
-          {/* Fuente visible y microbloque */}
+          {/* Fuente visible */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="mt-10 pt-6 border-t border-sand/20"
+            className="mt-10 pt-6 border-t border-white/10"
           >
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-light">
-              <span className="font-medium text-ink/70">Fuente oficial:</span>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-[#C8C4BB]">
+              <span className="font-medium text-[#F6F2EA]/80">Fuente oficial:</span>
               <a
                 href="https://www.indec.gob.ar/ftp/cuadros/sociedad/encoprac_2022.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-olive hover:text-ink underline decoration-olive/40 hover:decoration-ink transition-colors inline-flex items-center gap-1 group"
+                className="text-[#D4AF37] hover:text-[#F6F2EA] underline decoration-[#D4AF37]/40 hover:decoration-[#F6F2EA] transition-colors inline-flex items-center gap-1 group"
               >
                 ENCoPraC 2022 · INDEC · Observatorio Argentino de Drogas / SEDRONAR
                 <span className="text-[10px] inline-block transition-transform group-hover:translate-x-0.5">↗</span>
               </a>
             </div>
 
-            <p className="mt-3 text-[11px] sm:text-xs text-ink-light/60 font-light leading-relaxed max-w-2xl">
+            <p className="mt-3 text-[11px] sm:text-xs text-[#9E988D] font-light leading-relaxed max-w-2xl">
               Trabajamos con información de organismos oficiales y publicaciones académicas, utilizando las fuentes más recientes disponibles para cada territorio. Cuando presentamos un antecedente local, indicamos su año y alcance para que cada dato pueda leerse en su contexto.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Cómo trabajamos: Dispositivo integral */}
-      <section className="py-24 bg-offwhite text-ink border-t border-sand/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      {/* ── 5. DISPOSITIVO INTEGRAL — IMAGEN 1: GRUPO DE APOYO Y SOSTÉN ── */}
+      <section className="py-24 lg:py-32 bg-[#111613] text-[#DDD8CD] border-b border-white/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Fotografía Documental 1: Gran Escala (58% del layout en desktop) */}
             <motion.div 
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="rounded-3xl overflow-hidden shadow-xl border border-sand/30 bg-sand/20 relative"
+              className="lg:col-span-7 relative overflow-hidden rounded-3xl lg:rounded-[2.5rem] bg-[#141A15] border border-white/10 shadow-2xl group"
             >
               <img 
-                src="https://res.cloudinary.com/dwv5ehc6e/image/upload/f_auto,q_auto/mifaro/IMG-0990_mgVHpGR8.jpg" 
-                alt="Encuentro y acompañamiento terapéutico en El Faro" 
-                className="w-full h-full object-cover aspect-[4/3] lg:aspect-square"
+                src="/adicciones/adicciones-grupo-apoyo-el-faro.png" 
+                alt="Grupo de apoyo, acompañamiento y proceso terapéutico en El Faro Mar del Plata" 
+                width={1024}
+                height={1536}
+                className="w-full h-full object-cover object-[center_25%] max-h-[620px] lg:max-h-[720px] filter contrast-[1.04]"
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-xs uppercase tracking-widest text-sand font-semibold block mb-1">Tratamiento ambulatorio</span>
-                <p className="font-serif text-xl sm:text-2xl text-offwhite">Construir la recuperación en el entorno real de la persona.</p>
+              {/* Overlays de integración: la fotografía se funde con el fondo carbón/verde */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111613] via-[#111613]/30 to-transparent opacity-90 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#111613]/40 via-transparent to-[#111613]/50 pointer-events-none" />
+              <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 text-[#F6F2EA] pointer-events-none">
+                <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-semibold block mb-2">
+                  Tratamiento ambulatorio · Mar del Plata
+                </span>
+                <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#F6F2EA] leading-snug max-w-lg">
+                  Construir la recuperación en el entorno real de la persona.
+                </p>
               </div>
             </motion.div>
 
+            {/* Columna de Texto Editorial */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="space-y-8"
+              className="lg:col-span-5 space-y-8"
             >
               <div>
-                <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-3">Enfoque clínico y humano</span>
-                <h2 className="text-3xl sm:text-4xl font-serif text-ink mb-4">Un tratamiento construido alrededor de cada persona</h2>
-                <p className="text-base text-ink-light font-light leading-relaxed">
+                <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold block mb-3">
+                  Enfoque clínico y humano
+                </span>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA] leading-tight mb-4">
+                  Un tratamiento construido alrededor de cada persona
+                </h2>
+                <p className="text-base sm:text-lg text-[#C8C4BB] font-light leading-relaxed">
                   En El Faro trabajamos con un abordaje ambulatorio que integra distintos espacios y dispositivos según cada situación. El proceso se construye junto a la persona, con un equipo profesional y con la participación de su familia y su red cuando es necesario.
                 </p>
               </div>
@@ -481,26 +518,26 @@ export default function AdiccionesMarDelPlata() {
                   }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5">
-                    <div className="mt-1 text-olive bg-olive/10 p-3 rounded-2xl h-fit shrink-0">
+                    <div className="mt-1 text-[#D4AF37] bg-white/5 border border-white/10 p-3 rounded-2xl h-fit shrink-0">
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="font-serif text-xl text-ink mb-1">{item.title}</h3>
-                      <p className="text-ink-light font-light text-sm leading-relaxed">{item.text}</p>
+                      <h3 className="font-serif text-xl text-[#F6F2EA] mb-1">{item.title}</h3>
+                      <p className="text-[#C8C4BB] font-light text-sm leading-relaxed">{item.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Transición natural hacia lo online y el intercambio */}
-              <div className="pt-6 border-t border-sand/30 bg-sand-light/40 p-6 rounded-2xl">
-                <p className="text-base text-ink leading-relaxed font-light">
+              <div className="pt-6 border-t border-white/10 bg-white/[0.03] p-6 rounded-2xl">
+                <p className="text-base text-[#DDD8CD] leading-relaxed font-light">
                   Cada proceso puede combinar distintos espacios a lo largo del tiempo. La intensidad, la frecuencia y los dispositivos se van definiendo según la situación y el momento de cada persona.
                 </p>
-                <p className="text-base text-ink leading-relaxed font-light mt-2">
+                <p className="text-base text-[#DDD8CD] leading-relaxed font-light mt-2">
                   El trabajo se realiza de manera presencial en nuestra sede de Mar del Plata y se integra también con espacios online, tanto individuales como grupales.
                 </p>
-                <p className="text-sm font-medium text-olive tracking-wide uppercase mt-4 flex items-center gap-2">
+                <p className="text-sm font-medium text-[#D4AF37] tracking-wide uppercase mt-4 flex items-center gap-2">
                   Y a veces, lo online nos permite algo más.
                   <ArrowRight size={16} />
                 </p>
@@ -510,10 +547,61 @@ export default function AdiccionesMarDelPlata() {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* FRANJA EDITORIAL DIFERENCIAL: DOS ORILLAS, OTRAS MIRADAS                 */}
-      {/* ========================================================================= */}
-      <section className="relative py-28 lg:py-36 bg-[#1A211B] text-offwhite overflow-hidden border-y border-sand/10">
+      {/* ── 6. MOMENTO CINEMATOGRÁFICO DE GRAN ESCALA — IMAGEN 3: COMUNIDAD FRENTE AL MAR ── */}
+      <section className="py-20 lg:py-32 bg-[#111613] text-[#DDD8CD] overflow-hidden border-b border-white/10">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="max-w-4xl mx-auto text-center mb-10 sm:mb-14"
+          >
+            <span className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-semibold block mb-3">
+              Comunidad y pertenencia
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA] leading-tight mb-4">
+              Nadie se recupera en soledad
+            </h2>
+            <p className="text-base sm:text-lg text-[#C8C4BB] font-light max-w-2xl mx-auto leading-relaxed">
+              El lazo con otros, el encuentro y la pertenencia son el corazón de nuestro abordaje en Mar del Plata.
+            </p>
+          </motion.div>
+
+          {/* Composición Panorámica de Gran Escala */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="relative w-full overflow-hidden rounded-2xl lg:rounded-3xl border border-white/10 shadow-2xl bg-[#0D110E]"
+          >
+            <img 
+              src="/adicciones/adicciones-comunidad-mar-del-plata.jpg" 
+              alt="Comunidad terapéutica de El Faro tomada de las manos frente al mar en Mar del Plata" 
+              width={2038}
+              height={578}
+              className="w-full h-auto object-cover max-h-[520px] lg:max-h-[620px] filter contrast-[1.08] brightness-[0.98]"
+              loading="lazy"
+              decoding="async"
+            />
+            {/* Fundido lateral y perimetral profundo */}
+            <div className="absolute inset-y-0 left-0 w-24 sm:w-36 lg:w-48 bg-gradient-to-r from-[#111613] via-[#111613]/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 sm:w-36 lg:w-48 bg-gradient-to-l from-[#111613] via-[#111613]/70 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-16 sm:h-24 bg-gradient-to-b from-[#111613] via-[#111613]/50 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-t from-[#111613] via-[#111613]/60 to-transparent pointer-events-none" />
+          </motion.div>
+
+          <div className="mt-4 text-center">
+            <p className="text-xs sm:text-sm font-light text-[#9E988D] tracking-wide">
+              Espacio comunitario El Faro · Mar del Plata · Encuentro terapéutico frente al mar
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. FRANJA EDITORIAL DIFERENCIAL: DOS ORILLAS, OTRAS MIRADAS ── */}
+      <section className="relative py-28 lg:py-36 bg-[#1A211B] text-offwhite overflow-hidden border-b border-white/10">
         {/* Fondo con textura sutil marina/nocturna sobria */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-15 mix-blend-screen">
           <img 
@@ -526,7 +614,6 @@ export default function AdiccionesMarDelPlata() {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Cabecera del bloque diferencial */}
           <motion.div 
             variants={fadeUp}
             initial="hidden"
@@ -553,7 +640,6 @@ export default function AdiccionesMarDelPlata() {
             </p>
           </motion.div>
 
-          {/* Línea sutil de conexión entre dos geografías */}
           <div className="my-10 py-6 border-y border-sand/15 grid grid-cols-1 md:grid-cols-2 gap-6 items-center text-sm font-light text-sand/75">
             <div className="flex items-center gap-3">
               <div className="w-2.5 h-2.5 rounded-full bg-olive-light ring-4 ring-olive/20" />
@@ -572,7 +658,6 @@ export default function AdiccionesMarDelPlata() {
             </div>
           </div>
 
-          {/* Las 3 dimensiones del intercambio */}
           <motion.div 
             variants={staggerContainer}
             initial="hidden"
@@ -614,7 +699,6 @@ export default function AdiccionesMarDelPlata() {
             </motion.div>
           </motion.div>
 
-          {/* Cierre reflexivo del bloque diferencial */}
           <motion.div 
             variants={fadeUp}
             initial="hidden"
@@ -629,18 +713,22 @@ export default function AdiccionesMarDelPlata() {
         </div>
       </section>
 
-      {/* Valores: Qué vas a encontrar */}
-      <section className="py-24 bg-white text-ink border-b border-sand/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ── 8. VALORES: QUÉ VAS A ENCONTRAR ── */}
+      <section className="py-24 sm:py-32 bg-[#141A15] text-[#DDD8CD] border-b border-white/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="max-w-3xl mx-auto mb-16"
+            className="max-w-3xl mb-16 sm:mb-20"
           >
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-3">Acompañamiento humano</span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-ink">Lo que vas a encontrar en El Faro</h2>
+            <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-semibold block mb-3">
+              Acompañamiento humano
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA] leading-tight">
+              Lo que vas a encontrar en El Faro
+            </h2>
           </motion.div>
 
           <motion.div 
@@ -648,47 +736,58 @@ export default function AdiccionesMarDelPlata() {
             initial="hidden" 
             whileInView="visible" 
             viewport={viewportConfig} 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-12 sm:gap-y-16"
           >
             {[
               { 
-                icon: <Heart size={26} />, 
-                title: "Comprensión", 
-                desc: "No juzgamos decisiones ni imponemos castigos. Buscamos comprender qué función cumple el consumo en tu historia." 
+                num: "01",
+                title: "Empatía", 
+                desc: "Podemos entender claramente tus circunstancias. Buscamos comprender qué función cumple el consumo en tu historia. Mientras, construimos junto a vos y tu red —familia, pareja, etc.— una red personal más contenedora y efectiva." 
               },
               { 
-                icon: <Coffee size={26} />, 
+                num: "02",
                 title: "Cercanía", 
-                desc: "Un encuentro genuino donde la persona no queda reducida a un síntoma, a un diagnóstico ni a un legajo." 
+                desc: "Un encuentro genuino donde la persona no queda reducida a un síntoma, a un diagnóstico ni a una opinión subjetiva." 
               },
               { 
-                icon: <ArrowRight size={26} />, 
+                num: "03",
                 title: "Pasos concretos", 
-                desc: "Articulación y derivación con especialistas médicos o psiquiátricos si el cuadro clínico requiere apoyo sanitario." 
+                desc: "Equipo interdisciplinario: psicólogos, psiquiatras, médicos, operadores terapéuticos, psicólogos sociales y acompañantes terapéuticos. También contamos con guardias telefónicas: tener a quién llamar fuera de los horarios de El Faro." 
+              },
+              { 
+                num: "04",
+                title: "Conocimiento, experiencia y trayectoria", 
+                desc: "Reconstrucción de vínculos, adaptación del proceso personal al escenario vital de cada persona e interconsultas con otros dispositivos cuando sean necesarias, con el fin de fortalecer y ampliar su red de contención." 
               }
             ].map((item, i) => (
               <motion.div 
                 key={i} 
                 variants={fadeUp} 
-                className="p-10 rounded-3xl bg-sand-light/20 border border-sand/30 text-center hover:border-olive/30 transition-all duration-300 shadow-sm"
+                className="border-t border-white/10 pt-8 flex flex-col justify-between"
               >
-                <div className="text-olive mb-6 flex justify-center">{item.icon}</div>
-                <h3 className="text-xl font-serif mb-3 text-ink">{item.title}</h3>
-                <p className="text-sm text-ink-light font-light leading-relaxed">{item.desc}</p>
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#D4AF37]/80 font-semibold block mb-4">
+                    {item.num} · Principio
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-serif mb-4 text-[#F6F2EA]">{item.title}</h3>
+                  <p className="text-base text-[#C8C4BB] font-light leading-relaxed">{item.desc}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* FAQs */}
+      {/* ── 9. FAQS ── */}
       <FAQBlock 
         title="Dudas frecuentes sobre adicciones"
         faqs={faqsAdicciones}
+        variant="dark"
+        bgClass="bg-[#111613] border-b border-white/10 text-white"
       />
 
-      {/* Ubicación y Cobertura: Dónde estamos en Mar del Plata */}
-      <section className="py-20 bg-sand/10 border-t border-sand/20">
+      {/* ── 10. UBICACIÓN Y COBERTURA: DÓNDE ESTAMOS EN MAR DEL PLATA ── */}
+      <section className="py-20 bg-[#141A15] border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             variants={fadeUp}
@@ -697,18 +796,20 @@ export default function AdiccionesMarDelPlata() {
             viewport={viewportConfig}
             className="space-y-6"
           >
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-2">Presencial y Online</span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-ink">Dónde estamos en Mar del Plata</h2>
-            <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed max-w-2xl mx-auto">
+            <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold block mb-2">
+              Presencial y Online
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#F6F2EA]">Dónde estamos en Mar del Plata</h2>
+            <p className="text-base sm:text-lg text-[#C8C4BB] font-light leading-relaxed max-w-2xl mx-auto">
               Nuestro espacio central se encuentra en la ciudad de Mar del Plata, con fácil acceso desde toda el área urbana, Batán y localidades costeras vecinas. Para quienes residen en otros puntos de la provincia o del país, coordinamos consultas y seguimiento a través de modalidad online.
             </p>
             <div className="pt-2">
               <a 
                 href="tel:+542234921953"
                 onClick={() => trackPhoneClick('adicciones_sede', '+542234921953')}
-                className="inline-flex items-center gap-2 text-ink font-medium hover:text-olive transition-colors text-base"
+                className="inline-flex items-center gap-2 text-[#F6F2EA] font-medium hover:text-[#D4AF37] transition-colors text-base"
               >
-                <PhoneCall size={18} className="text-olive" />
+                <PhoneCall size={18} className="text-[#D4AF37]" />
                 Teléfono de atención: +54 223 4921953
               </a>
             </div>
@@ -716,12 +817,14 @@ export default function AdiccionesMarDelPlata() {
         </div>
       </section>
 
-      {/* Navegación Cruzada a otros espacios de Argentina */}
-      <section className="py-20 bg-offwhite border-t border-sand/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ── 11. NAVEGACIÓN CRUZADA A OTROS ESPACIOS DE ARGENTINA ── */}
+      <section className="py-20 bg-[#111613] border-b border-white/10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-2">Red de Acompañamiento</span>
-            <h2 className="text-2xl sm:text-3xl font-serif text-ink">Otros espacios y recursos en El Faro</h2>
+            <span className="text-xs uppercase tracking-widest text-[#D4AF37] font-semibold block mb-2">
+              Red de Acompañamiento
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif text-[#F6F2EA]">Otros espacios y recursos en El Faro</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -750,13 +853,13 @@ export default function AdiccionesMarDelPlata() {
               <Link 
                 key={i} 
                 to={item.link}
-                className="group p-6 bg-white rounded-2xl border border-sand/30 hover:border-olive/40 hover:shadow-md transition-all flex flex-col justify-between"
+                className="group p-6 bg-white/[0.03] rounded-2xl border border-white/10 hover:border-[#D4AF37]/50 hover:bg-white/[0.05] transition-all flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="font-serif text-lg text-ink group-hover:text-olive transition-colors mb-1">{item.title}</h3>
-                  <p className="text-xs text-ink-light font-light">{item.desc}</p>
+                  <h3 className="font-serif text-lg text-[#F6F2EA] group-hover:text-[#D4AF37] transition-colors mb-1">{item.title}</h3>
+                  <p className="text-xs text-[#9E988D] font-light">{item.desc}</p>
                 </div>
-                <div className="mt-4 flex items-center justify-end text-olive">
+                <div className="mt-4 flex items-center justify-end text-[#D4AF37]">
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -765,8 +868,8 @@ export default function AdiccionesMarDelPlata() {
         </div>
       </section>
 
-      {/* CTA Final: Cierre Doble */}
-      <section className="py-28 bg-ink text-offwhite overflow-hidden">
+      {/* ── 12. CTA FINAL: CIERRE DOBLE ── */}
+      <section className="py-28 bg-[#0D110E] text-[#F6F2EA] overflow-hidden">
         <motion.div 
           variants={fadeUp}
           initial="hidden"
@@ -774,14 +877,14 @@ export default function AdiccionesMarDelPlata() {
           viewport={viewportConfig}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-3xl sm:text-5xl font-serif mb-6 text-offwhite">El cambio empieza cuando se puede poner en palabras</h2>
-          <p className="text-lg sm:text-xl text-sand font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-serif mb-6 text-[#F6F2EA]">El cambio empieza cuando se puede poner en palabras</h2>
+          <p className="text-lg sm:text-xl text-[#C8C4BB] font-light leading-relaxed mb-10 max-w-2xl mx-auto">
             No tenés que pasar por esto a solas. Estamos para escucharte, ordenar la situación y pensar juntos el camino de salida.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/contacto"
-              className="inline-flex items-center justify-center gap-3 bg-olive text-white px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-lg"
+              className="inline-flex items-center justify-center gap-3 bg-[#D4AF37] text-[#111613] px-10 py-5 rounded-full text-sm font-semibold tracking-wider uppercase hover:bg-[#E5C358] transition-all shadow-lg"
             >
               Consultar de forma privada
               <ArrowRight size={18} />
@@ -790,19 +893,19 @@ export default function AdiccionesMarDelPlata() {
         </motion.div>
       </section>
 
-      {/* Barra final de contacto rápido */}
-      <section className="py-14 bg-sand-light/40 border-t border-sand/30">
+      {/* ── 13. BARRA FINAL DE CONTACTO RÁPIDO ── */}
+      <section className="py-14 bg-[#111613] border-t border-white/10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-base text-ink mb-1">Si llegaste hasta acá, algo te trajo. Dar este paso ya es empezar.</p>
-          <p className="text-sm text-ink-light font-light mb-6">Escribinos o llamanos para coordinar una primera conversación sin compromiso.</p>
+          <p className="text-base text-[#F6F2EA] mb-1">Si llegaste hasta acá, algo te trajo. Dar este paso ya es empezar.</p>
+          <p className="text-sm text-[#C8C4BB] font-light mb-6">Escribinos o llamanos para coordinar un primer encuentro sin compromiso.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('adicciones_footer', 'https://wa.me/5492235923790')}
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-olive text-white font-medium rounded-full hover:bg-olive-light transition-colors text-sm tracking-wide uppercase"
+              onClick={() => trackWhatsAppClick('adicciones_footer', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#D4AF37] text-[#111613] font-semibold rounded-full hover:bg-[#E5C358] transition-colors text-sm tracking-wider uppercase shadow-md"
             >
               Escribinos por WhatsApp
             </a>
@@ -810,7 +913,7 @@ export default function AdiccionesMarDelPlata() {
             <a
               href="tel:+542234921953"
               onClick={() => trackPhoneClick('adicciones_footer', '+542234921953')}
-              className="inline-flex items-center justify-center px-8 py-3.5 border border-ink/40 text-ink font-medium rounded-full hover:bg-sand/30 transition-colors text-sm tracking-wide uppercase"
+              className="inline-flex items-center justify-center px-8 py-3.5 border border-white/20 text-[#F6F2EA] font-medium rounded-full hover:bg-white/10 transition-colors text-sm tracking-wider uppercase"
             >
               Llamar al (0223) 492-1953
             </a>

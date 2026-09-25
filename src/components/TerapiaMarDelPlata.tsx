@@ -143,7 +143,7 @@ export default function TerapiaMarDelPlata() {
   ];
 
   return (
-    <div className="bg-offwhite min-h-screen text-ink selection:bg-gold/30 selection:text-ink">
+    <div className="bg-[#141915] min-h-screen text-[#C8C4BA] selection:bg-[#6F7C63]/30 selection:text-[#F6F2EA]">
       <Head>
         <title>Terapia familiar y de pareja en Mar del Plata | El Faro</title>
         <meta 
@@ -199,7 +199,31 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION                                                           */}
       {/* ========================================================================= */}
-      <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-sand-light/20 border-b border-sand/20">
+      <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-32 overflow-hidden bg-[#141915] border-b border-white/10 min-h-[640px] lg:min-h-[720px] flex items-center">
+        {/* Fondo fotográfico documental editorial */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img
+            src="/terapia/terapia-pareja-mar-del-plata-hero.png"
+            alt="Sesión de terapia de pareja en El Faro Mar del Plata"
+            width={1672}
+            height={941}
+            className="w-full h-full object-cover object-[54%_30%] lg:object-[66%_32%] filter contrast-[1.04]"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+          {/* Overlays y gradientes progresivos de fundido hacia #141915 */}
+          {/* Móvil: degradado vertical profundo para máxima legibilidad */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#141915] via-[#141915]/85 to-[#141915]/65 lg:hidden" />
+          {/* Desktop: fundido horizontal de izquierda a derecha */}
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#141915] via-[#141915]/95 via-45% to-transparent" />
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#141915] via-[#141915]/70 to-transparent max-w-4xl" />
+          {/* Fundido inferior a base de página */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#141915] via-[#141915]/30 to-transparent" />
+          {/* Fundido superior para integración de navbar */}
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#141915]/80 to-transparent" />
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="max-w-3xl">
             <motion.div
@@ -207,16 +231,16 @@ export default function TerapiaMarDelPlata() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-olive/10 border border-olive/20 text-olive text-xs font-semibold tracking-widest uppercase mb-6">
-                <span className="w-2 h-2 rounded-full bg-olive animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#181E19]/90 backdrop-blur-sm border border-white/10 text-[#6F7C63] text-xs font-semibold tracking-widest uppercase mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#6F7C63] animate-pulse" />
                 VÍNCULOS · PAREJA · FAMILIA
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-ink leading-[1.15] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#F6F2EA] leading-[1.15] mb-6">
                 Terapia familiar y de pareja en Mar del Plata
               </h1>
 
-              <p className="text-lg sm:text-xl text-ink-light font-light leading-relaxed mb-8 max-w-2xl">
+              <p className="text-lg sm:text-xl text-[#C8C4BA] font-light leading-relaxed mb-8 max-w-2xl">
                 Cuando hablar termina siempre igual, cuando la distancia crece o cuando toda la familia empieza a girar alrededor de un conflicto, pedir ayuda puede abrir otra forma de entender lo que está pasando.
               </p>
 
@@ -224,18 +248,18 @@ export default function TerapiaMarDelPlata() {
                 <Link
                   to="/contacto"
                   onClick={() => trackCtaClick('terapia_hero', 'Coordinar primera entrevista', '/contacto')}
-                  className="inline-flex items-center justify-center gap-3 bg-olive text-white px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-md group"
+                  className="inline-flex items-center justify-center gap-3 bg-[#6F7C63] text-[#F6F2EA] px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-[#5E6B53] transition-all shadow-md group"
                 >
                   Coordinar una primera entrevista
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </Link>
 
                 <a 
-                  href="https://wa.me/5492235923790" 
+                  href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro." 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick('terapia_hero', 'https://wa.me/5492235923790')}
-                  className="inline-flex items-center justify-center gap-3 bg-white text-ink border border-sand/40 px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-sand/20 transition-all font-sans shadow-sm"
+                  onClick={() => trackWhatsAppClick('terapia_hero', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
+                  className="inline-flex items-center justify-center gap-3 bg-[#181E19]/90 backdrop-blur-sm text-[#F6F2EA] border border-white/15 px-8 py-4 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-white/5 transition-all font-sans shadow-sm"
                 >
                   WhatsApp (+54 9 223 592 3790)
                 </a>
@@ -248,7 +272,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 2. DOS PUERTAS DE ENTRADA (BLOQUE EDITORIAL)                              */}
       {/* ========================================================================= */}
-      <section className="py-20 lg:py-24 bg-white border-b border-sand/20">
+      <section className="py-20 lg:py-24 bg-[#141915] border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             variants={fadeUp}
@@ -257,14 +281,14 @@ export default function TerapiaMarDelPlata() {
             viewport={viewportConfig}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-3">Punto de partida</span>
-            <h2 className="text-3xl sm:text-4xl font-serif text-ink mb-4">
+            <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block mb-3">Punto de partida</span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#F6F2EA] mb-4">
               ¿Dónde sentís que está hoy el conflicto?
             </h2>
-            <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed">
+            <p className="text-base sm:text-lg text-[#C8C4BA] font-light leading-relaxed">
               Cada situación tiene su propio cauce. Identificar dónde se concentra el malestar ayuda a orientar el primer paso de consulta.
             </p>
-            <div className="w-12 h-0.5 bg-olive/40 mx-auto mt-6" />
+            <div className="w-12 h-0.5 bg-[#6F7C63]/40 mx-auto mt-6" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -274,23 +298,23 @@ export default function TerapiaMarDelPlata() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="bg-sand-light/20 border border-sand/30 rounded-3xl p-8 sm:p-10 flex flex-col justify-between hover:border-olive/30 transition-all shadow-sm"
+              className="bg-[#181E19] border border-white/10 rounded-3xl p-8 sm:p-10 flex flex-col justify-between hover:border-[#6F7C63]/40 transition-all shadow-sm"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-olive/10 flex items-center justify-center text-olive mb-2">
+                <div className="w-12 h-12 rounded-2xl bg-[#141915] border border-white/5 flex items-center justify-center text-[#6F7C63] mb-2">
                   <Heart size={24} />
                 </div>
-                <span className="text-xs uppercase tracking-widest text-olive font-semibold block">Espacio de Pareja</span>
-                <h3 className="font-serif text-2xl sm:text-3xl text-ink">PAREJA</h3>
-                <p className="text-base text-ink-light font-light leading-relaxed">
+                <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block">Espacio de Pareja</span>
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#F6F2EA]">PAREJA</h3>
+                <p className="text-base text-[#C8C4BA] font-light leading-relaxed">
                   Cuando cuesta escucharse, aparecen reproches, silencios, distancia, desgaste o dudas sobre cómo seguir.
                 </p>
               </div>
 
-              <div className="pt-8 mt-6 border-t border-sand/30">
+              <div className="pt-8 mt-6 border-t border-white/10">
                 <a 
                   href="#pareja"
-                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-olive hover:text-ink transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-[#C2A675] hover:text-[#F6F2EA] transition-colors"
                 >
                   Explorar el trabajo de pareja
                   <ChevronDown size={16} />
@@ -304,23 +328,23 @@ export default function TerapiaMarDelPlata() {
               initial="hidden"
               whileInView="visible"
               viewport={viewportConfig}
-              className="bg-sand-light/20 border border-sand/30 rounded-3xl p-8 sm:p-10 flex flex-col justify-between hover:border-olive/30 transition-all shadow-sm"
+              className="bg-[#181E19] border border-white/10 rounded-3xl p-8 sm:p-10 flex flex-col justify-between hover:border-[#6F7C63]/40 transition-all shadow-sm"
             >
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-olive/10 flex items-center justify-center text-olive mb-2">
+                <div className="w-12 h-12 rounded-2xl bg-[#141915] border border-white/5 flex items-center justify-center text-[#6F7C63] mb-2">
                   <Users size={24} />
                 </div>
-                <span className="text-xs uppercase tracking-widest text-olive font-semibold block">Espacio Familiar</span>
-                <h3 className="font-serif text-2xl sm:text-3xl text-ink">FAMILIA</h3>
-                <p className="text-base text-ink-light font-light leading-relaxed">
+                <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block">Espacio Familiar</span>
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#F6F2EA]">FAMILIA</h3>
+                <p className="text-base text-[#C8C4BA] font-light leading-relaxed">
                   Cuando las discusiones, los límites, la crianza, los cambios o un problema particular empiezan a afectar a toda la dinámica familiar.
                 </p>
               </div>
 
-              <div className="pt-8 mt-6 border-t border-sand/30">
+              <div className="pt-8 mt-6 border-t border-white/10">
                 <a 
                   href="#familia"
-                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-olive hover:text-ink transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-[#C2A675] hover:text-[#F6F2EA] transition-colors"
                 >
                   Explorar el trabajo familiar
                   <ChevronDown size={16} />
@@ -334,7 +358,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 3. SECCIÓN PAREJA                                                         */}
       {/* ========================================================================= */}
-      <section id="pareja" className="py-24 bg-sand/10 border-b border-sand/20 scroll-mt-16">
+      <section id="pareja" className="py-24 bg-[#141915] border-b border-white/10 scroll-mt-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             variants={fadeUp}
@@ -343,11 +367,11 @@ export default function TerapiaMarDelPlata() {
             viewport={viewportConfig}
             className="max-w-3xl mb-16"
           >
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-3">Terapia de pareja en Mar del Plata</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-ink mb-6">
+            <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block mb-3">Terapia de pareja en Mar del Plata</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA] mb-6">
               Cuando el vínculo de pareja empieza a desgastarse
             </h2>
-            <p className="text-lg text-ink-light font-light leading-relaxed">
+            <p className="text-lg text-[#C8C4BA] font-light leading-relaxed">
               No todas las crisis significan que una relación terminó. A veces lo que se perdió fue la forma de hablar, de escucharse o de poder decir lo que cada uno necesita sin que todo termine en reproche.
             </p>
           </motion.div>
@@ -364,42 +388,63 @@ export default function TerapiaMarDelPlata() {
               <motion.div 
                 key={idx}
                 variants={fadeUp}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-sand/30 hover:border-olive/30 hover:shadow-sm transition-all flex flex-col justify-between"
+                className="bg-[#181E19] p-6 sm:p-7 rounded-2xl border border-white/10 hover:border-[#6F7C63]/30 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="font-serif text-lg sm:text-xl text-ink mb-3">{item.title}</h3>
-                  <p className="text-sm text-ink-light font-light leading-relaxed">{item.description}</p>
+                  <h3 className="font-serif text-lg sm:text-xl text-[#F6F2EA] mb-3">{item.title}</h3>
+                  <p className="text-sm text-[#C8C4BA]/90 font-light leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Idea Central Destacada - Pareja */}
+          {/* Composición editorial gran formato - Pareja */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="bg-white p-8 sm:p-12 rounded-3xl border border-sand/40 shadow-sm max-w-4xl mx-auto"
+            className="relative overflow-hidden rounded-3xl lg:rounded-[2.5rem] bg-[#181E19] border border-white/10 shadow-2xl min-h-[500px] lg:min-h-[560px] flex items-center"
           >
-            <div className="flex items-start gap-4 mb-4">
-              <Sparkles size={24} className="text-olive shrink-0 mt-1" />
-              <blockquote className="font-serif text-xl sm:text-2xl text-ink leading-snug">
-                «El trabajo de pareja no busca decidir quién tiene razón ni mantener una relación a cualquier precio. Busca entender la dinámica que se instaló, recuperar claridad y construir decisiones más conscientes.»
-              </blockquote>
+            {/* Fondo fotográfico editorial */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <img
+                src="/terapia/terapia-pareja-sesion-el-faro.png"
+                alt="Sesión de terapia de pareja en el espacio terapéutico de El Faro"
+                width={1672}
+                height={941}
+                className="w-full h-full object-cover object-[52%_25%] lg:object-[68%_25%] filter contrast-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+              {/* Gradientes progresivos de fundido hacia #181E19 */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181E19] via-[#181E19]/90 to-[#181E19]/65 lg:hidden" />
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#181E19] via-[#181E19]/95 via-50% to-transparent" />
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#181E19] via-[#181E19]/75 to-transparent max-w-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181E19] via-transparent to-[#181E19]/40" />
             </div>
-            <p className="text-sm sm:text-base text-ink-light font-light leading-relaxed mt-4 pl-10">
-              En El Faro acompañamos a parejas que buscan reencontrarse, renovar acuerdos o transitar una separación de manera cuidada, sin juicios ni imposiciones.
-            </p>
-            <div className="mt-8 pl-10">
-              <Link
-                to="/contacto"
-                onClick={() => trackCtaClick('terapia_pareja_block', 'Coordinar primera entrevista', '/contacto')}
-                className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-olive hover:text-ink transition-colors border-b border-olive/30 pb-1"
-              >
-                Coordinar una primera entrevista de pareja
-                <ArrowRight size={16} />
-              </Link>
+
+            {/* Contenido en zona fundida */}
+            <div className="relative z-10 p-8 sm:p-12 lg:p-14 max-w-2xl">
+              <div className="flex items-start gap-4 mb-4">
+                <Sparkles size={24} className="text-[#C2A675] shrink-0 mt-1" />
+                <blockquote className="font-serif text-xl sm:text-2xl text-[#F6F2EA] leading-snug">
+                  «El trabajo de pareja no busca decidir quién tiene razón ni mantener una relación a cualquier precio. Busca entender la dinámica que se instaló, recuperar claridad y construir decisiones más conscientes.»
+                </blockquote>
+              </div>
+              <p className="text-sm sm:text-base text-[#C8C4BA] font-light leading-relaxed mt-4 pl-10">
+                En El Faro acompañamos a parejas que buscan reencontrarse, renovar acuerdos o transitar una separación de manera cuidada, sin juicios ni imposiciones.
+              </p>
+              <div className="mt-8 pl-10">
+                <Link
+                  to="/contacto"
+                  onClick={() => trackCtaClick('terapia_pareja_block', 'Coordinar primera entrevista', '/contacto')}
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-[#C2A675] hover:text-[#F6F2EA] transition-colors border-b border-[#C2A675]/30 pb-1"
+                >
+                  Coordinar una primera entrevista de pareja
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -408,7 +453,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 4. SECCIÓN FAMILIA                                                        */}
       {/* ========================================================================= */}
-      <section id="familia" className="py-24 bg-white border-b border-sand/20 scroll-mt-16">
+      <section id="familia" className="py-24 bg-[#141915] border-b border-white/10 scroll-mt-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             variants={fadeUp}
@@ -417,11 +462,11 @@ export default function TerapiaMarDelPlata() {
             viewport={viewportConfig}
             className="max-w-3xl mb-16"
           >
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-3">Terapia familiar en Mar del Plata</span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-ink mb-6">
+            <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block mb-3">Terapia familiar en Mar del Plata</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA] mb-6">
               Cuando el problema empieza a atravesar a toda la familia
             </h2>
-            <p className="text-lg text-ink-light font-light leading-relaxed">
+            <p className="text-lg text-[#C8C4BA] font-light leading-relaxed">
               Los conflictos familiares rara vez aparecen de un día para otro. A veces empiezan con pequeñas discusiones, silencios o cambios de conducta y, con el tiempo, toda la familia empieza a organizarse alrededor de eso que preocupa.
             </p>
           </motion.div>
@@ -438,42 +483,66 @@ export default function TerapiaMarDelPlata() {
               <motion.div 
                 key={idx}
                 variants={fadeUp}
-                className="bg-sand-light/20 p-6 sm:p-7 rounded-2xl border border-sand/30 hover:border-olive/30 hover:shadow-sm transition-all flex flex-col justify-between"
+                className="bg-[#181E19] p-6 sm:p-7 rounded-2xl border border-white/10 hover:border-[#6F7C63]/30 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="font-serif text-lg sm:text-xl text-ink mb-3">{item.title}</h3>
-                  <p className="text-sm text-ink-light font-light leading-relaxed">{item.description}</p>
+                  <h3 className="font-serif text-lg sm:text-xl text-[#F6F2EA] mb-3">{item.title}</h3>
+                  <p className="text-sm text-[#C8C4BA]/90 font-light leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Idea Central Destacada - Familia */}
+        </div>
+
+        {/* Bloque panorámico editorial 1200-1440px - Grupo / Familia */}
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-16">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={viewportConfig}
-            className="bg-sand/15 p-8 sm:p-12 rounded-3xl border border-sand/40 max-w-4xl mx-auto"
+            className="relative overflow-hidden rounded-3xl lg:rounded-[2.5rem] bg-[#181E19] border border-white/10 shadow-2xl min-h-[520px] lg:min-h-[580px] flex items-center"
           >
-            <div className="flex items-start gap-4 mb-4">
-              <HomeIcon size={24} className="text-olive shrink-0 mt-1" />
-              <blockquote className="font-serif text-xl sm:text-2xl text-ink leading-snug">
-                «El trabajo familiar no busca señalar culpables. Busca comprender qué se repite, qué lugar ocupa cada uno y qué necesita modificarse para que los vínculos puedan funcionar de otra manera.»
-              </blockquote>
+            {/* Fondo fotográfico editorial */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              <img
+                src="/terapia/terapia-grupo-padres-el-faro.png"
+                alt="Grupo de orientación y acompañamiento a familias y padres en El Faro"
+                width={1672}
+                height={941}
+                className="w-full h-full object-cover object-[54%_28%] lg:object-[68%_28%] filter contrast-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+              {/* Gradientes progresivos de fundido hacia #181E19 */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181E19] via-[#181E19]/90 to-[#181E19]/65 lg:hidden" />
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#181E19] via-[#181E19]/95 via-50% to-transparent" />
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-[#181E19] via-[#181E19]/75 to-transparent max-w-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181E19] via-transparent to-[#181E19]/40" />
             </div>
-            <p className="text-sm sm:text-base text-ink-light font-light leading-relaxed mt-4 pl-10">
-              Ofrecemos un espacio reflexivo y cuidado para revisar la comunicación, ordenar la convivencia y acompañar a padres, madres e hijos en las distintas etapas de la vida familiar.
-            </p>
-            <div className="mt-8 pl-10">
-              <Link
-                to="/contacto"
-                onClick={() => trackCtaClick('terapia_familia_block', 'Coordinar primera entrevista', '/contacto')}
-                className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-olive hover:text-ink transition-colors border-b border-olive/30 pb-1"
-              >
-                Coordinar una primera entrevista familiar
-                <ArrowRight size={16} />
-              </Link>
+
+            {/* Contenido en zona fundida */}
+            <div className="relative z-10 p-8 sm:p-12 lg:p-14 max-w-2xl">
+              <div className="flex items-start gap-4 mb-4">
+                <HomeIcon size={24} className="text-[#C2A675] shrink-0 mt-1" />
+                <blockquote className="font-serif text-xl sm:text-2xl text-[#F6F2EA] leading-snug">
+                  «El trabajo familiar no busca señalar culpables. Busca comprender qué se repite, qué lugar ocupa cada uno y qué necesita modificarse para que los vínculos puedan funcionar de otra manera.»
+                </blockquote>
+              </div>
+              <p className="text-sm sm:text-base text-[#C8C4BA] font-light leading-relaxed mt-4 pl-10">
+                Ofrecemos un espacio reflexivo y cuidado para revisar la comunicación, ordenar la convivencia y acompañar a padres, madres e hijos en las distintas etapas de la vida familiar.
+              </p>
+              <div className="mt-8 pl-10">
+                <Link
+                  to="/contacto"
+                  onClick={() => trackCtaClick('terapia_familia_block', 'Coordinar primera entrevista', '/contacto')}
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-[#C2A675] hover:text-[#F6F2EA] transition-colors border-b border-[#C2A675]/30 pb-1"
+                >
+                  Coordinar una primera entrevista familiar
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -482,7 +551,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 5. BLOQUE PROPIO DE EL FARO: UNA MIRADA INTEGRAL                           */}
       {/* ========================================================================= */}
-      <section className="py-24 bg-sand/10 border-b border-sand/20">
+      <section className="py-24 bg-[#181E19] border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             variants={fadeUp}
@@ -491,20 +560,20 @@ export default function TerapiaMarDelPlata() {
             viewport={viewportConfig}
             className="space-y-6"
           >
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-2">
+            <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block mb-2">
               UNA MIRADA INTEGRAL
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-ink">
-              No trabajamos con personas aisladas de su historia.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-[#F6F2EA]">
+              Trabajamos desde el primer día desde y en tu contexto personal
             </h2>
-            <div className="w-16 h-0.5 bg-olive/40 mx-auto my-6" />
-            <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed max-w-3xl mx-auto">
+            <div className="w-16 h-0.5 bg-[#6F7C63]/40 mx-auto my-6" />
+            <p className="text-base sm:text-lg text-[#C8C4BA] font-light leading-relaxed max-w-3xl mx-auto">
               Lo que pasa en una pareja o en una familia se construye entre vínculos, momentos vitales, formas de comunicarse y maneras de cuidarse que a veces dejan de funcionar. Por eso miramos la situación completa y no solamente el síntoma o el conflicto que llevó a consultar.
             </p>
-            <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed max-w-3xl mx-auto pt-2">
+            <p className="text-base sm:text-lg text-[#C8C4BA] font-light leading-relaxed max-w-3xl mx-auto pt-2">
               En el trabajo con parejas y familias buscamos comprender qué situaciones se repiten, cómo se comunican las distintas posiciones, qué acuerdos o límites necesitan revisarse y quiénes conviene que participen en cada momento del proceso.
             </p>
-            <p className="text-base sm:text-lg text-ink font-light leading-relaxed max-w-3xl mx-auto pt-2">
+            <p className="text-base sm:text-lg text-[#F6F2EA] font-light leading-relaxed max-w-3xl mx-auto pt-2">
               Según cada situación, el proceso puede incluir entrevistas individuales, de pareja, familiares y otros dispositivos de El Faro.
             </p>
           </motion.div>
@@ -514,7 +583,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 6. PRIMERA ENTREVISTA                                                     */}
       {/* ========================================================================= */}
-      <section className="py-24 bg-white border-b border-sand/20">
+      <section className="py-24 bg-[#141915] border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <motion.div 
@@ -524,28 +593,28 @@ export default function TerapiaMarDelPlata() {
               viewport={viewportConfig}
               className="lg:col-span-7 space-y-6"
             >
-              <span className="text-xs uppercase tracking-widest text-olive font-semibold block">Primer paso</span>
-              <h2 className="text-3xl sm:text-4xl font-serif text-ink">¿Cómo es una primera entrevista?</h2>
+              <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block">Primer paso</span>
+              <h2 className="text-3xl sm:text-4xl font-serif text-[#F6F2EA]">¿Cómo es una primera entrevista?</h2>
 
-              <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed">
+              <p className="text-base sm:text-lg text-[#C8C4BA] font-light leading-relaxed">
                 La primera entrevista sirve para escuchar qué está pasando, ordenar la situación y pensar juntos qué tipo de espacio puede tener sentido.
               </p>
 
-              <ul className="space-y-3 text-base text-ink-light font-light">
+              <ul className="space-y-3 text-base text-[#C8C4BA] font-light">
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-olive shrink-0 mt-1" />
+                  <CheckCircle2 size={18} className="text-[#6F7C63] shrink-0 mt-1" />
                   <span>No hace falta que venga toda la familia desde el primer día.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-olive shrink-0 mt-1" />
+                  <CheckCircle2 size={18} className="text-[#6F7C63] shrink-0 mt-1" />
                   <span>A veces empieza una persona, una pareja, una madre, un padre, un hijo adulto o alguien que siente que ya no sabe cómo seguir sosteniendo la situación.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-olive shrink-0 mt-1" />
+                  <CheckCircle2 size={18} className="text-[#6F7C63] shrink-0 mt-1" />
                   <span>Escuchamos con calma, sin juzgar y sin derivaciones automáticas.</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle2 size={18} className="text-olive shrink-0 mt-1" />
+                  <CheckCircle2 size={18} className="text-[#6F7C63] shrink-0 mt-1" />
                   <span>Definimos con honestidad qué formato de trabajo se adapta mejor a la realidad actual.</span>
                 </li>
               </ul>
@@ -556,20 +625,20 @@ export default function TerapiaMarDelPlata() {
               initial="hidden" 
               whileInView="visible" 
               viewport={viewportConfig}
-              className="lg:col-span-5 bg-sand-light/20 p-8 sm:p-10 rounded-3xl border border-sand/40 shadow-sm space-y-6"
+              className="lg:col-span-5 bg-[#181E19] p-8 sm:p-10 rounded-3xl border border-white/10 shadow-sm space-y-6"
             >
-              <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center text-olive">
+              <div className="w-12 h-12 rounded-full bg-[#141915] border border-white/5 flex items-center justify-center text-[#6F7C63]">
                 <MessageSquare size={24} />
               </div>
-              <h3 className="font-serif text-2xl text-ink">Espacio de confianza</h3>
-              <p className="text-sm text-ink-light font-light leading-relaxed">
+              <h3 className="font-serif text-2xl text-[#F6F2EA]">Espacio de confianza</h3>
+              <p className="text-sm text-[#C8C4BA] font-light leading-relaxed">
                 No necesitás llegar con todo resuelto ni con un acuerdo previo entre todos los miembros. Una primera entrevista permite empezar a ordenar el panorama y evaluar posibilidades con total libertad.
               </p>
               <div className="pt-2">
                 <Link
                   to="/contacto"
                   onClick={() => trackCtaClick('terapia_pasos', 'Coordinar primera entrevista', '/contacto')}
-                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-olive hover:text-ink transition-colors border-b border-olive/30 pb-1"
+                  className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-[#C2A675] hover:text-[#F6F2EA] transition-colors border-b border-[#C2A675]/30 pb-1"
                 >
                   Coordinar una primera entrevista
                   <ArrowRight size={16} />
@@ -583,7 +652,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 7. TAMBIÉN PUEDE EMPEZAR UNO SOLO                                         */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-sand/10 border-b border-sand/20">
+      <section className="py-20 bg-[#181E19] border-b border-white/10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             variants={fadeUp}
@@ -592,16 +661,16 @@ export default function TerapiaMarDelPlata() {
             viewport={viewportConfig}
             className="space-y-6"
           >
-            <div className="w-12 h-12 rounded-full bg-olive/10 flex items-center justify-center text-olive mx-auto mb-2">
+            <div className="w-12 h-12 rounded-full bg-[#141915] border border-white/5 flex items-center justify-center text-[#6F7C63] mx-auto mb-2">
               <UserCheck size={24} />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif text-ink">
+            <h2 className="text-3xl sm:text-4xl font-serif text-[#F6F2EA]">
               No hace falta que todos estén de acuerdo para empezar
             </h2>
-            <p className="text-base sm:text-lg text-ink-light font-light leading-relaxed">
+            <p className="text-base sm:text-lg text-[#C8C4BA] font-light leading-relaxed">
               A veces uno quiere pedir ayuda y el otro todavía no. Un hijo puede no querer venir. Una pareja puede tener dudas. Eso no significa que no se pueda empezar a entender qué está pasando.
             </p>
-            <p className="text-base sm:text-lg text-ink font-light leading-relaxed">
+            <p className="text-base sm:text-lg text-[#C8C4BA] font-light leading-relaxed">
               Una primera entrevista puede ayudar a ordenar la situación y pensar cómo acercar a los demás sin convertir la consulta en una imposición.
             </p>
           </motion.div>
@@ -614,16 +683,18 @@ export default function TerapiaMarDelPlata() {
       <FAQBlock 
         title="Dudas frecuentes sobre terapia de pareja y familiar"
         faqs={faqsTerapia}
+        variant="dark"
+        bgClass="bg-[#141915] border-b border-white/10 text-[#C8C4BA]"
       />
 
       {/* ========================================================================= */}
       {/* 9. NAVEGACIÓN CRUZADA: OTROS ESPACIOS DE EL FARO                          */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-sand/10 border-t border-sand/20">
+      <section className="py-20 bg-[#141915] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-xs uppercase tracking-widest text-olive font-semibold block mb-2">Otros espacios de El Faro</span>
-            <h2 className="text-2xl sm:text-3xl font-serif text-ink">Otros espacios y recursos en El Faro</h2>
+            <span className="text-xs uppercase tracking-widest text-[#6F7C63] font-semibold block mb-2">Otros espacios de El Faro</span>
+            <h2 className="text-2xl sm:text-3xl font-serif text-[#F6F2EA]">Otros espacios y recursos en El Faro</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -652,13 +723,13 @@ export default function TerapiaMarDelPlata() {
               <Link 
                 key={i} 
                 to={item.link}
-                className="group p-6 bg-white rounded-2xl border border-sand/30 hover:border-olive/40 hover:shadow-md transition-all flex flex-col justify-between"
+                className="group p-6 bg-[#181E19] rounded-2xl border border-white/10 hover:border-[#6F7C63]/40 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <h3 className="font-serif text-lg text-ink group-hover:text-olive transition-colors mb-1">{item.title}</h3>
-                  <p className="text-xs text-ink-light font-light">{item.desc}</p>
+                  <h3 className="font-serif text-lg text-[#F6F2EA] group-hover:text-[#C2A675] transition-colors mb-1">{item.title}</h3>
+                  <p className="text-xs text-[#9A968D] font-light">{item.desc}</p>
                 </div>
-                <div className="mt-4 flex items-center justify-end text-olive">
+                <div className="mt-4 flex items-center justify-end text-[#C2A675]">
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -670,7 +741,7 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 10. CIERRE FINAL / CTA                                                    */}
       {/* ========================================================================= */}
-      <section className="py-28 bg-ink text-offwhite overflow-hidden">
+      <section className="py-28 bg-[#181E19] text-[#C8C4BA] border-b border-white/10 overflow-hidden">
         <motion.div 
           variants={fadeUp}
           initial="hidden"
@@ -678,28 +749,28 @@ export default function TerapiaMarDelPlata() {
           viewport={viewportConfig}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-3xl sm:text-5xl font-serif mb-6 text-offwhite">
+          <h2 className="text-3xl sm:text-5xl font-serif mb-6 text-[#F6F2EA]">
             No hace falta que todos tengan claro qué hacer para empezar.
           </h2>
-          <p className="text-lg sm:text-xl text-sand font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-[#C8C4BA] font-light leading-relaxed mb-10 max-w-2xl mx-auto">
             A veces alcanza con que una persona pueda decir: algo en nuestra familia o en nuestra pareja no está funcionando como antes y necesito entender qué está pasando.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/contacto"
               onClick={() => trackCtaClick('terapia_cierre', 'Coordinar primera entrevista', '/contacto')}
-              className="inline-flex items-center justify-center gap-3 bg-olive text-white px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-olive-light transition-all shadow-lg"
+              className="inline-flex items-center justify-center gap-3 bg-[#6F7C63] text-[#F6F2EA] px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-[#5E6B53] transition-all shadow-lg"
             >
               Coordinar una primera entrevista
               <ArrowRight size={18} />
             </Link>
 
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('terapia_cierre', 'https://wa.me/5492235923790')}
-              className="inline-flex items-center justify-center gap-3 bg-white/10 text-offwhite border border-sand/30 px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-white/20 transition-all shadow-lg"
+              onClick={() => trackWhatsAppClick('terapia_cierre', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
+              className="inline-flex items-center justify-center gap-3 bg-[#141915] text-[#F6F2EA] border border-white/15 px-10 py-5 rounded-full text-sm font-medium tracking-widest uppercase hover:bg-white/5 transition-all shadow-lg"
             >
               Hablar con El Faro
             </a>
@@ -710,18 +781,18 @@ export default function TerapiaMarDelPlata() {
       {/* ========================================================================= */}
       {/* 11. BARRA FINAL DE CONTACTO RÁPIDO                                        */}
       {/* ========================================================================= */}
-      <section className="py-14 bg-sand-light/40 border-t border-sand/30">
+      <section className="py-14 bg-[#141915]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-base text-ink mb-1">Si llegaste hasta acá, algo te trajo. Dar este paso ya es empezar.</p>
-          <p className="text-sm text-ink-light font-light mb-6">Escribinos o llamanos para coordinar una primera entrevista sin compromiso.</p>
+          <p className="text-base text-[#F6F2EA] mb-1">Si llegaste hasta acá, algo te trajo. Dar este paso ya es empezar.</p>
+          <p className="text-sm text-[#9A968D] font-light mb-6">Escribinos o llamanos para coordinar una primera entrevista sin compromiso.</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/5492235923790"
+              href="https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro."
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick('terapia_footer', 'https://wa.me/5492235923790')}
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-olive text-white font-medium rounded-full hover:bg-olive-light transition-colors text-sm tracking-wide uppercase"
+              onClick={() => trackWhatsAppClick('terapia_footer', 'https://wa.me/5492235923790?text=Hola,%20quisiera%20hacer%20una%20consulta%20en%20El%20Faro.')}
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#6F7C63] text-[#F6F2EA] font-medium rounded-full hover:bg-[#5E6B53] transition-colors text-sm tracking-wide uppercase"
             >
               Escribinos por WhatsApp
             </a>
@@ -729,7 +800,7 @@ export default function TerapiaMarDelPlata() {
             <a
               href="tel:+542234921953"
               onClick={() => trackPhoneClick('terapia_footer', '+542234921953')}
-              className="inline-flex items-center justify-center px-8 py-3.5 border border-ink/40 text-ink font-medium rounded-full hover:bg-sand/30 transition-colors text-sm tracking-wide uppercase"
+              className="inline-flex items-center justify-center px-8 py-3.5 border border-white/20 text-[#F6F2EA] font-medium rounded-full hover:bg-white/5 transition-colors text-sm tracking-wide uppercase"
             >
               Llamar al (0223) 492-1953
             </a>
